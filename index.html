@@ -302,6 +302,10 @@
             </li>
             <li class="flex items-start gap-2.5">
               <span class="w-5 h-5 rounded-full bg-blue-100 text-[#1E3A8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+              <span>Urutan soal <strong>diacak otomatis</strong> untuk setiap peserta sesuai kelasnya.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-blue-100 text-[#1E3A8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
               <span>Terdapat <strong>4 jenis soal</strong> yang akan kamu temui:</span>
             </li>
           </ul>
@@ -3717,11 +3721,37 @@
     // =========================================================================
     // 5. LOGIKA MEMULAI & MENJALANKAN UJIAN
     // =========================================================================
+    // Pengacakan Fisher-Yates agar urutan soal selalu berbeda tiap murid
+    function shuffleArray(array) {
+      const result = [...array];
+      for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+      }
+      return result;
+    }
+
+    // Mengacak soal sesuai kelas & mapel
+    // Catatan: Bahasa Indonesia diacak per kelompok wacana (3 soal) agar teks bacaan tetap muncul sebelum soal lanjutannya
+    function getShuffledQuestions(subject, kelas) {
+      const bankKey = kelas === 'IV'
+        ? `${subject}_4`
+        : (kelas === 'V' ? `${subject}_5` : subject);
+      const source = QUESTIONS_BANK[bankKey] || [];
+
+      if (subject === 'bindo') {
+        const groups = [];
+        for (let i = 0; i < source.length; i += 3) {
+          groups.push(source.slice(i, i + 3));
+        }
+        return shuffleArray(groups).flat();
+      }
+
+      return shuffleArray(source);
+    }
+
     function startExam() {
-      const bankKey = state.selectedClass === 'IV'
-        ? `${state.subject}_4`
-        : (state.selectedClass === 'V' ? `${state.subject}_5` : state.subject);
-      state.questions = QUESTIONS_BANK[bankKey];
+      state.questions = getShuffledQuestions(state.subject, state.selectedClass);
       state.currentIndex = 0;
       state.answers = {};
       state.flagged = {};
