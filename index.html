@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASSIKS 2026/2027 — Asesmen Standar Siswa Kota Semarang (SD Kelas VI)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Nunito', 'sans-serif'],
+            display: ['Nunito', 'Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              50: '#EFF6FF',
+              100: '#DBEAFE',
+              700: '#1D4ED8',
+              800: '#1E3A8A',
+              900: '#172554',
+            },
+            semarang: {
+              red: '#DC2626',
+              amber: '#F59E0B',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Gaya dasar & transisi halus */
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Animasi kedip merah untuk timer < 5 menit */
+    @keyframes pulseDanger {
+      0%, 100% { background-color: #DC2626; color: #FFFFFF; transform: scale(1); }
+      50% { background-color: #991B1B; color: #FEF2F2; transform: scale(1.03); }
+    }
+    .timer-danger {
+      animation: pulseDanger 1s infinite ease-in-out;
+    }
+
+    /* Skala ukuran huruf ramah anak SD */
+    .exam-font-sm { font-size: 0.95rem; line-height: 1.65; }
+    .exam-font-base { font-size: 1.075rem; line-height: 1.75; }
+    .exam-font-lg { font-size: 1.25rem; line-height: 1.85; }
+
+    /* Scrollbar rapi untuk papan nomor */
+    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: #F1F5F9; border-radius: 999px; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
+    .custom-scroll::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+    /* Gaya cetak PDF / Print */
+    @media print {
+      body { background: #FFFFFF !important; color: #000000 !important; }
+      .no-print { display: none !important; }
+      .print-break-inside { break-inside: avoid; page-break-inside: avoid; }
+      .print-shadow-none { box-shadow: none !important; border: 1px solid #CBD5E1 !important; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- ==================== 1. HALAMAN LOGIN & IDENTITAS MURID ==================== -->
+  <div id="view-login" class="flex-1 flex flex-col">
+    <!-- Header Resmi ASSIKS -->
+    <header class="bg-gradient-to-r from-[#172554] via-[#1E3A8A] to-[#1E40AF] text-white shadow-lg border-b-4 border-[#F59E0B]">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-5 flex items-center gap-4">
+        <!-- Logo Emblem Kota Semarang / ASSIKS (SVG Inline) -->
+        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/10 border border-white/25 flex items-center justify-center shrink-0 shadow-inner">
+          <svg viewBox="0 0 64 64" class="w-11 h-11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo ASSIKS">
+            <path d="M32 6L54 15V31C54 44.5 44.5 54.8 32 59C19.5 54.8 10 44.5 10 31V15L32 6Z" fill="#DC2626" stroke="#F59E0B" stroke-width="3"/>
+            <!-- Siluet Tugu Muda sederhana -->
+            <path d="M32 14L35 22L36 42H28L29 22L32 14Z" fill="#FFFFFF"/>
+            <rect x="24" y="42" width="16" height="4" rx="1" fill="#F59E0B"/>
+            <rect x="20" y="46" width="24" height="4" rx="1" fill="#FFFFFF"/>
+            <circle cx="32" cy="12" r="2.5" fill="#FDE047"/>
+          </svg>
+        </div>
+        <div>
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#DC2626] text-white text-xs font-bold tracking-wide uppercase mb-1 shadow-sm">
+            <span>Program ASSIKS</span>
+            <span>•</span>
+            <span>TA 2026/2027</span>
+          </div>
+          <h1 class="font-display text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight leading-tight">
+            ASSIKS — Asesmen Standar Siswa Kota Semarang
+          </h1>
+          <p class="text-blue-100 text-xs sm:text-sm mt-0.5">
+            Ujian Berbasis Komputer (CBT) Jenjang Sekolah Dasar (SD) Kelas VI
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Konten Utama Login -->
+    <main class="max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 flex-1">
+      <!-- Pendahuluan Singkat & Ramah -->
+      <div class="mb-6 p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-blue-50 via-white to-amber-50 border border-blue-200/80 shadow-xs flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-2xl bg-[#1E3A8A] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class="text-sm sm:text-base text-slate-700 leading-relaxed">
+          <p class="font-display font-extrabold text-[#1E3A8A] mb-0.5">Selamat datang di Web Latihan ASSIKS Kelas VI!</p>
+          <p class="text-xs sm:text-sm text-slate-600">
+            Terima kasih sudah berkunjung. Media ini hadir sebagai sarana belajar mandiri yang nyaman bagi siswa, orang tua, maupun Bapak/Ibu guru untuk berlatih soal berbasis komputer. Silakan lengkapi data diri di bawah ini, pilih mata pelajaran, dan selamat berlatih dengan tenang!
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Kolom Form Identitas & Pilih Mapel -->
+        <div class="lg:col-span-8 bg-white rounded-3xl shadow-md border border-slate-200 p-5 sm:p-7">
+          <div class="flex items-center gap-3 mb-5 pb-4 border-b border-slate-100">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-[#1E3A8A] flex items-center justify-center font-extrabold text-lg">
+              1
+            </div>
+            <div>
+              <h2 class="font-display text-lg sm:text-xl font-extrabold text-slate-800">Identitas Peserta Ujian</h2>
+              <p class="text-xs sm:text-sm text-slate-500">Isi data dirimu dengan benar sebelum memulai ujian ya!</p>
+            </div>
+          </div>
+
+          <!-- Pesan Validasi Inline (Pengganti alert) -->
+          <div id="login-error" class="hidden mb-5 p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-sm flex items-start gap-3">
+            <svg class="w-5 h-5 shrink-0 mt-0.5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span id="login-error-text">Mohon lengkapi seluruh data identitas dan pilih mata pelajaran terlebih dahulu.</span>
+          </div>
+
+          <form id="login-form" class="space-y-4" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="input-nama" class="block text-sm font-bold text-slate-700 mb-1.5">Nama Lengkap <span class="text-red-600">*</span></label>
+                <input id="input-nama" type="text" placeholder="Contoh: Arjuna Pratama" required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-slate-800 font-medium" />
+              </div>
+              <div>
+                <label for="input-nisn" class="block text-sm font-bold text-slate-700 mb-1.5">Nomor Absen / NISN <span class="text-red-600">*</span></label>
+                <input id="input-nisn" type="text" placeholder="Contoh: 05 / 0145678910" required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-slate-800 font-medium" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="sm:col-span-2">
+                <label for="input-sekolah" class="block text-sm font-bold text-slate-700 mb-1.5">Nama Sekolah <span class="text-red-600">*</span></label>
+                <input id="input-sekolah" type="text" placeholder="SDN Pedurungan Lor 01" required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-slate-800 font-medium" />
+              </div>
+              <div>
+                <label for="input-kelas" class="block text-sm font-bold text-slate-700 mb-1.5">Kelas</label>
+                <input id="input-kelas" type="text" value="VI"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-slate-800 font-bold" />
+              </div>
+            </div>
+
+            <!-- Pilihan Mata Pelajaran -->
+            <div class="pt-3">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-extrabold text-sm">
+                  2
+                </div>
+                <label class="block text-base font-extrabold text-slate-800">Pilih Mata Pelajaran <span class="text-red-600">*</span></label>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Kartu Bahasa Indonesia -->
+                <button type="button" id="card-bindo" onclick="selectSubject('bindo')"
+                  class="subject-card text-left p-4 rounded-2xl border-2 border-slate-200 hover:border-blue-400 hover:bg-blue-50/40 transition-all duration-200 flex items-start gap-3.5 relative group">
+                  <div class="w-12 h-12 rounded-2xl bg-red-100 text-[#DC2626] flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-display font-extrabold text-base text-slate-900">Bahasa Indonesia</div>
+                    <div class="text-xs text-slate-600 mt-1 font-semibold flex items-center gap-2">
+                      <span class="px-2 py-0.5 rounded-md bg-slate-100">30 Soal</span>
+                      <span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">60 Menit</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-2">Pemahaman Tekstual, Inferensial, Evaluasi & Apresiasi</p>
+                  </div>
+                  <div class="check-badge hidden absolute top-3 right-3 w-6 h-6 rounded-full bg-[#1E3A8A] text-white items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                </button>
+
+                <!-- Kartu Matematika -->
+                <button type="button" id="card-mtk" onclick="selectSubject('mtk')"
+                  class="subject-card text-left p-4 rounded-2xl border-2 border-slate-200 hover:border-blue-400 hover:bg-blue-50/40 transition-all duration-200 flex items-start gap-3.5 relative group">
+                  <div class="w-12 h-12 rounded-2xl bg-blue-100 text-[#1E3A8A] flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-display font-extrabold text-base text-slate-900">Matematika</div>
+                    <div class="text-xs text-slate-600 mt-1 font-semibold flex items-center gap-2">
+                      <span class="px-2 py-0.5 rounded-md bg-slate-100">30 Soal</span>
+                      <span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">60 Menit</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-2">Bilangan, Geometri, Pengukuran & Analisis Data</p>
+                  </div>
+                  <div class="check-badge hidden absolute top-3 right-3 w-6 h-6 rounded-full bg-[#1E3A8A] text-white items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <button type="submit"
+                class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#1E3A8A] to-[#1D4ED8] hover:from-[#172554] hover:to-[#1E3A8A] text-white font-display font-extrabold text-base sm:text-lg shadow-lg shadow-blue-900/20 transition transform active:scale-[0.99] flex items-center justify-center gap-2">
+                <span>Mulai Mengerjakan Ujian</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Kolom Petunjuk Pengerjaan -->
+        <aside class="lg:col-span-4 bg-white rounded-3xl shadow-md border border-slate-200 p-5 sm:p-6 space-y-4">
+          <div class="flex items-center gap-2.5 text-[#1E3A8A]">
+            <svg class="w-6 h-6 text-[#F59E0B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <h3 class="font-display font-extrabold text-lg">Petunjuk Pengerjaan</h3>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-blue-100 text-[#1E3A8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+              <span>Berdoalah terlebih dahulu sebelum mulai mengerjakan soal ASSIKS.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-blue-100 text-[#1E3A8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+              <span>Waktu pengerjaan adalah <strong>60 menit</strong> untuk <strong>30 soal</strong>. Jika waktu habis, jawaban otomatis terkumpul.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-blue-100 text-[#1E3A8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+              <span>Terdapat <strong>4 jenis soal</strong> yang akan kamu temui:</span>
+            </li>
+          </ul>
+          <div class="grid grid-cols-1 gap-2 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold shrink-0">PG</span>
+              <span class="text-slate-700">Pilihan Ganda (pilih <strong>1</strong> jawaban benar).</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-md bg-purple-100 text-purple-800 font-bold shrink-0">PGK</span>
+              <span class="text-slate-700">Pilihan Ganda Kompleks (pilih <strong>lebih dari 1</strong> jawaban benar).</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold shrink-0">B/S</span>
+              <span class="text-slate-700">Tabel pernyataan <strong>Benar / Salah</strong>.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 font-bold shrink-0">S/TS</span>
+              <span class="text-slate-700">Tabel pernyataan <strong>Sesuai / Tidak Sesuai</strong>.</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Gunakan <strong>Papan Nomor Soal</strong> untuk memantau soal yang sudah dijawab (hijau), ragu-ragu (kuning), atau belum dijawab (putih).
+          </p>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <!-- ==================== 2. HALAMAN UJIAN (CBT INTERFACE) ==================== -->
+  <div id="view-exam" class="hidden flex-1 flex flex-col">
+    <!-- Top Bar Sticky -->
+    <header class="sticky top-0 z-30 bg-[#1E3A8A] text-white shadow-md border-b-2 border-[#F59E0B]">
+      <div class="max-w-7xl mx-auto px-3 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-2">
+        <!-- Info Siswa & Mapel -->
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center font-extrabold text-sm shrink-0 border border-white/20">
+            VI
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-2">
+              <span id="exam-student-name" class="font-bold text-sm sm:text-base truncate max-w-[140px] sm:max-w-[240px]">Nama Siswa</span>
+              <span id="exam-subject-badge" class="px-2 py-0.5 rounded-md bg-[#F59E0B] text-slate-950 text-[11px] font-extrabold uppercase tracking-wide shrink-0">Mapel</span>
+            </div>
+            <div id="exam-student-school" class="text-[11px] sm:text-xs text-blue-200 truncate max-w-[200px] sm:max-w-[320px]">SDN Semarang</div>
+          </div>
+        </div>
+
+        <!-- Kontrol Ukuran Huruf, Timer & Drawer Mobile -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Kontrol A- A A+ -->
+          <div class="hidden sm:flex items-center bg-white/10 rounded-xl p-1 border border-white/15" title="Ubah Ukuran Huruf">
+            <button type="button" onclick="setFontSize('sm')" id="btn-font-sm" class="px-2 py-1 rounded-lg text-xs font-bold hover:bg-white/20 transition">A-</button>
+            <button type="button" onclick="setFontSize('base')" id="btn-font-base" class="px-2 py-1 rounded-lg text-xs font-bold bg-white text-[#1E3A8A] transition">A</button>
+            <button type="button" onclick="setFontSize('lg')" id="btn-font-lg" class="px-2 py-1 rounded-lg text-xs font-bold hover:bg-white/20 transition">A+</button>
+          </div>
+
+          <!-- Countdown Timer -->
+          <div id="timer-box" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/15 border border-white/25 font-mono font-extrabold text-sm sm:text-base tracking-wider">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#F59E0B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span id="timer-display">60:00</span>
+          </div>
+
+          <!-- Tombol Buka Papan Nomor (Mobile & Tablet) -->
+          <button type="button" onclick="toggleMobileBoard(true)"
+            class="lg:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#DC2626] hover:bg-red-700 text-white text-xs sm:text-sm font-bold shadow">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <span>Nomor</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Kontrol Ukuran Huruf Khusus Mobile -->
+      <div class="sm:hidden bg-[#172554] px-3 py-1.5 flex items-center justify-between text-xs border-t border-white/10">
+        <span class="text-blue-200 font-medium">Ukuran Teks:</span>
+        <div class="flex items-center gap-1">
+          <button type="button" onclick="setFontSize('sm')" class="mobile-font-btn px-2.5 py-0.5 rounded-md bg-white/10 font-bold" data-size="sm">A-</button>
+          <button type="button" onclick="setFontSize('base')" class="mobile-font-btn px-2.5 py-0.5 rounded-md bg-white text-[#1E3A8A] font-bold" data-size="base">A</button>
+          <button type="button" onclick="setFontSize('lg')" class="mobile-font-btn px-2.5 py-0.5 rounded-md bg-white/10 font-bold" data-size="lg">A+</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Konten Utama CBT -->
+    <div class="max-w-7xl w-full mx-auto px-3 sm:px-5 py-5 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+      <!-- Area Soal (Kiri / Utama) -->
+      <main class="lg:col-span-8 xl:col-span-9 flex flex-col gap-4">
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+          <!-- Header Soal -->
+          <div class="px-5 sm:px-6 py-4 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5">
+              <span id="q-number-pill" class="px-3.5 py-1 rounded-xl bg-[#1E3A8A] text-white font-display font-extrabold text-sm sm:text-base">
+                Soal 1 / 30
+              </span>
+              <span id="q-type-badge" class="px-3 py-1 rounded-xl text-xs font-bold">Pilihan Ganda</span>
+            </div>
+            <span id="q-tag-badge" class="text-xs font-semibold text-slate-500 bg-white px-3 py-1 rounded-xl border border-slate-200">
+              Materi
+            </span>
+          </div>
+
+          <!-- Isi Stimulus + Pertanyaan + Opsi -->
+          <div id="question-body" class="p-5 sm:p-7 space-y-6 exam-font-base">
+            <!-- Diisi dinamis oleh JS -->
+          </div>
+
+          <!-- Navigasi Bawah Soal -->
+          <div class="px-5 sm:px-6 py-4 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+            <button type="button" id="btn-prev" onclick="prevQuestion()"
+              class="px-4 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 font-bold text-sm flex items-center gap-1.5 transition disabled:opacity-40 disabled:cursor-not-allowed">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+              <span>Sebelumnya</span>
+            </button>
+
+            <!-- Tombol Ragu-Ragu -->
+            <label class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-100 hover:bg-amber-200 border border-amber-300 text-amber-900 font-bold text-sm cursor-pointer select-none transition">
+              <input type="checkbox" id="chk-flag" onchange="toggleFlag()" class="w-4 h-4 accent-amber-600 rounded" />
+              <span>Ragu-ragu</span>
+            </label>
+
+            <button type="button" id="btn-next" onclick="nextQuestion()"
+              class="px-5 py-2.5 rounded-xl bg-[#1E3A8A] hover:bg-[#172554] text-white font-bold text-sm flex items-center gap-1.5 shadow-sm transition">
+              <span id="btn-next-text">Selanjutnya</span>
+              <svg id="btn-next-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Papan Nomor Soal (Desktop Sidebar) -->
+      <aside class="hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-20">
+        <div id="board-desktop-container" class="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+          <!-- Konten Papan Nomor dirender JS -->
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Drawer Papan Nomor untuk Mobile/Tablet -->
+  <div id="mobile-board-overlay" class="hidden fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-xs lg:hidden" onclick="toggleMobileBoard(false)">
+    <div class="absolute right-0 top-0 bottom-0 w-[86%] max-w-sm bg-white shadow-2xl p-5 flex flex-col" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-200">
+        <h3 class="font-display font-extrabold text-lg text-[#1E3A8A]">Papan Nomor Soal</h3>
+        <button type="button" onclick="toggleMobileBoard(false)" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="board-mobile-container" class="flex-1 overflow-y-auto custom-scroll"></div>
+    </div>
+  </div>
+
+  <!-- Modal Konfirmasi Kumpulkan Ujian -->
+  <div id="modal-submit" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+      <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+      </div>
+      <h3 class="font-display font-extrabold text-xl text-center text-slate-900 mb-2">Kumpulkan Jawaban Sekarang?</h3>
+      <p id="modal-submit-summary" class="text-sm text-slate-600 text-center mb-4"></p>
+      <div id="modal-submit-warning" class="hidden mb-4 p-3.5 rounded-2xl bg-red-50 border border-red-200 text-xs text-red-700 font-semibold text-center"></div>
+      <div class="grid grid-cols-2 gap-3 mt-5">
+        <button type="button" onclick="closeSubmitModal()"
+          class="py-3 px-4 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm transition">
+          Periksa Lagi
+        </button>
+        <button type="button" onclick="finishExam(false)"
+          class="py-3 px-4 rounded-xl bg-[#DC2626] hover:bg-red-700 text-white font-bold text-sm shadow transition">
+          Ya, Kumpulkan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 3. HALAMAN HASIL AKHIR & PEMBAHASAN ==================== -->
+  <div id="view-result" class="hidden flex-1 flex flex-col">
+    <!-- Header Hasil -->
+    <header class="bg-gradient-to-r from-[#172554] via-[#1E3A8A] to-[#1E40AF] text-white border-b-4 border-[#F59E0B] py-5">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Laporan Hasil Asesmen</span>
+          <h1 class="font-display text-xl sm:text-2xl font-extrabold">ASSIKS Kota Semarang — TA 2026/2027</h1>
+        </div>
+        <div class="no-print flex flex-wrap items-center gap-2">
+          <button type="button" onclick="window.print()"
+            class="px-4 py-2.5 rounded-xl bg-white text-[#1E3A8A] hover:bg-blue-50 font-bold text-sm shadow flex items-center gap-2 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            <span>Cetak / Simpan PDF</span>
+          </button>
+          <button type="button" onclick="backToHome()"
+            class="px-4 py-2.5 rounded-xl bg-[#F59E0B] hover:bg-amber-400 text-slate-950 font-extrabold text-sm shadow transition">
+            Kerjakan Mapel Lain
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="result-content" class="max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 flex-1">
+      <!-- Konten hasil dirender dinamis oleh JS -->
+    </main>
+  </div>
+
+  <!-- ==================== FOOTER GLOBAL (TAMPIL DI SEMUA HALAMAN & CETAK PDF) ==================== -->
+  <footer class="mt-auto text-center py-4 px-4 text-xs sm:text-sm text-slate-500 border-t border-slate-200 bg-white">
+    <span>ASSIKS — Asesmen Standar Siswa Kota Semarang (SD Kelas VI)</span>
+    <span class="mx-2 text-slate-300">•</span>
+    <span class="font-bold text-[#1E3A8A]">by puspitawinda_</span>
+  </footer>
+
+  <!-- ==================== SCRIPT UTAMA (SVG, BANK 60 SOAL, LOGIKA CBT) ==================== -->
+  <script>
+    // =========================================================================
+    // KONFIGURASI REKAM NILAI GOOGLE SHEETS (GOOGLE APPS SCRIPT)
+    // =========================================================================
+    // Panduan singkat:
+    // 1. Deploy Google Apps Script Anda sebagai Web App (akses: Siapa saja / Anyone).
+    // 2. Salin URL Web App yang berakhiran "/exec".
+    // 3. Ganti teks "PASTE_URL_WEB_APP_APPS_SCRIPT_DI_SINI" di bawah dengan URL tersebut.
+    //    Contoh: const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycb.../exec";
+    const https://script.google.com/macros/s/AKfycbzFhKIvaHY0GfeQWn2rkD7PZ9iReNa7lWcdjXcMrHzYta1TlUjZjtvRquRPdKJQsBfjcQ/exec";
+
+    // =========================================================================
+    // 1. ASET ILUSTRASI SVG INLINE (Jelas, Responsif, Edukatif)
+    // =========================================================================
+    const SVG_ASSETS = {
+      // Bahasa Indonesia SVGs
+      bi_pengumuman: `
+        <svg viewBox="0 0 560 220" class="w-full max-w-xl mx-auto rounded-2xl border border-blue-200 bg-white shadow-xs" xmlns="http://www.w3.org/2000/svg">
+          <rect width="560" height="54" fill="#1E3A8A"/>
+          <rect y="54" width="560" height="5" fill="#F59E0B"/>
+          <text x="280" y="25" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="800" font-family="sans-serif">PENGUMUMAN LOMBA LITERASI PELAJAR</text>
+          <text x="280" y="43" text-anchor="middle" fill="#DBEAFE" font-size="11" font-family="sans-serif">PANITIA LOMBA LITERASI • PERPUSTAKAAN DAERAH KOTA SEMARANG</text>
+          <rect x="24" y="74" width="512" height="128" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+          <text x="42" y="98" fill="#0F172A" font-size="12" font-weight="700" font-family="sans-serif">Diberitahukan kepada seluruh siswa kelas IV–VI SD se-Kota Semarang:</text>
+          <text x="42" y="120" fill="#334155" font-size="11.5" font-family="sans-serif">• Kegiatan : Lomba Menulis Cerpen Bertema "Semarang Kota Ramah Anak"</text>
+          <text x="42" y="140" fill="#334155" font-size="11.5" font-family="sans-serif">• Pelaksanaan : Sabtu, 28 November 2026, pukul 08.00–11.30 WIB</text>
+          <text x="42" y="160" fill="#334155" font-size="11.5" font-family="sans-serif">• Tempat : Aula Taman Budaya Raden Saleh (TBRS), Kota Semarang</text>
+          <text x="42" y="180" fill="#DC2626" font-size="11.5" font-weight="700" font-family="sans-serif">• Pendaftaran GRATIS paling lambat 24 November 2026 melalui guru kelas.</text>
+        </svg>
+      `,
+      bi_prosedur: `
+        <svg viewBox="0 0 540 155" class="w-full max-w-xl mx-auto rounded-2xl border border-emerald-200 bg-emerald-50/40" xmlns="http://www.w3.org/2000/svg">
+          <!-- Step 1 -->
+          <rect x="15" y="18" width="115" height="118" rx="12" fill="#FFFFFF" stroke="#A7F3D0" stroke-width="2"/>
+          <circle cx="33" cy="34" r="11" fill="#059669"/><text x="33" y="38" text-anchor="middle" fill="#FFF" font-size="11" font-weight="700">1</text>
+          <rect x="52" y="45" width="42" height="52" rx="6" fill="#BAE6FD" stroke="#0284C7" stroke-width="2"/>
+          <line x1="46" y1="70" x2="100" y2="70" stroke="#DC2626" stroke-width="2" stroke-dasharray="4 3"/>
+          <text x="72" y="122" text-anchor="middle" fill="#065F46" font-size="10.5" font-weight="700">Potong Botol</text>
+          <!-- Arrow -->
+          <path d="M135 76H147M143 71L148 76L143 81" stroke="#059669" stroke-width="2.5" fill="none"/>
+          <!-- Step 2 -->
+          <rect x="152" y="18" width="115" height="118" rx="12" fill="#FFFFFF" stroke="#A7F3D0" stroke-width="2"/>
+          <circle cx="170" cy="34" r="11" fill="#059669"/><text x="170" y="38" text-anchor="middle" fill="#FFF" font-size="11" font-weight="700">2</text>
+          <rect x="188" y="60" width="44" height="38" rx="5" fill="#BAE6FD" stroke="#0284C7" stroke-width="2"/>
+          <circle cx="200" cy="94" r="2.5" fill="#1E293B"/><circle cx="210" cy="94" r="2.5" fill="#1E293B"/><circle cx="220" cy="94" r="2.5" fill="#1E293B"/>
+          <text x="210" y="122" text-anchor="middle" fill="#065F46" font-size="10.5" font-weight="700">Lubangi Dasar</text>
+          <!-- Arrow -->
+          <path d="M272 76H284M280 71L285 76L280 81" stroke="#059669" stroke-width="2.5" fill="none"/>
+          <!-- Step 3 -->
+          <rect x="289" y="18" width="115" height="118" rx="12" fill="#FFFFFF" stroke="#A7F3D0" stroke-width="2"/>
+          <circle cx="307" cy="34" r="11" fill="#059669"/><text x="307" y="38" text-anchor="middle" fill="#FFF" font-size="11" font-weight="700">3</text>
+          <rect x="325" y="60" width="44" height="38" rx="5" fill="#92400E" stroke="#78350F" stroke-width="2"/>
+          <path d="M347 60V42M347 50C339 48 336 41 344 40M347 47C356 45 358 38 350 38" stroke="#16A34A" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <text x="347" y="122" text-anchor="middle" fill="#065F46" font-size="10.5" font-weight="700">Isi Tanah & Bibit</text>
+          <!-- Arrow -->
+          <path d="M409 76H421M417 71L422 76L417 81" stroke="#059669" stroke-width="2.5" fill="none"/>
+          <!-- Step 4 -->
+          <rect x="426" y="18" width="100" height="118" rx="12" fill="#FFFFFF" stroke="#A7F3D0" stroke-width="2"/>
+          <circle cx="444" cy="34" r="11" fill="#059669"/><text x="444" y="38" text-anchor="middle" fill="#FFF" font-size="11" font-weight="700">4</text>
+          <circle cx="476" cy="52" r="9" fill="#FACC15"/>
+          <rect x="458" y="68" width="36" height="30" rx="4" fill="#92400E"/>
+          <path d="M476 68V57" stroke="#16A34A" stroke-width="3"/>
+          <text x="476" y="122" text-anchor="middle" fill="#065F46" font-size="10.5" font-weight="700">Siram & Jemur</text>
+        </svg>
+      `,
+      bi_lawangsewu: `
+        <svg viewBox="0 0 520 175" class="w-full max-w-lg mx-auto rounded-2xl border border-amber-200 bg-gradient-to-b from-sky-100 to-amber-50" xmlns="http://www.w3.org/2000/svg">
+          <!-- Awan & Matahari -->
+          <circle cx="460" cy="34" r="16" fill="#FDE047"/>
+          <ellipse cx="85" cy="34" rx="28" ry="11" fill="#FFFFFF" opacity="0.85"/>
+          <ellipse cx="105" cy="30" rx="20" ry="10" fill="#FFFFFF" opacity="0.85"/>
+          <!-- Atap Menara Lawang Sewu -->
+          <polygon points="85,55 110,20 135,55" fill="#B91C1C"/>
+          <polygon points="385,55 410,20 435,55" fill="#B91C1C"/>
+          <polygon points="130,68 260,36 390,68" fill="#DC2626"/>
+          <!-- Badan Gedung -->
+          <rect x="85" y="55" width="50" height="98" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+          <rect x="385" y="55" width="50" height="98" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+          <rect x="135" y="68" width="250" height="85" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+          <!-- Pintu Lengkung Berderet -->
+          <g fill="#78350F">
+            <path d="M150 153V122A11 11 0 0 1 172 122V153Z"/>
+            <path d="M185 153V122A11 11 0 0 1 207 122V153Z"/>
+            <path d="M220 153V122A11 11 0 0 1 242 122V153Z"/>
+            <path d="M255 153V122A11 11 0 0 1 277 122V153Z"/>
+            <path d="M290 153V122A11 11 0 0 1 312 122V153Z"/>
+            <path d="M325 153V122A11 11 0 0 1 347 122V153Z"/>
+            <path d="M355 153V122A9 9 0 0 1 373 122V153Z"/>
+          </g>
+          <!-- Jendela Atas -->
+          <g fill="#0284C7" opacity="0.8">
+            <rect x="155" y="82" width="14" height="22" rx="6"/>
+            <rect x="190" y="82" width="14" height="22" rx="6"/>
+            <rect x="225" y="82" width="14" height="22" rx="6"/>
+            <rect x="260" y="82" width="14" height="22" rx="6"/>
+            <rect x="295" y="82" width="14" height="22" rx="6"/>
+            <rect x="330" y="82" width="14" height="22" rx="6"/>
+            <rect x="103" y="75" width="14" height="24" rx="6"/>
+            <rect x="403" y="75" width="14" height="24" rx="6"/>
+          </g>
+          <rect y="153" width="520" height="22" fill="#16A34A"/>
+          <text x="260" y="168" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="700" font-family="sans-serif">Ilustrasi Gedung Bersejarah Lawang Sewu, Kota Semarang</text>
+        </svg>
+      `,
+
+      // Matematika SVGs
+      mtk_q1_stimulus: `
+        <svg viewBox="0 0 220 180" class="w-48 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(110,90)">
+            <!-- 8 juring lingkaran, 6 diarsir biru -->
+            <path d="M0,0 L0,-72 A72,72 0 0,1 50.9,-50.9 Z" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/>
+            <path d="M0,0 L50.9,-50.9 A72,72 0 0,1 72,0 Z" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/>
+            <path d="M0,0 L72,0 A72,72 0 0,1 50.9,50.9 Z" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/>
+            <path d="M0,0 L50.9,50.9 A72,72 0 0,1 0,72 Z" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/>
+            <path d="M0,0 L0,72 A72,72 0 0,1 -50.9,50.9 Z" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/>
+            <path d="M0,0 L-50.9,50.9 A72,72 0 0,1 -72,0 Z" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/>
+            <path d="M0,0 L-72,0 A72,72 0 0,1 -50.9,-50.9 Z" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/>
+            <path d="M0,0 L-50.9,-50.9 A72,72 0 0,1 0,-72 Z" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/>
+          </g>
+        </svg>
+      `,
+      mtk_q1_optA: `<svg viewBox="0 0 160 44" class="w-36 h-10 inline-block"><rect x="4" y="6" width="38" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="42" y="6" width="38" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="80" y="6" width="38" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="118" y="6" width="38" height="32" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/></svg>`,
+      mtk_q1_optB: `<svg viewBox="0 0 160 44" class="w-36 h-10 inline-block"><rect x="4" y="6" width="25" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="29" y="6" width="25" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="54" y="6" width="25" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="79" y="6" width="25" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="104" y="6" width="25" height="32" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/><rect x="129" y="6" width="25" height="32" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/></svg>`,
+      mtk_q1_optC: `<svg viewBox="0 0 160 44" class="w-36 h-10 inline-block"><rect x="5" y="6" width="30" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="35" y="6" width="30" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="65" y="6" width="30" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="95" y="6" width="30" height="32" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/><rect x="125" y="6" width="30" height="32" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/></svg>`,
+      mtk_q1_optD: `<svg viewBox="0 0 160 44" class="w-36 h-10 inline-block"><rect x="4" y="6" width="38" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="42" y="6" width="38" height="32" fill="#2563EB" stroke="#1E3A8A" stroke-width="2"/><rect x="80" y="6" width="38" height="32" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/><rect x="118" y="6" width="38" height="32" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/></svg>`,
+
+      mtk_q10_optA: `<svg viewBox="0 0 130 68" class="w-28 h-14 inline-block"><polygon points="30,10 120,10 100,58 10,58" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2.5"/></svg>`,
+      mtk_q10_optB: `<svg viewBox="0 0 130 68" class="w-28 h-14 inline-block"><rect x="18" y="12" width="94" height="46" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2.5"/></svg>`,
+      mtk_q10_optC: `<svg viewBox="0 0 130 68" class="w-28 h-14 inline-block"><polygon points="65,6 115,34 65,62 15,34" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2.5"/></svg>`,
+      mtk_q10_optD: `<svg viewBox="0 0 130 68" class="w-28 h-14 inline-block"><polygon points="20,12 85,12 112,58 20,58" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2.5"/></svg>`,
+
+      mtk_q11_hurufL: `
+        <svg viewBox="0 0 220 175" class="w-48 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="45,20 95,20 95,110 175,110 175,155 45,155" fill="#FEF3C7" stroke="#D97706" stroke-width="3"/>
+          <!-- Tanda siku-siku -->
+          <path d="M45,32 H57 V20 M83,20 V32 H95 M45,143 H57 V155 M163,155 V143 H175 M163,110 V122 H175" fill="none" stroke="#B45309" stroke-width="1.8"/>
+          <circle cx="45" cy="20" r="3.5" fill="#1E3A8A"/><circle cx="95" cy="20" r="3.5" fill="#1E3A8A"/>
+          <circle cx="95" cy="110" r="3.5" fill="#DC2626"/><circle cx="175" cy="110" r="3.5" fill="#1E3A8A"/>
+          <circle cx="175" cy="155" r="3.5" fill="#1E3A8A"/><circle cx="45" cy="155" r="3.5" fill="#1E3A8A"/>
+        </svg>
+      `,
+
+      mtk_q12_ubinan: `
+        <svg viewBox="0 0 260 220" class="w-56 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Persegi besar 40x40 (skala 1cm = 4px -> 160x160 di x=50..210, y=25..185) -->
+          <!-- Atas: 30x10 (120x40) -->
+          <rect x="50" y="25" width="120" height="40" fill="#FDBA74" stroke="#9A3412" stroke-width="2"/>
+          <!-- Kanan: 10x30 (40x120) -->
+          <rect x="170" y="25" width="40" height="120" fill="#FDBA74" stroke="#9A3412" stroke-width="2"/>
+          <!-- Bawah: 30x10 (120x40) -->
+          <rect x="90" y="145" width="120" height="40" fill="#FDBA74" stroke="#9A3412" stroke-width="2"/>
+          <!-- Kiri: 10x30 (40x120) -->
+          <rect x="50" y="65" width="40" height="120" fill="#FDBA74" stroke="#9A3412" stroke-width="2"/>
+          <!-- Tengah: 20x20 (80x80) -->
+          <rect x="90" y="65" width="80" height="80" fill="#BAE6FD" stroke="#0369A1" stroke-width="2"/>
+          <text x="110" y="49" text-anchor="middle" fill="#7C2D12" font-size="11" font-weight="700">30 cm</text>
+          <text x="190" y="90" text-anchor="middle" fill="#7C2D12" font-size="10.5" font-weight="700">10 cm</text>
+          <text x="130" y="109" text-anchor="middle" fill="#0C4A6E" font-size="11" font-weight="800">Tengah</text>
+          <text x="130" y="206" text-anchor="middle" fill="#334155" font-size="11" font-weight="700">Pola Ubin Teras Kelas</text>
+        </svg>
+      `,
+
+      mtk_q13_kubus: `
+        <svg viewBox="0 0 280 200" class="w-64 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Helper kubus isometrik sederhana: 3 kolom (kiri tinggi 3, tengah tinggi 1, kanan tinggi 2) -->
+          <!-- Kolom Kiri: 3 tumpuk -->
+          <g stroke="#1E3A8A" stroke-width="1.8">
+            <!-- Kiri bawah -->
+            <polygon points="60,120 95,138 95,172 60,154" fill="#93C5FD"/>
+            <polygon points="95,138 125,120 125,154 95,172" fill="#3B82F6"/>
+            <polygon points="60,120 90,102 125,120 95,138" fill="#DBEAFE"/>
+            <!-- Kiri tengah -->
+            <polygon points="60,86 95,104 95,138 60,120" fill="#93C5FD"/>
+            <polygon points="95,104 125,86 125,120 95,138" fill="#3B82F6"/>
+            <polygon points="60,86 90,68 125,86 95,104" fill="#DBEAFE"/>
+            <!-- Kiri atas -->
+            <polygon points="60,52 95,70 95,104 60,86" fill="#93C5FD"/>
+            <polygon points="95,70 125,52 125,86 95,104" fill="#3B82F6"/>
+            <polygon points="60,52 90,34 125,52 95,70" fill="#DBEAFE"/>
+
+            <!-- Tengah bawah (tinggi 1) -->
+            <polygon points="95,138 130,156 130,190 95,172" fill="#93C5FD"/>
+            <polygon points="130,156 160,138 160,172 130,190" fill="#3B82F6"/>
+            <polygon points="95,138 125,120 160,138 130,156" fill="#DBEAFE"/>
+
+            <!-- Kanan bawah -->
+            <polygon points="130,156 165,174 165,208 130,190" fill="#93C5FD" transform="translate(0,-18)"/>
+            <polygon points="165,174 195,156 195,190 165,208" fill="#3B82F6" transform="translate(0,-18)"/>
+            <!-- Ulangi koordinat sejajar lurus agar rapi (proyeksi miring depan) -->
+          </g>
+        </svg>
+      `.replace(/<svg[\s\S]*<\/svg>/, `
+        <svg viewBox="0 0 280 205" class="w-64 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Proyeksi oblique sangat jelas untuk anak SD: Kiri=3, Tengah=1, Kanan=2 -->
+          <g stroke="#1E3A8A" stroke-width="2">
+            <!-- Kolom 1 (x=55, y=130, 90, 50) -->
+            <rect x="55" y="130" width="42" height="40" fill="#93C5FD"/>
+            <polygon points="97,130 115,116 115,156 97,170" fill="#3B82F6"/>
+            <rect x="55" y="90" width="42" height="40" fill="#93C5FD"/>
+            <polygon points="97,90 115,76 115,116 97,130" fill="#3B82F6"/>
+            <rect x="55" y="50" width="42" height="40" fill="#93C5FD"/>
+            <polygon points="55,50 73,36 115,36 97,50" fill="#DBEAFE"/>
+            <polygon points="97,50 115,36 115,76 97,90" fill="#3B82F6"/>
+
+            <!-- Kolom 2 (x=97, y=130, tinggi 1) -->
+            <rect x="97" y="130" width="42" height="40" fill="#93C5FD"/>
+            <polygon points="97,130 115,116 157,116 139,130" fill="#DBEAFE"/>
+            <polygon points="139,130 157,116 157,156 139,170" fill="#3B82F6"/>
+
+            <!-- Kolom 3 (x=139, y=130 & 90, tinggi 2) -->
+            <rect x="139" y="130" width="42" height="40" fill="#93C5FD"/>
+            <polygon points="181,130 199,116 199,156 181,170" fill="#3B82F6"/>
+            <rect x="139" y="90" width="42" height="40" fill="#93C5FD"/>
+            <polygon points="139,90 157,76 199,76 181,90" fill="#DBEAFE"/>
+            <polygon points="181,90 199,76 199,116 181,130" fill="#3B82F6"/>
+          </g>
+          <!-- Panah Arah Depan -->
+          <path d="M118,196 V178 M112,184 L118,177 L124,184" stroke="#DC2626" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <text x="158" y="195" fill="#DC2626" font-size="12" font-weight="800" font-family="sans-serif">DEPAN</text>
+        </svg>
+      `),
+      mtk_q13_optA: `<svg viewBox="0 0 96 76" class="w-20 h-16 inline-block"><g fill="#60A5FA" stroke="#1E3A8A" stroke-width="2"><rect x="12" y="10" width="22" height="20"/><rect x="12" y="30" width="22" height="20"/><rect x="12" y="50" width="22" height="20"/><rect x="34" y="50" width="22" height="20"/><rect x="56" y="30" width="22" height="20"/><rect x="56" y="50" width="22" height="20"/></g></svg>`,
+      mtk_q13_optB: `<svg viewBox="0 0 96 76" class="w-20 h-16 inline-block"><g fill="#60A5FA" stroke="#1E3A8A" stroke-width="2"><rect x="12" y="30" width="22" height="20"/><rect x="12" y="50" width="22" height="20"/><rect x="34" y="50" width="22" height="20"/><rect x="56" y="10" width="22" height="20"/><rect x="56" y="30" width="22" height="20"/><rect x="56" y="50" width="22" height="20"/></g></svg>`,
+      mtk_q13_optC: `<svg viewBox="0 0 96 76" class="w-20 h-16 inline-block"><g fill="#60A5FA" stroke="#1E3A8A" stroke-width="2"><rect x="12" y="10" width="22" height="20"/><rect x="12" y="30" width="22" height="20"/><rect x="12" y="50" width="22" height="20"/><rect x="34" y="30" width="22" height="20"/><rect x="34" y="50" width="22" height="20"/><rect x="56" y="50" width="22" height="20"/></g></svg>`,
+      mtk_q13_optD: `<svg viewBox="0 0 96 76" class="w-20 h-16 inline-block"><g fill="#60A5FA" stroke="#1E3A8A" stroke-width="2"><rect x="12" y="10" width="22" height="20"/><rect x="12" y="30" width="22" height="20"/><rect x="12" y="50" width="22" height="20"/><rect x="34" y="30" width="22" height="20"/><rect x="34" y="50" width="22" height="20"/><rect x="56" y="30" width="22" height="20"/><rect x="56" y="50" width="22" height="20"/></g></svg>`,
+
+      mtk_q18_timbangan: `
+        <svg viewBox="0 0 460 175" class="w-full max-w-md mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Timbangan 1: Semangka + Melon -->
+          <rect x="20" y="95" width="180" height="65" rx="12" fill="#E2E8F0" stroke="#64748B" stroke-width="2"/>
+          <rect x="48" y="112" width="124" height="32" rx="6" fill="#0F172A"/>
+          <text x="110" y="134" text-anchor="middle" fill="#4ADE80" font-family="monospace" font-size="16" font-weight="800">3.400 g</text>
+          <rect x="35" y="85" width="150" height="10" rx="4" fill="#94A3B8"/>
+          <!-- Semangka -->
+          <circle cx="82" cy="57" r="28" fill="#15803D" stroke="#14532D" stroke-width="2"/>
+          <path d="M72,32 Q82,57 72,82 M92,32 Q82,57 92,82" stroke="#86EFAC" stroke-width="2" fill="none"/>
+          <text x="82" y="20" text-anchor="middle" fill="#14532D" font-size="11" font-weight="700">Semangka</text>
+          <!-- Melon -->
+          <circle cx="144" cy="63" r="22" fill="#BEF264" stroke="#4D7C0F" stroke-width="2"/>
+          <text x="144" y="33" text-anchor="middle" fill="#3F6212" font-size="11" font-weight="700">Melon</text>
+
+          <!-- Timbangan 2: Melon saja -->
+          <rect x="260" y="95" width="180" height="65" rx="12" fill="#E2E8F0" stroke="#64748B" stroke-width="2"/>
+          <rect x="288" y="112" width="124" height="32" rx="6" fill="#0F172A"/>
+          <text x="350" y="134" text-anchor="middle" fill="#4ADE80" font-family="monospace" font-size="16" font-weight="800">1.250 g</text>
+          <rect x="275" y="85" width="150" height="10" rx="4" fill="#94A3B8"/>
+          <circle cx="350" cy="63" r="22" fill="#BEF264" stroke="#4D7C0F" stroke-width="2"/>
+          <text x="350" y="33" text-anchor="middle" fill="#3F6212" font-size="11" font-weight="700">Melon</text>
+        </svg>
+      `,
+
+      mtk_q20_persegipanjang: `
+        <svg viewBox="0 0 300 155" class="w-64 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="45" y="30" width="200" height="90" fill="#DCFCE7" stroke="#15803D" stroke-width="3"/>
+          <text x="145" y="22" text-anchor="middle" fill="#0F172A" font-size="14" font-weight="800">p = 18 m</text>
+          <text x="265" y="80" text-anchor="middle" fill="#DC2626" font-size="14" font-weight="800">l = ?</text>
+          <text x="145" y="80" text-anchor="middle" fill="#166534" font-size="13" font-weight="700">Keliling = 56 m</text>
+        </svg>
+      `,
+
+      mtk_q21_trapesium: `
+        <svg viewBox="0 0 300 165" class="w-64 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="80,35 200,35 250,130 50,130" fill="#E0E7FF" stroke="#3730A3" stroke-width="3"/>
+          <!-- Garis tinggi -->
+          <line x1="80" y1="35" x2="80" y2="130" stroke="#DC2626" stroke-width="2" stroke-dasharray="5 3"/>
+          <rect x="80" y="118" width="12" height="12" fill="none" stroke="#DC2626" stroke-width="1.8"/>
+          <text x="140" y="25" text-anchor="middle" fill="#1E3A8A" font-size="13" font-weight="800">12 cm</text>
+          <text x="150" y="150" text-anchor="middle" fill="#1E3A8A" font-size="13" font-weight="800">20 cm</text>
+          <text x="106" y="88" fill="#DC2626" font-size="13" font-weight="800">8 cm</text>
+        </svg>
+      `,
+
+      mtk_q22_komposit: `
+        <svg viewBox="0 0 280 185" class="w-64 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Segitiga atap -->
+          <polygon points="50,75 140,20 230,75" fill="#FED7AA" stroke="#C2410C" stroke-width="2.5"/>
+          <!-- Persegi panjang dinding -->
+          <rect x="50" y="75" width="180" height="80" fill="#FEF3C7" stroke="#B45309" stroke-width="2.5"/>
+          <!-- Tinggi segitiga -->
+          <line x1="140" y1="20" x2="140" y2="75" stroke="#DC2626" stroke-width="2" stroke-dasharray="4 3"/>
+          <text x="158" y="55" fill="#DC2626" font-size="13" font-weight="800">3 m</text>
+          <text x="140" y="174" text-anchor="middle" fill="#0F172A" font-size="13" font-weight="800">8 m</text>
+          <text x="248" y="120" fill="#0F172A" font-size="13" font-weight="800">4 m</text>
+        </svg>
+      `,
+
+      mtk_q23_bangunruang: `
+        <svg viewBox="0 0 320 205" class="w-72 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Balok bawah (20 x 10 x 12) -->
+          <rect x="45" y="105" width="180" height="72" fill="#BFDBFE" stroke="#1E3A8A" stroke-width="2.2"/>
+          <polygon points="45,105 80,82 260,82 225,105" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="2.2"/>
+          <polygon points="225,105 260,82 260,154 225,177" fill="#60A5FA" stroke="#1E3A8A" stroke-width="2.2"/>
+          <!-- Kubus atas (10 x 10 x 10) -->
+          <rect x="90" y="45" width="75" height="60" fill="#FDE68A" stroke="#B45309" stroke-width="2.2"/>
+          <polygon points="90,45 125,22 200,22 165,45" fill="#FEF3C7" stroke="#B45309" stroke-width="2.2"/>
+          <polygon points="165,45 200,22 200,82 165,105" fill="#F59E0B" stroke="#B45309" stroke-width="2.2"/>
+          <!-- Label ukuran -->
+          <text x="135" y="195" text-anchor="middle" fill="#1E3A8A" font-size="12" font-weight="800">20 cm</text>
+          <text x="276" y="126" fill="#1E3A8A" font-size="12" font-weight="800">12 cm</text>
+          <text x="260" y="175" fill="#1E3A8A" font-size="11.5" font-weight="800">10 cm</text>
+          <text x="128" y="80" text-anchor="middle" fill="#78350F" font-size="11.5" font-weight="800">Kubus 10 cm</text>
+        </svg>
+      `,
+
+      mtk_q25_jam: `
+        <svg viewBox="0 0 190 190" class="w-44 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="95" cy="95" r="82" fill="#FFFFFF" stroke="#1E3A8A" stroke-width="5"/>
+          <circle cx="95" cy="95" r="74" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+          <!-- Sektor sudut 120 derajat -->
+          <path d="M95,95 L95,48 A47,47 0 0,1 135.7,118.5 Z" fill="#FDE68A" opacity="0.8"/>
+          <!-- Angka jam -->
+          <text x="95" y="34" text-anchor="middle" font-size="13" font-weight="800" fill="#0F172A">12</text>
+          <text x="160" y="99" text-anchor="middle" font-size="13" font-weight="800" fill="#0F172A">3</text>
+          <text x="95" y="165" text-anchor="middle" font-size="13" font-weight="800" fill="#0F172A">6</text>
+          <text x="30" y="99" text-anchor="middle" font-size="13" font-weight="800" fill="#0F172A">9</text>
+          <text x="150" y="132" text-anchor="middle" font-size="13" font-weight="800" fill="#DC2626">4</text>
+          <!-- Jarum panjang ke 12 -->
+          <line x1="95" y1="95" x2="95" y2="39" stroke="#1E3A8A" stroke-width="4" stroke-linecap="round"/>
+          <!-- Jarum pendek ke 4 (120 deg dari 12 -> cos(30)=0.866, sin(30)=0.5) -->
+          <line x1="95" y1="95" x2="137" y2="119" stroke="#DC2626" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="95" cy="95" r="5" fill="#0F172A"/>
+        </svg>
+      `,
+
+      mtk_q27_bar: `
+        <svg viewBox="0 0 420 205" class="w-full max-w-md mx-auto bg-white rounded-xl border border-slate-200 p-1" xmlns="http://www.w3.org/2000/svg">
+          <text x="210" y="20" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1E3A8A">Pengunjung Perpustakaan SD (Siswa)</text>
+          <!-- Grid horizontal (max 60 -> y=170 down to 35, scale 2px per siswa) -->
+          <g stroke="#E2E8F0" stroke-width="1">
+            <line x1="48" y1="170" x2="395" y2="170" stroke="#64748B" stroke-width="1.5"/>
+            <line x1="48" y1="130" x2="395" y2="130"/>
+            <line x1="48" y1="90" x2="395" y2="90"/>
+            <line x1="48" y1="50" x2="395" y2="50"/>
+          </g>
+          <g font-size="10.5" fill="#475569" text-anchor="end">
+            <text x="42" y="174">0</text><text x="42" y="134">20</text><text x="42" y="94">40</text><text x="42" y="54">60</text>
+          </g>
+          <!-- Batang: Senin 35 (70px), Selasa 40 (80px), Rabu 25 (50px), Kamis 50 (100px), Jumat 30 (60px) -->
+          <rect x="65" y="100" width="42" height="70" rx="4" fill="#3B82F6"/>
+          <text x="86" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="#1E3A8A">35</text>
+          <text x="86" y="188" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">Senin</text>
+
+          <rect x="132" y="90" width="42" height="80" rx="4" fill="#3B82F6"/>
+          <text x="153" y="84" text-anchor="middle" font-size="11" font-weight="700" fill="#1E3A8A">40</text>
+          <text x="153" y="188" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">Selasa</text>
+
+          <rect x="199" y="120" width="42" height="50" rx="4" fill="#3B82F6"/>
+          <text x="220" y="114" text-anchor="middle" font-size="11" font-weight="700" fill="#1E3A8A">25</text>
+          <text x="220" y="188" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">Rabu</text>
+
+          <rect x="266" y="70" width="42" height="100" rx="4" fill="#F59E0B"/>
+          <text x="287" y="64" text-anchor="middle" font-size="11" font-weight="800" fill="#B45309">50</text>
+          <text x="287" y="188" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">Kamis</text>
+
+          <rect x="333" y="110" width="42" height="60" rx="4" fill="#3B82F6"/>
+          <text x="354" y="104" text-anchor="middle" font-size="11" font-weight="700" fill="#1E3A8A">30</text>
+          <text x="354" y="188" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">Jumat</text>
+        </svg>
+      `,
+
+      mtk_q28_piktogram: `
+        <svg viewBox="0 0 420 190" class="w-full max-w-md mx-auto bg-white rounded-xl border border-slate-200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="420" height="32" fill="#1E3A8A"/>
+          <text x="210" y="21" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="800">Hasil Panen Mangga Kebun Sekolah</text>
+          <!-- Baris Minggu 1 (4) -->
+          <text x="16" y="60" font-size="12" font-weight="700" fill="#334155">Minggu 1</text>
+          <g transform="translate(105,46)">
+            <circle cx="12" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="42" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="72" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="102" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/>
+          </g>
+          <line x1="12" y1="72" x2="408" y2="72" stroke="#E2E8F0"/>
+          <!-- Baris Minggu 2 (6) -->
+          <text x="16" y="96" font-size="12" font-weight="700" fill="#334155">Minggu 2</text>
+          <g transform="translate(105,82)">
+            <circle cx="12" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="42" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="72" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="102" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="132" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="162" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/>
+          </g>
+          <line x1="12" y1="108" x2="408" y2="108" stroke="#E2E8F0"/>
+          <!-- Baris Minggu 3 (3) -->
+          <text x="16" y="132" font-size="12" font-weight="700" fill="#334155">Minggu 3</text>
+          <g transform="translate(105,118)">
+            <circle cx="12" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="42" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="72" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/>
+          </g>
+          <line x1="12" y1="144" x2="408" y2="144" stroke="#E2E8F0"/>
+          <!-- Baris Minggu 4 (5) -->
+          <text x="16" y="166" font-size="12" font-weight="700" fill="#334155">Minggu 4</text>
+          <g transform="translate(105,152)">
+            <circle cx="12" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="42" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="72" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="102" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/><circle cx="132" cy="10" r="10" fill="#F59E0B" stroke="#B45309"/>
+          </g>
+          <text x="398" y="168" text-anchor="end" font-size="11" font-weight="800" fill="#DC2626">Keterangan: 1 ● = 10 kg</text>
+        </svg>
+      `,
+
+      mtk_q29_nilai: `
+        <svg viewBox="0 0 390 195" class="w-full max-w-md mx-auto bg-white rounded-xl border border-slate-200" xmlns="http://www.w3.org/2000/svg">
+          <text x="195" y="20" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1E3A8A">Diagram Nilai Ulangan Matematika Kelas VI</text>
+          <line x1="45" y1="160" x2="365" y2="160" stroke="#64748B" stroke-width="1.5"/>
+          <line x1="45" y1="110" x2="365" y2="110" stroke="#E2E8F0"/>
+          <line x1="45" y1="60" x2="365" y2="60" stroke="#E2E8F0"/>
+          <g font-size="10.5" fill="#475569" text-anchor="end">
+            <text x="38" y="164">0</text><text x="38" y="114">5</text><text x="38" y="64">10</text>
+          </g>
+          <!-- 70: 4 (40px), 80: 9 (90px), 90: 7 (70px), 100: 5 (50px) -->
+          <rect x="68" y="120" width="48" height="40" rx="4" fill="#6366F1"/>
+          <text x="92" y="114" text-anchor="middle" font-size="11" font-weight="800" fill="#312E81">4</text>
+          <text x="92" y="178" text-anchor="middle" font-size="11.5" font-weight="700" fill="#334155">Nilai 70</text>
+
+          <rect x="144" y="70" width="48" height="90" rx="4" fill="#10B981"/>
+          <text x="168" y="64" text-anchor="middle" font-size="11" font-weight="800" fill="#065F46">9</text>
+          <text x="168" y="178" text-anchor="middle" font-size="11.5" font-weight="700" fill="#334155">Nilai 80</text>
+
+          <rect x="220" y="90" width="48" height="70" rx="4" fill="#3B82F6"/>
+          <text x="244" y="84" text-anchor="middle" font-size="11" font-weight="800" fill="#1E3A8A">7</text>
+          <text x="244" y="178" text-anchor="middle" font-size="11.5" font-weight="700" fill="#334155">Nilai 90</text>
+
+          <rect x="296" y="110" width="48" height="50" rx="4" fill="#F59E0B"/>
+          <text x="320" y="104" text-anchor="middle" font-size="11" font-weight="800" fill="#92400E">5</text>
+          <text x="320" y="178" text-anchor="middle" font-size="11.5" font-weight="700" fill="#334155">Nilai 100</text>
+        </svg>
+      `,
+
+      mtk_q30_tren: `
+        <svg viewBox="0 0 430 215" class="w-full max-w-md mx-auto bg-white rounded-xl border border-slate-200" xmlns="http://www.w3.org/2000/svg">
+          <text x="215" y="20" text-anchor="middle" font-size="12" font-weight="800" fill="#1E3A8A">Tren Waktu Tempuh Menuju Sekolah (Menit)</text>
+          <!-- Legenda -->
+          <line x1="90" y1="36" x2="112" y2="36" stroke="#DC2626" stroke-width="3"/><text x="118" y="40" font-size="10.5" font-weight="700" fill="#DC2626">Rute A (Jalan Utama)</text>
+          <line x1="250" y1="36" x2="272" y2="36" stroke="#059669" stroke-width="3"/><text x="278" y="40" font-size="10.5" font-weight="700" fill="#059669">Rute B (Jalan Lingkungan)</text>
+          <!-- Grid y: 15=175, 20=150, 25=125, 30=100, 35=75 (scale 5px per menit) -->
+          <g stroke="#E2E8F0">
+            <line x1="48" y1="175" x2="400" y2="175" stroke="#64748B"/>
+            <line x1="48" y1="150" x2="400" y2="150"/>
+            <line x1="48" y1="125" x2="400" y2="125"/>
+            <line x1="48" y1="100" x2="400" y2="100"/>
+            <line x1="48" y1="75" x2="400" y2="75"/>
+          </g>
+          <g font-size="10" fill="#475569" text-anchor="end">
+            <text x="42" y="179">15</text><text x="42" y="154">20</text><text x="42" y="129">25</text><text x="42" y="104">30</text><text x="42" y="79">35</text>
+          </g>
+          <!-- Rute A: Sen 25(125), Sel 28(110), Rab 30(100), Kam 27(115), Jum 35(75) -->
+          <polyline points="75,125 150,110 225,100 300,115 375,75" fill="none" stroke="#DC2626" stroke-width="3"/>
+          <g fill="#DC2626" font-size="10" font-weight="800" text-anchor="middle">
+            <circle cx="75" cy="125" r="4"/><text x="75" y="117">25</text>
+            <circle cx="150" cy="110" r="4"/><text x="150" y="102">28</text>
+            <circle cx="225" cy="100" r="4"/><text x="225" y="92">30</text>
+            <circle cx="300" cy="115" r="4"/><text x="300" y="107">27</text>
+            <circle cx="375" cy="75" r="4"/><text x="375" y="67">35</text>
+          </g>
+          <!-- Rute B: Sen 20(150), Sel 22(140), Rab 20(150), Kam 21(145), Jum 22(140) -->
+          <polyline points="75,150 150,140 225,150 300,145 375,140" fill="none" stroke="#059669" stroke-width="3"/>
+          <g fill="#059669" font-size="10" font-weight="800" text-anchor="middle">
+            <circle cx="75" cy="150" r="4"/><text x="75" y="165">20</text>
+            <circle cx="150" cy="140" r="4"/><text x="150" y="155">22</text>
+            <circle cx="225" cy="150" r="4"/><text x="225" y="165">20</text>
+            <circle cx="300" cy="145" r="4"/><text x="300" y="160">21</text>
+            <circle cx="375" cy="140" r="4"/><text x="375" y="155">22</text>
+          </g>
+          <!-- Hari -->
+          <g font-size="11" font-weight="700" fill="#334155" text-anchor="middle">
+            <text x="75" y="196">Senin</text><text x="150" y="196">Selasa</text><text x="225" y="196">Rabu</text><text x="300" y="196">Kamis</text><text x="375" y="196">Jumat</text>
+          </g>
+        </svg>
+      `
+    };
+
+    // =========================================================================
+    // 2. BANK SOAL LENGKAP (30 BAHASA INDONESIA + 30 MATEMATIKA)
+    // =========================================================================
+    const QUESTIONS_BANK = {
+      bindo: [
+        // --- DONGENG JENAKA (1-3) ---
+        {
+          id: 1, type: 'pg', tag: 'L1 • Dongeng Jenaka',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah cuplikan dongeng jenaka berikut!</p>
+          <p>Suatu pagi di Pasar Johar, Pak Kabayan diminta istrinya membeli tiga ekor ikan bandeng segar. Di tengah perjalanan pulang, seekor kucing belang mengeong-ngeong mengikutinya. Karena kasihan, Pak Kabayan melempar satu ikan kepada kucing itu. Tak lama, muncul dua kucing lain yang menatapnya iba. Tanpa pikir panjang, Pak Kabayan memberikan sisa dua ikannya. Sampai di rumah, ia tersenyum lebar sambil membawa kantong kosong. "Bu, ikannya sudah aman di perut para penjaga pasar!" katanya polos.</p>`,
+          question: 'Berapa jumlah ikan bandeng yang awalnya diminta istri Pak Kabayan untuk dibeli?',
+          options: ['Satu ekor', 'Dua ekor', 'Tiga ekor', 'Empat ekor'],
+          answer: 2,
+          explanation: 'Pada kalimat pertama disebutkan secara tersurat bahwa Pak Kabayan diminta istrinya membeli tiga ekor ikan bandeng segar.'
+        },
+        {
+          id: 2, type: 'pg', tag: 'L2 • Dongeng Jenaka',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Masih berdasarkan dongeng "Pak Kabayan di Pasar Johar")</p>
+          <p>Pak Kabayan memberikan seluruh ikan belanjaan istrinya kepada kucing-kucing di jalan, lalu pulang membawa kantong kosong sambil bergurau bahwa ikan-ikan itu sudah aman di perut para penjaga pasar.</p>`,
+          question: 'Berdasarkan cerita tersebut, watak tokoh Pak Kabayan yang paling menonjol adalah ....',
+          options: [
+            'kikir dan suka marah kepada hewan',
+            'polos, penyayang, namun kurang teliti memikirkan akibatnya',
+            'cerdik dan pandai menipu pedagang pasar',
+            'pemalas dan tidak mau pergi ke pasar'
+          ],
+          answer: 1,
+          explanation: 'Pak Kabayan kasihan pada kucing (penyayang) dan bertindak tanpa pikir panjang hingga melupakan pesan istrinya (polos/kurang teliti).'
+        },
+        {
+          id: 3, type: 'sts', tag: 'L3 • Dongeng Jenaka',
+          stimulus: `<p>Di desa seberang, Pak Polos selalu menjemur garam di halaman saat langit mendung karena ia mengira awan gelap akan segera menghilang jika disapa. Akibatnya, hujan deras turun dan seluruh garamnya larut terbawa air. Warga desa pun tertawa geli melihat Pak Polos keheranan mencari garamnya yang hilang.</p>`,
+          question: 'Tentukan apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan isi dan unsur dongeng jenaka di atas!',
+          statements: [
+            'Peristiwa larutnya garam disebabkan oleh tindakan tokoh yang tidak masuk akal saat mendung.',
+            'Kisah tersebut mengandung unsur kelucuan sekaligus sindiran agar kita berpikir logis.',
+            'Warga desa menangis sedih karena seluruh rumah mereka kebanjiran.'
+          ],
+          answer: ['Sesuai', 'Sesuai', 'Tidak Sesuai'],
+          explanation: 'Pernyataan 1 & 2 sesuai dengan isi dan ciri dongeng jenaka. Pernyataan 3 tidak sesuai karena warga tertawa geli, bukan menangis kebanjiran.'
+        },
+
+        // --- DRAMA ANAK (4-6) ---
+        {
+          id: 4, type: 'pg', tag: 'L1 • Drama Anak',
+          stimulus: `<div class="space-y-1.5 text-sm sm:text-base">
+            <p class="font-bold text-[#1E3A8A]">Naskah Drama: "Latihan Pentas Seni Kelas VI"</p>
+            <p><strong>Nadia:</strong> "Teman-teman, pementasan tari Gambang Semarang tinggal tiga hari lagi, tetapi selendang punya Bagas sobek!"</p>
+            <p><strong>Bagas:</strong> <em>(menunduk lesu)</em> "Maaf ya, tadi tersangkut paku di gudang sekolah."</p>
+            <p><strong>Riko:</strong> "Jangan sedih, Gas! Ibuku punya mesin jahit. Nanti pulang sekolah kita mampir ke rumahku untuk menjahitnya, atau pinjam selendang cadangan milik kakakku."</p>
+            <p><strong>Nadia:</strong> "Wah, ide bagus! Kalau begitu kita lanjutkan latihan gerakan sekarang supaya makin kompak."</p>
+          </div>`,
+          question: 'Mengapa selendang milik Bagas bisa sobek menurut dialog drama di atas?',
+          options: [
+            'Terinjak oleh Nadia saat latihan menari',
+            'Tersangkut paku di gudang sekolah',
+            'Lupa dibawa dari rumah Riko',
+            'Digunting secara tidak sengaja saat membuat properti'
+          ],
+          answer: 1,
+          explanation: 'Informasi tersurat pada dialog Bagas menyatakan bahwa selendangnya tersangkut paku di gudang sekolah.'
+        },
+        {
+          id: 5, type: 'pgk', tag: 'L2 • Drama Anak',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan naskah drama "Latihan Pentas Seni Kelas VI")</p>
+          <p>Ketika Bagas bersedih karena selendangnya sobek, Riko segera menawarkan bantuan menjahitkan selendang atau meminjamkan milik kakaknya, sedangkan Nadia menyemangati teman-teman agar tetap berlatih.</p>`,
+          question: 'Nilai-nilai positif yang terkandung dalam cuplikan drama tersebut adalah .... (Pilih semua jawaban yang benar)',
+          options: [
+            'Saling menolong saat teman mengalami kesulitan',
+            'Bertanggung jawab mengakui kesalahan dengan jujur',
+            'Menyalahkan teman agar latihan segera dibatalkan',
+            'Kerja sama dan menjaga kekompakan kelompok'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Riko menolong teman, Bagas jujur meminta maaf, dan Nadia menjaga kekompakan tim. Menyalahkan teman tidak ada dalam teks.'
+        },
+        {
+          id: 6, type: 'pg', tag: 'L3 • Drama Anak',
+          stimulus: `<p>Pada akhir latihan, Bagas tersenyum lega setelah Riko dan Nadia membantunya. Ia berjanji akan lebih berhati-hati menyimpan perlengkapan pentas.</p>`,
+          question: 'Respons emosional yang paling tepat dirasakan pembaca saat melihat sikap Riko kepada Bagas adalah ....',
+          options: [
+            'Kesal karena Riko terlalu banyak bicara',
+            'Kagum dan terharu atas kepedulian serta sikap solutif Riko',
+            'Takut karena pentas seni akan dibatalkan',
+            'Kecewa karena Bagas tidak membeli selendang baru'
+          ],
+          answer: 1,
+          explanation: 'Sikap Riko yang cepat memberikan solusi tanpa menyalahkan menumbuhkan rasa kagum dan hangat di hati pembaca.'
+        },
+
+        // --- FABEL (7-9) ---
+        {
+          id: 7, type: 'pg', tag: 'L1 • Fabel',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah fabel berikut!</p>
+          <p>Di tepi Sungai Banjir Kanal, seekor Kancil melihat Kerbau sedang kesusahan menarik gerobak kayu yang rodanya terperosok lumpur. Burung Jalak yang bertengger di dahan hanya menertawakan Kerbau. Kancil segera mengumpulkan beberapa ranting dan batu pipih, lalu mengganjal roda gerobak itu. Dengan bantuan dorongan Kancil dan tenaga Kerbau, gerobak akhirnya berhasil keluar dari lumpur. Burung Jalak pun malu dan meminta maaf karena sempat <em>besar kepala</em>.</p>`,
+          question: 'Alat apa yang digunakan Kancil untuk membantu mengganjal roda gerobak Kerbau?',
+          options: [
+            'Tali tambang dan daun pisang',
+            'Ranting dan batu pipih',
+            'Batang bambu dan pasir sungai',
+            'Papan kayu dan akar pohon'
+          ],
+          answer: 1,
+          explanation: 'Tertulis secara tersurat bahwa Kancil mengumpulkan ranting dan batu pipih untuk mengganjal roda gerobak.'
+        },
+        {
+          id: 8, type: 'pg', tag: 'L2 • Fabel (Ungkapan)',
+          stimulus: `<p>Di akhir cerita fabel tersebut, Burung Jalak merasa malu dan meminta maaf kepada Kerbau karena sebelumnya ia bersikap <em>besar kepala</em>.</p>`,
+          question: 'Makna ungkapan <em>besar kepala</em> dalam cerita tersebut adalah ....',
+          options: [
+            'memiliki kepala yang berukuran sangat besar',
+            'sombong dan merasa dirinya lebih hebat dari yang lain',
+            'sangat cerdas dalam memecahkan masalah',
+            'keras hati dan tidak mudah menangis'
+          ],
+          answer: 1,
+          explanation: 'Ungkapan "besar kepala" bermakna sombong atau angkuh.'
+        },
+        {
+          id: 9, type: 'bs', tag: 'L2 • Fabel',
+          stimulus: `<p>Kancil menggunakan kecerdikannya untuk membantu Kerbau yang kesulitan, sementara Burung Jalak akhirnya menyadari kesalahannya dan meminta maaf.</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> pernyataan mengenai amanat dan tokoh fabel di atas!',
+          statements: [
+            'Amanat cerita tersebut adalah kita hendaknya membantu sesama dengan kemampuan yang dimiliki.',
+            'Tokoh Kancil digambarkan sebagai hewan yang licik dan suka mencuri makanan Kerbau.',
+            'Burung Jalak mengalami perubahan sikap dari suka mengejek menjadi mau mengakui kesalahan.'
+          ],
+          answer: ['Benar', 'Salah', 'Benar'],
+          explanation: 'Pernyataan 1 & 3 benar sesuai isi fabel. Pernyataan 2 salah karena Kancil justru digambarkan cerdik dan penolong.'
+        },
+
+        // --- PENGUMUMAN (10-12) ---
+        {
+          id: 10, type: 'pg', tag: 'L1 • Pengumuman',
+          stimulus: SVG_ASSETS.bi_pengumuman,
+          question: 'Berdasarkan pengumuman di atas, di manakah lokasi pelaksanaan Lomba Menulis Cerpen?',
+          options: [
+            'Balai Kota Semarang',
+            'Perpustakaan Daerah Jawa Tengah',
+            'Aula Taman Budaya Raden Saleh (TBRS), Kota Semarang',
+            'Lapangan Simpang Lima Semarang'
+          ],
+          answer: 2,
+          explanation: 'Pada bagian Tempat tertulis jelas: Aula Taman Budaya Raden Saleh (TBRS), Kota Semarang.'
+        },
+        {
+          id: 11, type: 'pg', tag: 'L2 • Pengumuman',
+          stimulus: SVG_ASSETS.bi_pengumuman,
+          question: 'Tujuan utama dibuatnya pengumuman tersebut adalah ....',
+          options: [
+            'mengajak siswa SD kelas IV–VI di Kota Semarang mengikuti lomba menulis cerpen',
+            'melarang siswa berkunjung ke Taman Budaya Raden Saleh pada hari Sabtu',
+            'menjual buku kumpulan cerpen karya siswa Kota Semarang',
+            'mengumumkan daftar pemenang lomba literasi tahun 2026'
+          ],
+          answer: 0,
+          explanation: 'Pengumuman tersebut berisi informasi pendaftaran dan jadwal untuk mengajak siswa kelas IV–VI berpartisipasi dalam lomba menulis cerpen.'
+        },
+        {
+          id: 12, type: 'bs', tag: 'L3 • Pengumuman',
+          stimulus: SVG_ASSETS.bi_pengumuman,
+          question: 'Evaluasilah kebenaran pernyataan berikut berdasarkan informasi pada pengumuman!',
+          statements: [
+            'Siswa kelas III SD sudah diperbolehkan mendaftar pada lomba menulis cerpen ini.',
+            'Peserta tidak dipungut biaya pendaftaran apabila mendaftar sebelum 24 November 2026.',
+            'Durasi pelaksanaan lomba pada hari Sabtu berlangsung selama 3 jam 30 menit.'
+          ],
+          answer: ['Salah', 'Benar', 'Benar'],
+          explanation: 'Lomba hanya untuk kelas IV–VI (1 Salah). Pendaftaran gratis paling lambat 24 Nov 2026 (2 Benar). Pukul 08.00–11.30 adalah 3 jam 30 menit (3 Benar).'
+        },
+
+        // --- TEKS PROSEDUR SEDERHANA (13-15) ---
+        {
+          id: 13, type: 'pg', tag: 'L1 • Teks Prosedur',
+          stimulus: `${SVG_ASSETS.bi_prosedur}
+          <div class="mt-3 text-sm sm:text-base">
+            <p class="font-bold text-[#1E3A8A]">Cara Membuat Pot Tanaman dari Botol Plastik Bekas:</p>
+            <ol class="list-decimal list-inside space-y-1 mt-1">
+              <li>Siapkan botol plastik bekas bersih, lalu potong bagian tengahnya menggunakan gunting dengan hati-hati.</li>
+              <li>Buatlah 3–4 lubang kecil pada dasar botol agar air siraman tidak menggenang.</li>
+              <li>Masukkan tanah gembur bercampur kompos, lalu tanam bibit cabai atau sawi.</li>
+              <li>Siram secukupnya dan letakkan pot di tempat yang mendapat sinar matahari pagi.</li>
+            </ol>
+          </div>`,
+          question: 'Mengapa dasar botol plastik perlu diberi 3–4 lubang kecil pada langkah kedua?',
+          options: [
+            'Agar botol terlihat lebih indah saat digantung',
+            'Agar air siraman tidak menggenang di dalam pot',
+            'Agar tanah cepat tumpah keluar dari botol',
+            'Agar gunting mudah masuk ke dalam botol'
+          ],
+          answer: 1,
+          explanation: 'Pada langkah ke-2 dijelaskan bahwa lubang kecil dibuat agar air siraman tidak menggenang.'
+        },
+        {
+          id: 14, type: 'pg', tag: 'L2 • Teks Prosedur',
+          stimulus: `<p>Dari teks prosedur pembuatan pot tanaman di atas, botol plastik bekas yang semula merupakan sampah rumah tangga diolah melalui empat tahap hingga siap digunakan.</p>`,
+          question: 'Perubahan fungsi objek yang terjadi setelah seluruh langkah prosedur dijalankan dengan benar adalah ....',
+          options: [
+            'botol plastik berubah menjadi wadah minuman dingin kembali',
+            'limbah botol plastik berubah fungsi menjadi media tanam yang bermanfaat',
+            'tanah kompos berubah menjadi batu kerikil keras',
+            'bibit tanaman langsung berbuah lebat dalam satu jam'
+          ],
+          answer: 1,
+          explanation: 'Botol plastik bekas (limbah) mengalami perubahan fungsi menjadi pot/media tanam berguna.'
+        },
+        {
+          id: 15, type: 'sts', tag: 'L3 • Teks Prosedur',
+          stimulus: `<p>Perhatikan kembali langkah-langkah membuat pot tanaman dari botol bekas di atas.</p>`,
+          question: 'Nilailah apakah tindakan siswa berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan teks prosedur tersebut!',
+          statements: [
+            'Dina melubangi bagian bawah botol terlebih dahulu sebelum memasukkan tanah dan bibit.',
+            'Budi meletakkan pot bibit cabainya di dalam lemari gelap agar tidak terkena debu.',
+            'Sari mencampurkan tanah gembur dengan kompos sebagai media tanam.'
+          ],
+          answer: ['Sesuai', 'Tidak Sesuai', 'Sesuai'],
+          explanation: 'Dina (Sesuai langkah 2–3), Budi (Tidak Sesuai karena harus terkena sinar matahari pagi), Sari (Sesuai langkah 3).'
+        },
+
+        // --- FIKSI NARASI (16-18) ---
+        {
+          id: 16, type: 'pg', tag: 'L1 • Fiksi Narasi',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah penggalan cerita berikut!</p>
+          <p>Pagi itu kelas VI mengadakan kunjungan belajar ke kawasan Kota Lama Semarang. Sambil melangkah di trotoar batu andesit, Ardi takjub memandangi bangunan berkubah merah bata dengan menara kembar dan jam dinding besar di bagian depannya. Pemandu wisata menjelaskan bahwa bangunan ikonik peninggalan abad ke-18 itu masih terawat hingga sekarang. Ardi segera mengeluarkan buku catatan kecil dan menggambar sketsa kubahnya.</p>`,
+          question: 'Objek bangunan yang digambarkan melalui kosakata "berkubah merah bata dengan menara kembar" di Kota Lama Semarang adalah ....',
+          options: [
+            'Gereja Blenduk',
+            'Tugu Muda',
+            'Klenteng Sam Poo Kong',
+            'Stadion Jatidiri'
+          ],
+          answer: 0,
+          explanation: 'Bangunan bersejarah di Kota Lama Semarang yang berkubah merah bata dengan menara kembar adalah Gereja Blenduk.'
+        },
+        {
+          id: 17, type: 'pgk', tag: 'L2 • Fiksi Narasi',
+          stimulus: `<p>Awalnya, Ardi merasa bosan setiap kali mendengar pelajaran sejarah di kelas. Ia mengira sejarah hanyalah hafalan tahun-tahun lama. Namun, setelah melihat langsung bangunan kuno di Kota Lama, mendengar kisah pembangunannya, dan membuat sketsa di buku catatannya, Ardi menjadi sangat antusias. Ia bahkan meminjam buku sejarah Kota Semarang di perpustakaan keesokan harinya.</p>`,
+          question: 'Pernyataan yang tepat mengenai perubahan karakter dan peristiwa yang dialami Ardi adalah .... (Pilih semua jawaban yang benar)',
+          options: [
+            'Ardi berubah dari yang semula bosan menjadi tertarik belajar sejarah.',
+            'Pengalaman kunjungan langsung membuat Ardi lebih memahami makna sejarah.',
+            'Ardi membuang buku catatannya karena lelah berjalan kaki.',
+            'Antusiasme Ardi ditunjukkan dengan meminjam buku sejarah di perpustakaan.'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Opsi 1, 2, dan 4 mencerminkan perubahan sikap positif Ardi setelah kunjungan belajar.'
+        },
+        {
+          id: 18, type: 'bs', tag: 'L2 • Fiksi Narasi',
+          stimulus: `<p>Menjelang siang, matahari Kota Lama mulai terik. Rombongan kelas VI berteduh di Taman Srigunting sambil menikmati es dawet dan mendiskusikan hasil catatan masing-masing kelompok sebelum kembali ke bus sekolah.</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> pernyataan berikut berdasarkan latar dan peristiwa cerita!',
+          statements: [
+            'Latar waktu dalam paragraf tersebut adalah menjelang siang hari.',
+            'Kegiatan diskusi kelompok dilakukan siswa sambil berteduh di Taman Srigunting.',
+            'Rombongan siswa pulang ke sekolah dengan berjalan kaki dari Kota Lama.'
+          ],
+          answer: ['Benar', 'Benar', 'Salah'],
+          explanation: 'Waktu menjelang siang (Benar), berteduh & diskusi di Taman Srigunting (Benar), pulang naik bus sekolah bukan jalan kaki (Salah).'
+        },
+
+        // --- PUISI ANAK (19-21) ---
+        {
+          id: 19, type: 'pg', tag: 'L1 • Puisi Anak',
+          stimulus: `<div class="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 italic text-slate-800 space-y-1">
+            <p class="font-bold not-italic text-[#1E3A8A] mb-2">Pagi di Lereng Ungaran</p>
+            <p>Kabut tipis menari lembut di pucuk cemara,</p>
+            <p>Sang surya mengintip malu dari ufuk timur,</p>
+            <p>Embun berkilau bak permata di ujung daun teh,</p>
+            <p>Petani melangkah tegap memeluk harapan baru.</p>
+          </div>`,
+          question: 'Kata <em>sang surya</em> pada larik kedua puisi di atas merujuk pada objek ....',
+          options: ['Bulan purnama', 'Matahari pagi', 'Bintang kejora', 'Awan putih'],
+          answer: 1,
+          explanation: 'Sang surya adalah kosakata puitis yang berarti matahari (terbit dari ufuk timur).'
+        },
+        {
+          id: 20, type: 'pg', tag: 'L2 • Puisi Anak',
+          stimulus: `<p>Perhatikan larik keempat puisi <em>Pagi di Lereng Ungaran</em>: <br/><strong>"Petani melangkah tegap memeluk harapan baru."</strong></p>`,
+          question: 'Makna ungkapan <em>memeluk harapan baru</em> dalam puisi tersebut adalah ....',
+          options: [
+            'membawa hasil panen yang sangat berat di pundak',
+            'memulai hari dengan penuh semangat dan keyakinan akan hasil yang baik',
+            'beristirahat di gubuk sawah saat pagi hari',
+            'menunggu hujan turun sepanjang hari'
+          ],
+          answer: 1,
+          explanation: 'Memeluk harapan baru berarti menyongsong hari/pekerjaan dengan optimisme dan semangat.'
+        },
+        {
+          id: 21, type: 'pg', tag: 'L2 • Puisi Anak',
+          stimulus: `<p>Puisi <em>Pagi di Lereng Ungaran</em> melukiskan keindahan alam pagi hari sekaligus keteguhan petani yang bekerja dengan penuh semangat.</p>`,
+          question: 'Amanat yang dapat dipetik dari puisi tersebut adalah ....',
+          options: [
+            'kita sebaiknya tidur lebih lama jika udara pagi berkabut',
+            'kita harus bersyukur atas keindahan alam dan menyambut hari dengan semangat bekerja',
+            'menanam pohon cemara lebih baik daripada menanam teh',
+            'pekerjaan petani hanya dilakukan pada musim hujan'
+          ],
+          answer: 1,
+          explanation: 'Puisi mengajak pembaca mensyukuri keindahan alam dan meneladani semangat pagi para petani.'
+        },
+
+        // --- TEKS DESKRIPSI (22-24) ---
+        {
+          id: 22, type: 'pgk', tag: 'L1 • Teks Deskripsi',
+          stimulus: `${SVG_ASSETS.bi_lawangsewu}
+          <p class="mt-3"><strong>Lawang Sewu</strong> merupakan salah satu gedung bersejarah kebanggaan Kota Semarang yang terletak di dekat Tugu Muda. Bangunan bergaya <em>arsitektur</em> kolonial ini memiliki deretan pintu dan jendela tinggi melengkung yang berfungsi melancarkan <em>ventilasi</em> udara. Di bagian dalam terdapat kaca patri warna-warni yang indah. Saat ini, gedung tersebut dikelola sebagai museum perkeretaapian dan destinasi wisata edukasi bagi pelajar.</p>`,
+          question: 'Manakah yang termasuk <strong>kosakata khusus</strong> (istilah bidang bangunan/pariwisata) dalam teks deskripsi di atas? (Pilih semua jawaban yang benar)',
+          options: ['Arsitektur', 'Ventilasi', 'Pelajar', 'Destinasi'],
+          answer: [0, 1, 3],
+          explanation: 'Arsitektur & ventilasi (bidang bangunan) serta destinasi (bidang pariwisata) adalah kosakata khusus; sedangkan "pelajar" merupakan kosakata umum.'
+        },
+        {
+          id: 23, type: 'pg', tag: 'L2 • Teks Deskripsi',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan teks deskripsi "Lawang Sewu")</p>
+          <p>Teks tersebut menjelaskan letak Lawang Sewu, ciri fisik pintu dan jendela melengkung, kaca patri, hingga fungsinya kini sebagai museum perkeretaapian.</p>`,
+          question: 'Ide pokok dari paragraf deskripsi tentang Lawang Sewu tersebut adalah ....',
+          options: [
+            'Harga tiket masuk museum di Kota Semarang',
+            'Keunikan arsitektur dan fungsi gedung bersejarah Lawang Sewu di Kota Semarang',
+            'Cara merawat kaca patri di rumah tinggal',
+            'Sejarah pembangunan Tugu Muda Semarang'
+          ],
+          answer: 1,
+          explanation: 'Seluruh kalimat penjelas mendeskripsikan keunikan fisik/arsitektur dan fungsi Lawang Sewu.'
+        },
+        {
+          id: 24, type: 'sts', tag: 'L3 • Teks Deskripsi',
+          stimulus: `<p>Perhatikan kembali gambar ilustrasi dan teks deskripsi tentang <strong>Lawang Sewu</strong> di atas.</p>`,
+          question: 'Nilailah apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan teks dan ilustrasi!',
+          statements: [
+            'Banyaknya pintu dan jendela melengkung pada Lawang Sewu bermanfaat untuk sirkulasi udara.',
+            'Saat ini gedung Lawang Sewu sudah ditutup total dan tidak boleh dikunjungi pelajar.',
+            'Ilustrasi gedung pada gambar selaras dengan deskripsi deretan pintu melengkung di teks.'
+          ],
+          answer: ['Sesuai', 'Tidak Sesuai', 'Sesuai'],
+          explanation: 'Pernyataan 1 & 3 sesuai. Pernyataan 2 tidak sesuai karena Lawang Sewu justru menjadi destinasi wisata edukasi bagi pelajar.'
+        },
+
+        // --- CERPEN ANAK (25-27) ---
+        {
+          id: 25, type: 'pg', tag: 'L1 • Cerpen Anak',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah cerpen berikut!</p>
+          <p>Sepulang sekolah, Lala membeli tiga buah lumpia di warung Bu Minah seharga Rp15.000. Lala membayar dengan selembar uang Rp20.000. Karena warung sedang ramai pembeli, Bu Minah keliru memberikan uang kembalian sebesar Rp15.000. Sesampainya di dekat gerbang, Lala menghitung uang kembaliannya dan menyadari ada kelebihan Rp10.000. Tanpa ragu, Lala berlari kembali ke warung untuk mengembalikan kelebihan uang itu. Bu Minah sangat terharu dan mendoakan Lala menjadi anak yang sukses.</p>`,
+          question: 'Susunan ikhtisar (urutan kejadian) yang paling tepat berdasarkan cerpen di atas adalah ....',
+          options: [
+            'Lala membeli lumpia → Bu Minah keliru memberi kembalian → Lala mengembalikan kelebihan uang → Bu Minah terharu',
+            'Bu Minah terharu → Lala membeli lumpia → Lala menghitung uang → Lala pulang ke rumah',
+            'Lala membayar Rp15.000 → warung sepi → Lala menerima kembalian pas → Bu Minah berterima kasih',
+            'Lala menemukan uang di jalan → Lala membeli lumpia → Bu Minah memberi bonus → Lala pulang'
+          ],
+          answer: 0,
+          explanation: 'Urutan peristiwa sesuai alur: membeli lumpia, terjadi kekeliruan kembalian, Lala jujur mengembalikan, dan Bu Minah terharu.'
+        },
+        {
+          id: 26, type: 'pg', tag: 'L2 • Cerpen Anak',
+          stimulus: `<p>Meskipun tidak ada seorang pun yang mengetahui kelebihan uang kembalian tersebut, Lala tetap memilih kembali ke warung Bu Minah untuk mengembalikannya.</p>`,
+          question: 'Nilai moral utama yang ingin disampaikan penulis melalui sikap Lala adalah ....',
+          options: [
+            'berhemat dalam membelanjakan uang jajan',
+            'kejujuran harus tetap dijaga meskipun tidak diawasi orang lain',
+            'membeli makanan tradisional harus dilakukan saat warung sepi',
+            'keberanian berlari cepat di dekat gerbang sekolah'
+          ],
+          answer: 1,
+          explanation: 'Tindakan Lala mengembalikan kelebihan uang tanpa diminta adalah teladan nilai kejujuran.'
+        },
+        {
+          id: 27, type: 'pgk', tag: 'L3 • Cerpen Anak',
+          stimulus: `<p>Kisah kejujuran Lala di warung Bu Minah sangat dekat dengan pengalaman kita sehari-hari di kantin sekolah maupun di toko dekat rumah.</p>`,
+          question: 'Tindakan dalam kehidupan sehari-hari yang relevan (sejalan) dengan teladan tokoh Lala adalah .... (Pilih semua jawaban yang benar)',
+          options: [
+            'Mengembalikan pensil teman yang tidak sengaja terbawa di dalam tas',
+            'Melaporkan kepada ibu kantin jika uang kembalian yang diterima berlebih',
+            'Menyimpan uang yang jatuh di halaman sekolah untuk jajan sendiri',
+            'Mengerjakan soal ASSIKS secara mandiri tanpa menyontek'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Opsi 1, 2, dan 4 merupakan wujud nyata sikap jujur dalam kehidupan sehari-hari anak SD.'
+        },
+
+        // --- TEKS EKSPOSISI (28-30) ---
+        {
+          id: 28, type: 'pg', tag: 'L1 • Teks Eksposisi',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah teks eksposisi berikut!</p>
+          <p><strong>Gerakan Pilah Sampah di Sekolah</strong></p>
+          <p>Sampah yang menumpuk di lingkungan sekolah dapat menimbulkan bau tidak sedap dan menjadi sarang penyakit. Oleh karena itu, seluruh warga sekolah perlu membiasakan pemilahan sampah sejak dini. Sampah organik seperti sisa makanan dan daun kering dimasukkan ke tempat sampah hijau untuk diolah menjadi pupuk kompos. Sementara itu, sampah anorganik seperti botol plastik dan kertas bekas dimasukkan ke tempat sampah kuning agar dapat didaur ulang menjadi barang bernilai guna. Jika semua siswa <em>ringan tangan</em> menjaga kebersihan, sekolah akan berubah menjadi lingkungan belajar yang asri dan sehat.</p>`,
+          question: 'Berdasarkan teks eksposisi di atas, pasangan jenis sampah, warna tempat sampah, dan pemanfaatannya yang benar adalah ....',
+          options: [
+            'Organik → Tempat sampah kuning → Didaur ulang menjadi kerajinan',
+            'Organik → Tempat sampah hijau → Diolah menjadi pupuk kompos',
+            'Anorganik → Tempat sampah hijau → Diolah menjadi pupuk kompos',
+            'Anorganik → Tempat sampah merah → Dibakar di halaman sekolah'
+          ],
+          answer: 1,
+          explanation: 'Teks menjelaskan sampah organik masuk tempat sampah hijau untuk diolah menjadi pupuk kompos.'
+        },
+        {
+          id: 29, type: 'bs', tag: 'L2 • Teks Eksposisi',
+          stimulus: `<p>Pada paragraf penutup teks eksposisi di atas disebutkan: <em>"Jika semua siswa ringan tangan menjaga kebersihan, sekolah akan berubah menjadi lingkungan belajar yang asri dan sehat."</em></p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> pernyataan berikut berdasarkan makna ungkapan dan perubahan kondisi pada teks!',
+          statements: [
+            'Ungkapan "ringan tangan" pada teks tersebut bermakna suka membantu atau rajin bekerja.',
+            'Pemilahan sampah dapat mengubah sampah organik menjadi pupuk kompos yang bermanfaat.',
+            'Jika sampah dibiarkan menumpuk, lingkungan sekolah akan semakin harum dan bebas penyakit.'
+          ],
+          answer: ['Benar', 'Benar', 'Salah'],
+          explanation: 'Ringan tangan = suka membantu/rajin (Benar). Organik jadi kompos (Benar). Sampah menumpuk justru menimbulkan bau & penyakit (Salah).'
+        },
+        {
+          id: 30, type: 'sts', tag: 'L3 • Teks Eksposisi',
+          stimulus: `<p>SDN Muktiharjo menerapkan Gerakan Pilah Sampah seperti yang dijelaskan dalam teks eksposisi di atas. Setiap kelas disediakan dua tempat sampah berwarna hijau dan kuning.</p>`,
+          question: 'Nilailah apakah kebiasaan siswa berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan gagasan teks eksposisi tersebut!',
+          statements: [
+            'Rafi membuang kulit pisang dan daun kering ke tempat sampah berwarna hijau.',
+            'Tia mencampur botol plastik minuman dengan sisa nasi ke dalam satu tempat sampah kuning.',
+            'Siswa kelas VI memanfaatkan kertas bekas satu sisi untuk membuat buku catatan daur ulang.'
+          ],
+          answer: ['Sesuai', 'Tidak Sesuai', 'Sesuai'],
+          explanation: 'Kulit pisang & daun = organik/hijau (Sesuai). Mencampur plastik dengan sisa nasi melanggar pemilahan (Tidak Sesuai). Daur ulang kertas bekas sesuai gagasan teks (Sesuai).'
+        }
+      ],
+
+      // =========================================================================
+      // 30 SOAL MATEMATIKA (SESUAI URUTAN INDIKATOR 1 s.d. 30 MATRIKS ASSIKS)
+      // =========================================================================
+      mtk: [
+        // 1. Pecahan senilai (SVG)
+        {
+          id: 1, type: 'pg', tag: 'Indikator 1 • Pecahan Senilai',
+          stimulus: `<p class="mb-2">Perhatikan gambar pecahan yang ditunjukkan oleh bagian berwarna biru berikut:</p>${SVG_ASSETS.mtk_q1_stimulus}`,
+          question: 'Manakah gambar di bawah ini yang menunjukkan pecahan <strong>senilai</strong> dengan gambar di atas?',
+          options: [SVG_ASSETS.mtk_q1_optA, SVG_ASSETS.mtk_q1_optB, SVG_ASSETS.mtk_q1_optC, SVG_ASSETS.mtk_q1_optD],
+          isHtmlOptions: true,
+          answer: 0,
+          explanation: 'Gambar stimulus menunjukkan 6/8 = 3/4. Pilihan A menunjukkan 3 dari 4 bagian yang diarsir (3/4), sehingga senilai.'
+        },
+        // 2. Perbandingan & pengurutan 4 bentuk pecahan berbeda
+        {
+          id: 2, type: 'pg', tag: 'Indikator 2 • Mengurutkan Pecahan',
+          stimulus: `<p>Empat siswa mengikuti latihan lari pagi mengelilingi Lapangan Simpang Lima selama 10 menit. Jarak lintasan yang telah mereka tempuh tercatat sebagai berikut:</p>
+          <ul class="list-disc list-inside mt-2 space-y-1 font-semibold text-slate-700">
+            <li>Bima: 3/5 putaran</li>
+            <li>Citra: 75% putaran</li>
+            <li>Dimas: 0,65 putaran</li>
+            <li>Eka: 1 1/4 putaran</li>
+          </ul>`,
+          question: 'Urutan jarak tempuh dari yang <strong>terkecil hingga terbesar</strong> adalah ....',
+          options: [
+            '3/5 ; 0,65 ; 75% ; 1 1/4',
+            '0,65 ; 3/5 ; 75% ; 1 1/4',
+            '3/5 ; 75% ; 0,65 ; 1 1/4',
+            '1 1/4 ; 75% ; 0,65 ; 3/5'
+          ],
+          answer: 0,
+          explanation: 'Ubah ke desimal: 3/5 = 0,60; 0,65 = 0,65; 75% = 0,75; 1 1/4 = 1,25. Urutan terkecil ke terbesar: 3/5 ; 0,65 ; 75% ; 1 1/4.'
+        },
+        // 3. Relasi berbagai bentuk pecahan
+        {
+          id: 3, type: 'pg', tag: 'Indikator 3 • Relasi Pecahan',
+          stimulus: `<p>Ibu membeli satu loyang besar kue wingko babat khas Semarang untuk dibagikan habis kepada keempat anaknya. Raka menerima <strong>1/4</strong> bagian, Sinta menerima <strong>0,3</strong> bagian, Tono menerima <strong>20%</strong> bagian, dan sisanya diterima oleh Udin.</p>`,
+          question: 'Berapa bagian kue wingko babat yang diterima oleh Udin?',
+          options: ['15%', '20%', '25%', '35%'],
+          answer: 2,
+          explanation: 'Ubah ke persen: Raka = 1/4 = 25%, Sinta = 0,3 = 30%, Tono = 20%. Jumlah = 75%. Sisa untuk Udin = 100% − 75% = 25%.'
+        },
+        // 4. Operasi hitung campuran pecahan & bilangan asli
+        {
+          id: 4, type: 'pg', tag: 'Indikator 4 • Operasi Pecahan',
+          stimulus: `<p>Bu Wati memiliki persediaan <strong>2 1/2 kg</strong> gula pasir di dapur. Beliau membeli lagi <strong>3 bungkus</strong> gula pasir, masing-masing berisi <strong>3/4 kg</strong>. Setelah itu, gula tersebut digunakan untuk membuat sirup sebanyak <strong>1 1/4 kg</strong>.</p>`,
+          question: 'Berapa kilogram sisa gula pasir Bu Wati sekarang?',
+          options: ['3 1/4 kg', '3 1/2 kg', '4 1/4 kg', '4 1/2 kg'],
+          answer: 1,
+          explanation: '2 1/2 + (3 × 3/4) − 1 1/4 = 2 2/4 + 2 1/4 − 1 1/4 = 3 2/4 = 3 1/2 kg.'
+        },
+        // 5. Operasi campuran bilangan cacah
+        {
+          id: 5, type: 'pg', tag: 'Indikator 5 • Operasi Bilangan Cacah',
+          stimulus: `<p>Koperasi SDN Tembalang memiliki persediaan <strong>120 buku tulis</strong>. Pengurus koperasi membeli lagi <strong>15 pak</strong> buku tulis, di mana setiap pak berisi <strong>12 buku</strong>. Seluruh buku tulis tersebut dibagikan sama banyak kepada <strong>25 siswa</strong>.</p>`,
+          question: 'Berapa banyak buku tulis yang diterima oleh setiap siswa?',
+          options: ['10 buku', '12 buku', '15 buku', '18 buku'],
+          answer: 1,
+          explanation: 'Total buku = 120 + (15 × 12) = 120 + 180 = 300 buku. Dibagi 25 siswa = 300 ÷ 25 = 12 buku.'
+        },
+        // 6. Memodelkan masalah kontekstual ke kalimat matematika (PGK)
+        {
+          id: 6, type: 'pgk', tag: 'Indikator 6 • Kalimat Matematika',
+          stimulus: `<p>Pak Budi adalah pedagang lumpia Semarang. Pagi ini ia membawa <strong>8 besek</strong>, masing-masing berisi <strong>15 buah lumpia</strong>. Pada jam pertama, <strong>45 buah lumpia</strong> sudah terjual. Sisa lumpia yang belum terjual kemudian dikemas ulang ke dalam <strong>5 kotak</strong> sama banyak.</p>`,
+          question: 'Pilihlah semua kalimat matematika yang <strong>tepat</strong> untuk menentukan banyak lumpia di setiap kotak!',
+          options: [
+            '(8 × 15 − 45) ÷ 5 = 15',
+            '8 × 15 − 45 ÷ 5 = 111',
+            '(120 − 45) ÷ 5 = 15',
+            '(8 × 15 + 45) ÷ 5 = 33'
+          ],
+          answer: [0, 2],
+          explanation: 'Total awal = 8 × 15 = 120. Dikurangi 45 terjual = 75, lalu dibagi 5 kotak = 15. Jadi (8 × 15 − 45) ÷ 5 = 15 dan (120 − 45) ÷ 5 = 15.'
+        },
+        // 7. Persamaan sederhana bilangan cacah
+        {
+          id: 7, type: 'pg', tag: 'Indikator 7 • Persamaan Sederhana',
+          stimulus: `<p>Di perpustakaan sekolah terdapat <strong>4 rak</strong> buku cerita yang masing-masing berisi jumlah buku yang sama (misalkan <strong>n</strong>). Setelah mendapat sumbangan <strong>24 buku</strong> baru dari alumni, jumlah seluruh buku cerita menjadi <strong>184 buku</strong>.</p>`,
+          question: 'Berapakah banyak buku cerita pada setiap rak (nilai <strong>n</strong>)?',
+          options: ['36 buku', '40 buku', '46 buku', '52 buku'],
+          answer: 1,
+          explanation: '4 × n + 24 = 184 → 4 × n = 184 − 24 = 160 → n = 160 ÷ 4 = 40 buku.'
+        },
+        // 8. Masalah kontekstual KPK
+        {
+          id: 8, type: 'pg', tag: 'Indikator 8 • KPK',
+          stimulus: `<p>Dua bus Trans Semarang berangkat bersamaan dari Halte Simpang Lima pada pukul <strong>07.00</strong>. Bus Koridor I berangkat setiap <strong>12 menit</strong> sekali, sedangkan Bus Koridor II berangkat setiap <strong>18 menit</strong> sekali.</p>`,
+          question: 'Pada pukul berapakah kedua bus tersebut akan berangkat bersamaan lagi untuk kedua kalinya?',
+          options: ['07.24', '07.30', '07.36', '07.48'],
+          answer: 2,
+          explanation: 'KPK dari 12 dan 18 adalah 36 menit. Jadi berangkat bersamaan lagi pukul 07.00 + 36 menit = 07.36.'
+        },
+        // 9. Masalah kontekstual FPB (PGK)
+        {
+          id: 9, type: 'pgk', tag: 'Indikator 9 • FPB',
+          stimulus: `<p>Dalam kegiatan bakti sosial sekolah, panitia menyiapkan <strong>48 kotak susu</strong> dan <strong>72 bungkus biskuit</strong>. Kedua jenis makanan itu akan dikemas ke dalam paket sebanyak-banyaknya dengan jumlah susu dan biskuit yang sama banyak pada setiap paket.</p>`,
+          question: 'Berdasarkan informasi tersebut, pilihlah semua pernyataan yang <strong>benar</strong>!',
+          options: [
+            'Jumlah paket terbanyak yang dapat dibuat adalah 24 paket.',
+            'Setiap paket berisi 3 kotak susu.',
+            'Setiap paket berisi 3 bungkus biskuit.',
+            'Total isi (susu dan biskuit) dalam setiap paket adalah 5 buah.'
+          ],
+          answer: [0, 2, 3],
+          explanation: 'FPB(48, 72) = 24 paket. Isi tiap paket: 48 ÷ 24 = 2 kotak susu dan 72 ÷ 24 = 3 bungkus biskuit (total 2 + 3 = 5 buah).'
+        },
+        // 10. Deskripsi sifat bangun datar -> gambar SVG
+        {
+          id: 10, type: 'pg', tag: 'Indikator 10 • Sifat Bangun Datar',
+          stimulus: `<div class="bg-blue-50 p-4 rounded-2xl border border-blue-200">
+            <p class="font-bold text-[#1E3A8A] mb-1">Perhatikan sifat-sifat bangun datar berikut:</p>
+            <ul class="list-disc list-inside space-y-1 text-slate-800">
+              <li>Memiliki dua pasang sisi sejajar yang sama panjang.</li>
+              <li>Sudut-sudut yang berhadapan sama besar (bukan sudut siku-siku).</li>
+              <li>Kedua diagonalnya saling membagi dua sama panjang, tetapi tidak tegak lurus.</li>
+            </ul>
+          </div>`,
+          question: 'Bangun datar yang sesuai dengan seluruh sifat di atas ditunjukkan oleh gambar ....',
+          options: [SVG_ASSETS.mtk_q10_optA, SVG_ASSETS.mtk_q10_optB, SVG_ASSETS.mtk_q10_optC, SVG_ASSETS.mtk_q10_optD],
+          isHtmlOptions: true,
+          answer: 0,
+          explanation: 'Sifat-sifat tersebut adalah ciri khas Jajar Genjang (Pilihan A).'
+        },
+        // 11. Analisis ciri bentuk geometri huruf L (BS)
+        {
+          id: 11, type: 'bs', tag: 'Indikator 11 • Analisis Bangun Datar',
+          stimulus: `<p class="mb-2">Perhatikan bidang datar berbentuk huruf <strong>L</strong> pada gambar berikut:</p>${SVG_ASSETS.mtk_q11_hurufL}`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> pernyataan mengenai ciri-ciri bangun datar di atas!',
+          statements: [
+            'Bangun datar berbentuk huruf L tersebut memiliki tepat 6 buah sisi.',
+            'Semua sudut dalam pada bangun tersebut merupakan sudut lancip.',
+            'Bangun datar tersebut memiliki 6 buah titik sudut.'
+          ],
+          answer: ['Benar', 'Salah', 'Benar'],
+          explanation: 'Bangun huruf L adalah segi enam tidak beraturan: memiliki 6 sisi dan 6 titik sudut (5 sudut siku-siku 90° dan 1 sudut refleks 270°, tidak ada sudut lancip).'
+        },
+        // 12. Pola pengubinan segiempat (PGK)
+        {
+          id: 12, type: 'pgk', tag: 'Indikator 12 • Pola Pengubinan',
+          stimulus: `<p class="mb-2">Teras depan kelas VI dipasang pola ubin seperti gambar berikut. Keempat ubin berwarna oranye berukuran identik yaitu <strong>30 cm × 10 cm</strong>, mengelilingi satu ubin biru di bagian tengah:</p>${SVG_ASSETS.mtk_q12_ubinan}`,
+          question: 'Pilihlah semua pernyataan yang <strong>benar</strong> mengenai pola pengubinan tersebut!',
+          options: [
+            'Keseluruhan pola ubin membentuk persegi besar berukuran 40 cm × 40 cm.',
+            'Ubin berwarna biru di bagian tengah berbentuk persegi dengan sisi 20 cm.',
+            'Terdapat 4 buah bangun trapesium pada pola ubin tersebut.',
+            'Keempat ubin berwarna oranye berbentuk persegi panjang yang sama ukuran.'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Panjang sisi luar = 30 + 10 = 40 cm. Sisi persegi tengah = 30 − 10 = 20 cm. Ubin oranye berbentuk persegi panjang, bukan trapesium.'
+        },
+        // 13. Konstruksi bangun ruang & visualisasi spasial (kubus satuan)
+        {
+          id: 13, type: 'pg', tag: 'Indikator 13 • Visualisasi Spasial',
+          stimulus: `<p class="mb-2">Perhatikan gambar susunan kubus satuan berikut:</p>${SVG_ASSETS.mtk_q13_kubus}`,
+          question: 'Jika susunan kubus tersebut dilihat tepat dari arah <strong>DEPAN</strong> (sesuai tanda panah), gambar tampilan yang tepat adalah ....',
+          options: [SVG_ASSETS.mtk_q13_optA, SVG_ASSETS.mtk_q13_optB, SVG_ASSETS.mtk_q13_optC, SVG_ASSETS.mtk_q13_optD],
+          isHtmlOptions: true,
+          answer: 0,
+          explanation: 'Dari arah depan terlihat 3 kolom dari kiri ke kanan berturut-turut setinggi 3 kubus, 1 kubus, dan 2 kubus (Pilihan A).'
+        },
+        // 14. Kesesuaian & kelogisan satuan panjang (STS)
+        {
+          id: 14, type: 'sts', tag: 'Indikator 14 • Satuan Panjang',
+          stimulus: `<p>Siswa kelas VI melakukan praktik pengukuran benda-benda di sekitar ruang kelas menggunakan alat ukur baku (meter, sentimeter, dan milimeter).</p>`,
+          question: 'Nilailah apakah penggunaan satuan panjang pada pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> secara logis!',
+          statements: [
+            'Tinggi pintu ruang kelas VI adalah sekitar 2 meter (2 m).',
+            'Panjang sebuah pensil baru yang digunakan siswa untuk menulis adalah 17 milimeter (17 mm).',
+            'Ketebalan uang logam koin Rp500 adalah sekitar 2 milimeter (2 mm).'
+          ],
+          answer: ['Sesuai', 'Tidak Sesuai', 'Sesuai'],
+          explanation: 'Tinggi pintu ~2 m (Sesuai). 17 mm = 1,7 cm terlalu pendek untuk pensil baru, seharusnya 17 cm (Tidak Sesuai). Tebal koin ~2 mm (Sesuai).'
+        },
+        // 15. Kecepatan, jarak, waktu istirahat -> waktu tiba
+        {
+          id: 15, type: 'pg', tag: 'Indikator 15 • Kecepatan & Waktu',
+          stimulus: `<p>Keluarga Pak Hendra berangkat dari Semarang menuju Solo pukul <strong>07.15</strong> dengan jarak tempuh <strong>105 km</strong>. Mobil melaju dengan kecepatan rata-rata <strong>60 km/jam</strong>. Di tengah perjalanan, mereka berhenti istirahat di <em>rest area</em> selama <strong>25 menit</strong>.</p>`,
+          question: 'Pada pukul berapakah keluarga Pak Hendra tiba di Solo?',
+          options: ['09.00', '09.15', '09.25', '09.40'],
+          answer: 2,
+          explanation: 'Waktu tempuh = 105 ÷ 60 = 1,75 jam = 1 jam 45 menit. Total dengan istirahat = 1 jam 45 mnt + 25 mnt = 2 jam 10 mnt. Tiba = 07.15 + 02.10 = 09.25.'
+        },
+        // 16. Hubungan antarsatuan waktu
+        {
+          id: 16, type: 'pg', tag: 'Indikator 16 • Satuan Waktu',
+          stimulus: `<p>Kegiatan ekstrakurikuler Pramuka pada hari Sabtu dimulai pukul <strong>08.00</strong>. Kegiatan pertama adalah latihan baris-berbaris selama <strong>45 menit</strong>. Tanpa jeda, dilanjutkan kegiatan kedua yaitu praktik tali-temali selama <strong>3.600 detik</strong>.</p>`,
+          question: 'Pukul berapakah seluruh kegiatan Pramuka tersebut berakhir?',
+          options: ['09.15', '09.30', '09.45', '10.00'],
+          answer: 2,
+          explanation: '3.600 detik = 60 menit = 1 jam. Total durasi = 45 menit + 1 jam = 1 jam 45 menit. Selesai = 08.00 + 1 jam 45 menit = 09.45.'
+        },
+        // 17. Konversi satuan volume (PGK)
+        {
+          id: 17, type: 'pgk', tag: 'Indikator 17 • Satuan Volume',
+          stimulus: `<p>Sebuah galon air minum di kelas VI berisi penuh <strong>19 liter</strong> air. Air tersebut dituangkan ke dalam teko sebanyak <strong>2.500 ml</strong> dan ke dalam botol minum sebanyak <strong>1.500 cm³</strong>. <em>(Ingat: 1 liter = 1.000 ml = 1.000 cm³)</em>.</p>`,
+          question: 'Pilihlah semua pernyataan yang <strong>benar</strong> mengenai kesetaraan volume air tersebut!',
+          options: [
+            'Air yang dituangkan ke botol minum setara dengan 1,5 liter.',
+            'Total air yang telah dituangkan dari galon adalah 4 liter.',
+            'Sisa air di dalam galon adalah 15.000 ml.',
+            'Sisa air di dalam galon setara dengan 15 m³.'
+          ],
+          answer: [0, 1, 2],
+          explanation: '1.500 cm³ = 1,5 liter. Total dituang = 2,5 + 1,5 = 4 liter. Sisa = 19 − 4 = 15 liter = 15.000 ml (bukan 15 m³, karena 1 m³ = 1.000 liter).'
+        },
+        // 18. Timbangan benda (SVG)
+        {
+          id: 18, type: 'pg', tag: 'Indikator 18 • Berat Benda',
+          stimulus: `<p class="mb-2">Perhatikan hasil penimbangan buah semangka dan melon pada dua timbangan digital berikut:</p>${SVG_ASSETS.mtk_q18_timbangan}`,
+          question: 'Berapakah <strong>selisih berat</strong> antara buah semangka dan buah melon tersebut?',
+          options: ['850 gram', '900 gram', '1.150 gram', '2.150 gram'],
+          answer: 1,
+          explanation: 'Berat semangka = 3.400 − 1.250 = 2.150 gram. Selisih berat semangka dan melon = 2.150 − 1.250 = 900 gram.'
+        },
+        // 19. Kontekstual waktu (BS)
+        {
+          id: 19, type: 'bs', tag: 'Indikator 19 • Durasi Waktu',
+          stimulus: `<p>Rina mengikuti latihan renang di Kolam Renang Jatidiri Semarang. Ia mulai berlatih pukul <strong>14.30</strong> dan selesai berlatih pukul <strong>16.15</strong>. Setelah itu, ia membutuhkan waktu <strong>20 menit</strong> untuk bilas dan berganti pakaian sebelum siap pulang.</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> setiap pernyataan berikut!',
+          statements: [
+            'Durasi latihan renang Rina adalah 1 jam 45 menit.',
+            'Rina selesai bilas dan siap pulang pada pukul 16.35.',
+            'Total waktu Rina sejak mulai latihan hingga siap pulang adalah 2 jam 15 menit.'
+          ],
+          answer: ['Benar', 'Benar', 'Salah'],
+          explanation: '16.15 − 14.30 = 1 jam 45 mnt (Benar). 16.15 + 20 mnt = 16.35 (Benar). Total = 1 jam 45 mnt + 20 mnt = 2 jam 5 mnt (Salah).'
+        },
+        // 20. Keliling bangun datar -> mencari sisi (SVG)
+        {
+          id: 20, type: 'pg', tag: 'Indikator 20 • Keliling Bangun Datar',
+          stimulus: `<p class="mb-2">Kebun sayur sekolah berbentuk persegi panjang dengan keliling <strong>56 meter</strong> seperti gambar berikut:</p>${SVG_ASSETS.mtk_q20_persegipanjang}`,
+          question: 'Berapakah lebar (<strong>l</strong>) kebun sayur sekolah tersebut?',
+          options: ['8 meter', '10 meter', '12 meter', '14 meter'],
+          answer: 1,
+          explanation: 'Keliling = 2 × (p + l) → 56 = 2 × (18 + l) → 28 = 18 + l → l = 10 meter.'
+        },
+        // 21. Luas bangun datar (SVG)
+        {
+          id: 21, type: 'pg', tag: 'Indikator 21 • Luas Bangun Datar',
+          stimulus: `<p class="mb-2">Perhatikan gambar bangun datar trapesium beserta ukuran sisinya berikut:</p>${SVG_ASSETS.mtk_q21_trapesium}`,
+          question: 'Berapakah luas bangun datar trapesium tersebut?',
+          options: ['96 cm²', '112 cm²', '128 cm²', '160 cm²'],
+          answer: 2,
+          explanation: 'Luas trapesium = 1/2 × (a + b) × t = 1/2 × (12 + 20) × 8 = 16 × 8 = 128 cm².'
+        },
+        // 22. Luas bangun datar komposit (SVG)
+        {
+          id: 22, type: 'pg', tag: 'Indikator 22 • Luas Gabungan',
+          stimulus: `<p class="mb-2">Pak Anton akan mengecat seluruh permukaan dinding samping rumahnya yang berbentuk gabungan persegi panjang dan segitiga seperti gambar berikut:</p>${SVG_ASSETS.mtk_q22_komposit}`,
+          question: 'Berapakah luas total dinding yang akan dicat oleh Pak Anton?',
+          options: ['38 m²', '44 m²', '52 m²', '56 m²'],
+          answer: 1,
+          explanation: 'Luas persegi panjang = 8 × 4 = 32 m². Luas segitiga = 1/2 × 8 × 3 = 12 m². Luas total = 32 + 12 = 44 m².'
+        },
+        // 23. Volume gabungan balok dan kubus (SVG)
+        {
+          id: 23, type: 'pg', tag: 'Indikator 23 • Volume Bangun Ruang',
+          stimulus: `<p class="mb-2">Dika menyusun dua kotak penyimpanan mainan berupa balok di bawah dan kubus di atasnya seperti gambar berikut:</p>${SVG_ASSETS.mtk_q23_bangunruang}`,
+          question: 'Berapakah volume gabungan kedua bangun ruang tersebut?',
+          options: ['2.400 cm³', '3.000 cm³', '3.400 cm³', '4.200 cm³'],
+          answer: 2,
+          explanation: 'Volume balok = 20 × 10 × 12 = 2.400 cm³. Volume kubus = 10 × 10 × 10 = 1.000 cm³. Volume gabungan = 3.400 cm³.'
+        },
+        // 24. Penaksiran ukuran (STS)
+        {
+          id: 24, type: 'sts', tag: 'Indikator 24 • Penaksiran Ukuran',
+          stimulus: `<p>Sebuah lift barang di toko buku memiliki kapasitas angkut maksimal <strong>500 kg</strong>. Petugas akan mengangkut <strong>18 kardus</strong> buku paket, dengan berat rata-rata setiap kardus adalah <strong>21 kg</strong>.</p>`,
+          question: 'Dengan menggunakan strategi penaksiran ke puluhan terdekat, tentukan apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong>!',
+          statements: [
+            'Estimasi berat 18 kardus dengan taksiran puluhan terdekat (20 × 20 kg) adalah sekitar 400 kg.',
+            'Seluruh 18 kardus buku tersebut aman diangkut sekaligus dalam satu kali perjalanan lift.',
+            'Jika ditambah 10 kardus lagi (menjadi 28 kardus), total beratnya masih di bawah batas maksimal lift.'
+          ],
+          answer: ['Sesuai', 'Sesuai', 'Tidak Sesuai'],
+          explanation: 'Taksiran 20 × 20 = 400 kg (Sesuai, aktual 378 kg < 500 kg -> aman/Sesuai). Jika 28 kardus: 28 × 20 = 560 kg > 500 kg (Tidak Sesuai).'
+        },
+        // 25. Besar sudut jarum jam (SVG)
+        {
+          id: 25, type: 'pg', tag: 'Indikator 25 • Sudut',
+          stimulus: `<p class="mb-2">Perhatikan posisi jarum jam dinding di ruang kelas pada pukul <strong>04.00</strong> tepat berikut:</p>${SVG_ASSETS.mtk_q25_jam}`,
+          question: 'Berapakah besar sudut terkecil yang dibentuk oleh jarum panjang dan jarum pendek pada pukul 04.00?',
+          options: ['90°', '100°', '120°', '150°'],
+          answer: 2,
+          explanation: 'Setiap 1 jam pada jam dinding membentuk sudut 360° ÷ 12 = 30°. Pukul 04.00 berjarak 4 angka → 4 × 30° = 120°.'
+        },
+        // 26. Data turus (tally) -> tabel frekuensi
+        {
+          id: 26, type: 'pg', tag: 'Indikator 26 • Penyajian Data Turus',
+          stimulus: `<p class="mb-2">Berikut adalah hasil pencatatan hobi 30 siswa kelas VI menggunakan turus (<em>tally</em>):</p>
+          <div class="overflow-x-auto">
+            <table class="w-full max-w-sm mx-auto text-sm border border-slate-300 rounded-lg overflow-hidden">
+              <thead class="bg-blue-50 text-[#1E3A8A]">
+                <tr><th class="p-2 border border-slate-300 text-left">Hobi</th><th class="p-2 border border-slate-300 text-left">Turus</th></tr>
+              </thead>
+              <tbody class="font-mono">
+                <tr><td class="p-2 border border-slate-300 font-sans font-semibold">Membaca</td><td class="p-2 border border-slate-300"><span class="line-through">||||</span> |||</td></tr>
+                <tr><td class="p-2 border border-slate-300 font-sans font-semibold">Sepak Bola</td><td class="p-2 border border-slate-300"><span class="line-through">||||</span> <span class="line-through">||||</span> |</td></tr>
+                <tr><td class="p-2 border border-slate-300 font-sans font-semibold">Menggambar</td><td class="p-2 border border-slate-300"><span class="line-through">||||</span> ||</td></tr>
+                <tr><td class="p-2 border border-slate-300 font-sans font-semibold">Menari</td><td class="p-2 border border-slate-300">||||</td></tr>
+              </tbody>
+            </table>
+          </div>`,
+          question: 'Pasangan frekuensi (banyak siswa) yang tepat sesuai data turus di atas secara berurutan (Membaca, Sepak Bola, Menggambar, Menari) adalah ....',
+          options: [
+            '8, 11, 7, 4',
+            '8, 10, 7, 5',
+            '7, 11, 8, 4',
+            '9, 11, 6, 4'
+          ],
+          answer: 0,
+          explanation: 'Membaca = 5+3 = 8; Sepak Bola = 5+5+1 = 11; Menggambar = 5+2 = 7; Menari = 4. Total = 30 siswa.'
+        },
+        // 27. Interpretasi diagram batang (PGK)
+        {
+          id: 27, type: 'pgk', tag: 'Indikator 27 • Diagram Batang',
+          stimulus: `<p class="mb-2">Perhatikan diagram batang jumlah pengunjung Perpustakaan SD selama lima hari berikut:</p>${SVG_ASSETS.mtk_q27_bar}`,
+          question: 'Pilihlah semua pernyataan yang <strong>benar</strong> berdasarkan diagram batang tersebut!',
+          options: [
+            'Pengunjung terbanyak terjadi pada hari Kamis sebanyak 50 siswa.',
+            'Selisih pengunjung hari Kamis dan hari Rabu adalah 25 siswa.',
+            'Total seluruh pengunjung selama lima hari adalah 170 siswa.',
+            'Jumlah pengunjung hari Senin dan Jumat bersama-sama adalah 65 siswa.'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Kamis terbanyak = 50 (Benar). Selisih Kamis−Rabu = 50−25 = 25 (Benar). Senin+Jumat = 35+30 = 65 (Benar). Total 5 hari = 35+40+25+50+30 = 180 (bukan 170).'
+        },
+        // 28. Piktogram (SVG)
+        {
+          id: 28, type: 'pg', tag: 'Indikator 28 • Piktogram',
+          stimulus: `<p class="mb-2">Piktogram berikut menyajikan hasil panen buah mangga kebun sekolah selama 4 minggu:</p>${SVG_ASSETS.mtk_q28_piktogram}`,
+          question: 'Berapakah <strong>selisih</strong> antara hasil panen tertinggi dan terendah selama 4 minggu tersebut?',
+          options: ['20 kg', '30 kg', '40 kg', '50 kg'],
+          answer: 1,
+          explanation: 'Tertinggi = Minggu 2 (6 × 10 = 60 kg). Terendah = Minggu 3 (3 × 10 = 30 kg). Selisih = 60 − 30 = 30 kg.'
+        },
+        // 29. Evaluasi pernyataan dari diagram batang (BS)
+        {
+          id: 29, type: 'bs', tag: 'Indikator 29 • Analisis Data',
+          stimulus: `<p class="mb-2">Perhatikan diagram batang nilai ulangan Matematika siswa kelas VI berikut:</p>${SVG_ASSETS.mtk_q29_nilai}`,
+          question: 'Evaluasilah apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong> berdasarkan diagram!',
+          statements: [
+            'Jumlah seluruh siswa kelas VI yang mengikuti ulangan adalah 25 siswa.',
+            'Siswa yang memperoleh nilai di atas 80 berjumlah 12 siswa.',
+            'Nilai yang paling banyak diperoleh siswa (modus) adalah nilai 90.'
+          ],
+          answer: ['Benar', 'Benar', 'Salah'],
+          explanation: 'Total siswa = 4+9+7+5 = 25 (Benar). Nilai di atas 80 (90 & 100) = 7+5 = 12 siswa (Benar). Modus adalah nilai 80 sebanyak 9 siswa (Salah).'
+        },
+        // 30. Analisis tren diagram garis -> pilihan paling efisien (STS)
+        {
+          id: 30, type: 'sts', tag: 'Indikator 30 • Tren Data & Efisiensi',
+          stimulus: `<p class="mb-2">Ayah mencatat waktu tempuh mengantar Bagas ke sekolah dari hari Senin sampai Jumat melalui dua pilihan rute berbeda seperti pada diagram garis berikut:</p>${SVG_ASSETS.mtk_q30_tren}`,
+          question: 'Analisislah data tren tersebut dan tentukan apakah kesimpulan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong>!',
+          statements: [
+            'Rute B lebih efisien daripada Rute A karena waktu tempuhnya selalu lebih singkat setiap hari.',
+            'Pada hari Jumat, selisih waktu tempuh antara Rute A dan Rute B adalah 13 menit.',
+            'Rute A memiliki waktu tempuh yang lebih stabil dibandingkan Rute B.'
+          ],
+          answer: ['Sesuai', 'Sesuai', 'Tidak Sesuai'],
+          explanation: 'Rute B selalu 20–22 menit, lebih singkat & stabil daripada Rute A (25–35 menit). Pada Jumat: 35 − 22 = 13 menit.'
+        }
+      ]
+    };
+
+    // =========================================================================
+    // 3. STATE APLIKASI CBT
+    // =========================================================================
+    const TOTAL_DURATION_SEC = 60 * 60; // 60 Menit
+    const state = {
+      student: { name: '', nisn: '', school: '', kelas: 'VI' },
+      subject: null, // 'bindo' | 'mtk'
+      questions: [],
+      currentIndex: 0,
+      answers: {},
+      flagged: {},
+      fontSize: 'base',
+      timeLeft: TOTAL_DURATION_SEC,
+      timerId: null,
+      showDiscussion: false,
+      scoreSubmitted: false,
+      isSubmittingScore: false,
+      lastScorePayload: null
+    };
+
+    // =========================================================================
+    // 4. LOGIKA HALAMAN LOGIN
+    // =========================================================================
+    function selectSubject(subj) {
+      state.subject = subj;
+      document.querySelectorAll('.subject-card').forEach(el => {
+        el.classList.remove('border-[#1E3A8A]', 'bg-blue-50/70', 'ring-2', 'ring-blue-200');
+        el.classList.add('border-slate-200');
+        const badge = el.querySelector('.check-badge');
+        if (badge) { badge.classList.add('hidden'); badge.classList.remove('flex'); }
+      });
+
+      const activeCard = document.getElementById(`card-${subj}`);
+      if (activeCard) {
+        activeCard.classList.remove('border-slate-200');
+        activeCard.classList.add('border-[#1E3A8A]', 'bg-blue-50/70', 'ring-2', 'ring-blue-200');
+        const badge = activeCard.querySelector('.check-badge');
+        if (badge) { badge.classList.remove('hidden'); badge.classList.add('flex'); }
+      }
+      document.getElementById('login-error').classList.add('hidden');
+    }
+
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('input-nama').value.trim();
+      const nisn = document.getElementById('input-nisn').value.trim();
+      const school = document.getElementById('input-sekolah').value.trim();
+      const kelas = document.getElementById('input-kelas').value.trim() || 'VI';
+
+      const errBox = document.getElementById('login-error');
+      const errText = document.getElementById('login-error-text');
+
+      if (!name || !nisn || !school) {
+        errText.textContent = 'Mohon lengkapi Nama Lengkap, Nomor Absen/NISN, dan Nama Sekolah terlebih dahulu.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+      if (!state.subject) {
+        errText.textContent = 'Silakan pilih salah satu Mata Pelajaran (Bahasa Indonesia atau Matematika) sebelum memulai.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+
+      errBox.classList.add('hidden');
+      state.student = { name, nisn, school, kelas };
+      startExam();
+    });
+
+    // =========================================================================
+    // 5. LOGIKA MEMULAI & MENJALANKAN UJIAN
+    // =========================================================================
+    function startExam() {
+      state.questions = QUESTIONS_BANK[state.subject];
+      state.currentIndex = 0;
+      state.answers = {};
+      state.flagged = {};
+      state.timeLeft = TOTAL_DURATION_SEC;
+      state.showDiscussion = false;
+      state.scoreSubmitted = false;
+      state.isSubmittingScore = false;
+      state.lastScorePayload = null;
+
+      // Update Header Ujian
+      document.getElementById('exam-student-name').textContent = state.student.name;
+      document.getElementById('exam-student-school').textContent = `${state.student.school} • Kelas ${state.student.kelas} (${state.student.nisn})`;
+      document.getElementById('exam-subject-badge').textContent = state.subject === 'bindo' ? 'Bahasa Indonesia' : 'Matematika';
+
+      // Pindah Tampilan
+      document.getElementById('view-login').classList.add('hidden');
+      document.getElementById('view-result').classList.add('hidden');
+      document.getElementById('view-exam').classList.remove('hidden');
+
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      renderQuestion();
+      renderNumberBoard();
+      startTimer();
+    }
+
+    function startTimer() {
+      clearInterval(state.timerId);
+      updateTimerUI();
+      state.timerId = setInterval(() => {
+        state.timeLeft--;
+        updateTimerUI();
+        if (state.timeLeft <= 0) {
+          clearInterval(state.timerId);
+          finishExam(true); // Auto-submit
+        }
+      }, 1000);
+    }
+
+    function updateTimerUI() {
+      const mins = Math.floor(Math.max(0, state.timeLeft) / 60);
+      const secs = Math.max(0, state.timeLeft) % 60;
+      const formatted = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      document.getElementById('timer-display').textContent = formatted;
+
+      const box = document.getElementById('timer-box');
+      if (state.timeLeft < 300) {
+        box.classList.add('timer-danger');
+      } else {
+        box.classList.remove('timer-danger');
+      }
+    }
+
+    function setFontSize(size) {
+      state.fontSize = size;
+      const body = document.getElementById('question-body');
+      body.classList.remove('exam-font-sm', 'exam-font-base', 'exam-font-lg');
+      body.classList.add(`exam-font-${size}`);
+
+      // Highlight tombol desktop
+      ['sm', 'base', 'lg'].forEach(s => {
+        const btn = document.getElementById(`btn-font-${s}`);
+        if (btn) {
+          if (s === size) {
+            btn.classList.add('bg-white', 'text-[#1E3A8A]');
+            btn.classList.remove('hover:bg-white/20');
+          } else {
+            btn.classList.remove('bg-white', 'text-[#1E3A8A]');
+            btn.classList.add('hover:bg-white/20');
+          }
+        }
+      });
+
+      // Highlight tombol mobile
+      document.querySelectorAll('.mobile-font-btn').forEach(btn => {
+        if (btn.dataset.size === size) {
+          btn.classList.add('bg-white', 'text-[#1E3A8A]');
+          btn.classList.remove('bg-white/10');
+        } else {
+          btn.classList.remove('bg-white', 'text-[#1E3A8A]');
+          btn.classList.add('bg-white/10');
+        }
+      });
+    }
+
+    // Helper cek status terjawab
+    function isQuestionAnswered(idx) {
+      const q = state.questions[idx];
+      const ans = state.answers[idx];
+      if (q.type === 'pg') return ans !== undefined && ans !== null;
+      if (q.type === 'pgk') return Array.isArray(ans) && ans.length > 0;
+      if (q.type === 'bs' || q.type === 'sts') {
+        return Array.isArray(ans) && ans.length === q.statements.length && ans.every(v => v !== null && v !== undefined);
+      }
+      return false;
+    }
+
+    function getTypeMeta(type) {
+      switch (type) {
+        case 'pg': return { label: 'Pilihan Ganda', cls: 'bg-blue-100 text-blue-800' };
+        case 'pgk': return { label: 'Pilihan Ganda Kompleks', cls: 'bg-purple-100 text-purple-800' };
+        case 'bs': return { label: 'Benar / Salah', cls: 'bg-emerald-100 text-emerald-800' };
+        case 'sts': return { label: 'Sesuai / Tidak Sesuai', cls: 'bg-amber-100 text-amber-800' };
+        default: return { label: type, cls: 'bg-slate-100 text-slate-700' };
+      }
+    }
+
+    // Render Soal Aktif
+    function renderQuestion() {
+      const idx = state.currentIndex;
+      const q = state.questions[idx];
+      const meta = getTypeMeta(q.type);
+
+      document.getElementById('q-number-pill').textContent = `Soal ${idx + 1} / ${state.questions.length}`;
+      const typeBadge = document.getElementById('q-type-badge');
+      typeBadge.textContent = meta.label;
+      typeBadge.className = `px-3 py-1 rounded-xl text-xs font-extrabold ${meta.cls}`;
+      document.getElementById('q-tag-badge').textContent = q.tag;
+
+      // Checkbox ragu-ragu
+      document.getElementById('chk-flag').checked = !!state.flagged[idx];
+
+      // Tombol Navigasi
+      document.getElementById('btn-prev').disabled = idx === 0;
+      const nextBtn = document.getElementById('btn-next');
+      const nextText = document.getElementById('btn-next-text');
+      if (idx === state.questions.length - 1) {
+        nextText.textContent = 'Selesai & Kumpulkan';
+        nextBtn.classList.remove('bg-[#1E3A8A]', 'hover:bg-[#172554]');
+        nextBtn.classList.add('bg-[#DC2626]', 'hover:bg-red-700');
+      } else {
+        nextText.textContent = 'Selanjutnya';
+        nextBtn.classList.remove('bg-[#DC2626]', 'hover:bg-red-700');
+        nextBtn.classList.add('bg-[#1E3A8A]', 'hover:bg-[#172554]');
+      }
+
+      // Bangun HTML Stimulus + Pertanyaan + Input Jawaban
+      let html = '';
+      if (q.stimulus) {
+        html += `<div class="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 leading-relaxed">${q.stimulus}</div>`;
+      }
+
+      html += `<div class="font-bold text-slate-900">${q.question}</div>`;
+
+      // Input sesuai tipe soal
+      if (q.type === 'pg') {
+        const letters = ['A', 'B', 'C', 'D'];
+        const current = state.answers[idx];
+        html += `<div class="grid grid-cols-1 ${q.isHtmlOptions ? 'sm:grid-cols-2' : ''} gap-3">`;
+        q.options.forEach((opt, oIdx) => {
+          const selected = current === oIdx;
+          html += `
+            <label onclick="selectPG(${oIdx})"
+              class="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl border-2 cursor-pointer transition select-none ${selected ? 'border-[#1E3A8A] bg-blue-50/80 shadow-xs' : 'border-slate-200 hover:border-blue-300 hover:bg-slate-50'}">
+              <span class="w-8 h-8 rounded-xl flex items-center justify-center font-extrabold text-sm shrink-0 ${selected ? 'bg-[#1E3A8A] text-white' : 'bg-slate-100 text-slate-700'}">${letters[oIdx]}</span>
+              <div class="flex-1 text-slate-800 font-medium">${opt}</div>
+            </label>
+          `;
+        });
+        html += `</div>`;
+      } else if (q.type === 'pgk') {
+        const current = Array.isArray(state.answers[idx]) ? state.answers[idx] : [];
+        html += `
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Pilih semua jawaban yang benar (lebih dari satu)</span>
+          </div>
+          <div class="space-y-3">
+        `;
+        q.options.forEach((opt, oIdx) => {
+          const checked = current.includes(oIdx);
+          html += `
+            <label onclick="togglePGK(${oIdx})"
+              class="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-2xl border-2 cursor-pointer transition select-none ${checked ? 'border-purple-700 bg-purple-50/70' : 'border-slate-200 hover:border-purple-300 hover:bg-slate-50'}">
+              <span class="w-6 h-6 mt-0.5 rounded-lg border-2 flex items-center justify-center shrink-0 transition ${checked ? 'bg-purple-700 border-purple-700 text-white' : 'border-slate-300 bg-white'}">
+                ${checked ? '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>' : ''}
+              </span>
+              <div class="flex-1 text-slate-800 font-medium">${opt}</div>
+            </label>
+          `;
+        });
+        html += `</div>`;
+      } else if (q.type === 'bs' || q.type === 'sts') {
+        const col1 = q.type === 'bs' ? 'Benar' : 'Sesuai';
+        const col2 = q.type === 'bs' ? 'Salah' : 'Tidak Sesuai';
+        const current = Array.isArray(state.answers[idx]) ? state.answers[idx] : q.statements.map(() => null);
+
+        html += `
+          <div class="overflow-x-auto rounded-2xl border border-slate-200">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-slate-100 text-slate-700 text-xs sm:text-sm font-extrabold">
+                  <th class="p-3.5 border-b border-slate-200">Pernyataan</th>
+                  <th class="p-3.5 border-b border-slate-200 text-center w-24 sm:w-32">${col1}</th>
+                  <th class="p-3.5 border-b border-slate-200 text-center w-24 sm:w-32">${col2}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200">
+        `;
+        q.statements.forEach((stmt, sIdx) => {
+          const val = current[sIdx];
+          html += `
+            <tr class="hover:bg-slate-50/80 transition">
+              <td class="p-3.5 text-slate-800 font-medium">${sIdx + 1}. ${stmt}</td>
+              <td class="p-2 text-center">
+                <button type="button" onclick="selectMatrix(${sIdx}, '${col1}')"
+                  class="w-full py-2 px-2 rounded-xl border-2 text-xs sm:text-sm font-bold transition ${val === col1 ? 'border-emerald-600 bg-emerald-600 text-white shadow-xs' : 'border-slate-200 bg-white text-slate-600 hover:border-emerald-400'}">
+                  ${col1}
+                </button>
+              </td>
+              <td class="p-2 text-center">
+                <button type="button" onclick="selectMatrix(${sIdx}, '${col2}')"
+                  class="w-full py-2 px-2 rounded-xl border-2 text-xs sm:text-sm font-bold transition ${val === col2 ? 'border-[#DC2626] bg-[#DC2626] text-white shadow-xs' : 'border-slate-200 bg-white text-slate-600 hover:border-red-300'}">
+                  ${col2}
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+        html += `</tbody></table></div>`;
+      }
+
+      document.getElementById('question-body').innerHTML = html;
+    }
+
+    // Handler Input Jawaban
+    function selectPG(optionIdx) {
+      state.answers[state.currentIndex] = optionIdx;
+      renderQuestion();
+      renderNumberBoard();
+    }
+
+    function togglePGK(optionIdx) {
+      const idx = state.currentIndex;
+      const arr = Array.isArray(state.answers[idx]) ? [...state.answers[idx]] : [];
+      const pos = arr.indexOf(optionIdx);
+      if (pos >= 0) arr.splice(pos, 1);
+      else arr.push(optionIdx);
+      arr.sort((a, b) => a - b);
+      state.answers[idx] = arr;
+      renderQuestion();
+      renderNumberBoard();
+    }
+
+    function selectMatrix(stmtIdx, val) {
+      const idx = state.currentIndex;
+      const q = state.questions[idx];
+      const arr = Array.isArray(state.answers[idx]) ? [...state.answers[idx]] : q.statements.map(() => null);
+      arr[stmtIdx] = val;
+      state.answers[idx] = arr;
+      renderQuestion();
+      renderNumberBoard();
+    }
+
+    function toggleFlag() {
+      const idx = state.currentIndex;
+      state.flagged[idx] = document.getElementById('chk-flag').checked;
+      renderNumberBoard();
+    }
+
+    // Navigasi Soal
+    function goToQuestion(idx) {
+      state.currentIndex = idx;
+      renderQuestion();
+      renderNumberBoard();
+      toggleMobileBoard(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevQuestion() {
+      if (state.currentIndex > 0) goToQuestion(state.currentIndex - 1);
+    }
+
+    function nextQuestion() {
+      if (state.currentIndex < state.questions.length - 1) {
+        goToQuestion(state.currentIndex + 1);
+      } else {
+        openSubmitModal();
+      }
+    }
+
+    // =========================================================================
+    // 6. PAPAN NOMOR SOAL (DESKTOP & MOBILE DRAWER)
+    // =========================================================================
+    function renderNumberBoard() {
+      let answeredCount = 0;
+      let buttonsHtml = '<div class="grid grid-cols-5 gap-2">';
+
+      state.questions.forEach((q, idx) => {
+        const answered = isQuestionAnswered(idx);
+        const flagged = !!state.flagged[idx];
+        const isCurrent = idx === state.currentIndex;
+        if (answered) answeredCount++;
+
+        let colorCls = 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200';
+        if (flagged) {
+          colorCls = 'bg-amber-400 text-amber-950 border-amber-500 hover:bg-amber-500';
+        } else if (answered) {
+          colorCls = 'bg-emerald-500 text-white border-emerald-600 hover:bg-emerald-600';
+        }
+
+        const ringCls = isCurrent ? 'ring-2 ring-offset-2 ring-[#1E3A8A] scale-105' : '';
+
+        buttonsHtml += `
+          <button type="button" onclick="goToQuestion(${idx})"
+            class="h-10 rounded-xl border font-bold text-sm transition flex items-center justify-center ${colorCls} ${ringCls}">
+            ${idx + 1}
+          </button>
+        `;
+      });
+      buttonsHtml += '</div>';
+
+      const pct = Math.round((answeredCount / state.questions.length) * 100);
+      const boardHtml = `
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display font-extrabold text-base text-[#1E3A8A]">Papan Nomor Soal</h3>
+            <span class="px-2.5 py-1 rounded-lg bg-blue-50 text-[#1E3A8A] text-xs font-extrabold">Terjawab: ${answeredCount} / ${state.questions.length}</span>
+          </div>
+          <!-- Progress Bar -->
+          <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+            <div class="h-full bg-emerald-500 rounded-full transition-all duration-300" style="width:${pct}%"></div>
+          </div>
+
+          ${buttonsHtml}
+
+          <!-- Legenda Warna -->
+          <div class="grid grid-cols-2 gap-2 pt-3 border-t border-slate-100 text-[11px] font-semibold text-slate-600">
+            <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-emerald-500 inline-block"></span> Sudah Dijawab</div>
+            <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-amber-400 inline-block"></span> Ragu-ragu</div>
+            <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-slate-100 border border-slate-300 inline-block"></span> Belum Dijawab</div>
+            <div class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-white ring-2 ring-[#1E3A8A] inline-block"></span> Sedang Dibuka</div>
+          </div>
+
+          <button type="button" onclick="openSubmitModal()"
+            class="w-full py-3 px-4 rounded-2xl bg-[#DC2626] hover:bg-red-700 text-white font-display font-extrabold text-sm shadow transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            <span>Kumpulkan Ujian</span>
+          </button>
+        </div>
+      `;
+
+      document.getElementById('board-desktop-container').innerHTML = boardHtml;
+      document.getElementById('board-mobile-container').innerHTML = boardHtml;
+    }
+
+    function toggleMobileBoard(show) {
+      const overlay = document.getElementById('mobile-board-overlay');
+      if (show) overlay.classList.remove('hidden');
+      else overlay.classList.add('hidden');
+    }
+
+    // =========================================================================
+    // 7. MODAL KONFIRMASI & PENILAIAN AKHIR
+    // =========================================================================
+    function openSubmitModal() {
+      toggleMobileBoard(false);
+      let answered = 0, unanswered = 0, flagged = 0;
+      state.questions.forEach((_, idx) => {
+        if (isQuestionAnswered(idx)) answered++;
+        else unanswered++;
+        if (state.flagged[idx]) flagged++;
+      });
+
+      document.getElementById('modal-submit-summary').innerHTML =
+        `Kamu telah menjawab <strong>${answered}</strong> dari <strong>${state.questions.length}</strong> soal.`;
+
+      const warn = document.getElementById('modal-submit-warning');
+      if (unanswered > 0 || flagged > 0) {
+        const parts = [];
+        if (unanswered > 0) parts.push(`${unanswered} soal belum dijawab`);
+        if (flagged > 0) parts.push(`${flagged} soal ditandai ragu-ragu`);
+        warn.textContent = `Perhatian: Masih ada ${parts.join(' dan ')}. Yakin ingin mengumpulkan?`;
+        warn.classList.remove('hidden');
+      } else {
+        warn.classList.add('hidden');
+      }
+
+      document.getElementById('modal-submit').classList.remove('hidden');
+    }
+
+    function closeSubmitModal() {
+      document.getElementById('modal-submit').classList.add('hidden');
+    }
+
+    // Evaluasi akurasi jawaban per soal (100% presisi untuk 4 tipe)
+    function isQuestionCorrect(idx) {
+      const q = state.questions[idx];
+      const ans = state.answers[idx];
+      if (!isQuestionAnswered(idx)) return false;
+
+      if (q.type === 'pg') {
+        return ans === q.answer;
+      }
+      if (q.type === 'pgk') {
+        if (!Array.isArray(ans) || ans.length !== q.answer.length) return false;
+        return q.answer.every(k => ans.includes(k));
+      }
+      if (q.type === 'bs' || q.type === 'sts') {
+        if (!Array.isArray(ans) || ans.length !== q.answer.length) return false;
+        return q.answer.every((v, i) => ans[i] === v);
+      }
+      return false;
+    }
+
+    function finishExam(isAutoSubmit) {
+      clearInterval(state.timerId);
+      closeSubmitModal();
+
+      const timeSpentSec = TOTAL_DURATION_SEC - Math.max(0, state.timeLeft);
+      const spentMin = Math.floor(timeSpentSec / 60);
+      const spentSec = timeSpentSec % 60;
+
+      // Hitung statistik total & per tipe
+      let totalCorrect = 0, totalWrong = 0, totalEmpty = 0;
+      const byType = {
+        pg: { label: 'Pilihan Ganda (PG)', total: 0, correct: 0 },
+        pgk: { label: 'Pilihan Ganda Kompleks (PGK)', total: 0, correct: 0 },
+        bs: { label: 'Benar / Salah', total: 0, correct: 0 },
+        sts: { label: 'Sesuai / Tidak Sesuai', total: 0, correct: 0 }
+      };
+
+      state.questions.forEach((q, idx) => {
+        byType[q.type].total++;
+        if (!isQuestionAnswered(idx)) {
+          totalEmpty++;
+        } else if (isQuestionCorrect(idx)) {
+          totalCorrect++;
+          byType[q.type].correct++;
+        } else {
+          totalWrong++;
+        }
+      });
+
+      const score = Math.round((totalCorrect / state.questions.length) * 100);
+      let predikat = { text: 'Perlu Bimbingan', cls: 'bg-red-100 text-red-800 border-red-200' };
+      if (score >= 85) predikat = { text: 'Sangat Baik (Istimewa)', cls: 'bg-emerald-100 text-emerald-800 border-emerald-200' };
+      else if (score >= 70) predikat = { text: 'Baik', cls: 'bg-blue-100 text-blue-800 border-blue-200' };
+      else if (score >= 55) predikat = { text: 'Cukup', cls: 'bg-amber-100 text-amber-800 border-amber-200' };
+
+      const subjectName = state.subject === 'bindo' ? 'Bahasa Indonesia' : 'Matematika';
+
+      let html = '';
+      if (isAutoSubmit) {
+        html += `
+          <div class="p-4 rounded-2xl bg-amber-50 border border-amber-300 text-amber-900 text-sm font-bold flex items-center gap-2.5 no-print">
+            <svg class="w-5 h-5 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Waktu pengerjaan 60 menit telah berakhir. Jawabanmu telah dikumpulkan secara otomatis.</span>
+          </div>
+        `;
+      }
+
+      // Wadah Badge Status Pengiriman Nilai ke Google Sheets
+      html += `<div id="sheets-status-container" class="no-print"></div>`;
+
+      // Kartu Ringkasan Nilai & Identitas
+      html += `
+        <section class="bg-white rounded-3xl shadow-md border border-slate-200 p-6 sm:p-8 print-shadow-none">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <!-- Identitas -->
+            <div class="md:col-span-7 space-y-2.5">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#1E3A8A] text-xs font-extrabold uppercase">
+                <span>${subjectName}</span> • <span>Kelas ${state.student.kelas}</span>
+              </div>
+              <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">${escapeHtml(state.student.name)}</h2>
+              <div class="text-sm text-slate-600 space-y-1">
+                <p><strong>Sekolah:</strong> ${escapeHtml(state.student.school)}</p>
+                <p><strong>No. Absen / NISN:</strong> ${escapeHtml(state.student.nisn)}</p>
+                <p><strong>Waktu Pengerjaan:</strong> ${spentMin} menit ${spentSec} detik</p>
+              </div>
+            </div>
+
+            <!-- Skor Besar -->
+            <div class="md:col-span-5 flex flex-col items-center justify-center p-6 rounded-3xl bg-gradient-to-br from-[#1E3A8A] to-[#172554] text-white text-center shadow-inner">
+              <span class="text-xs font-bold uppercase tracking-widest text-blue-200">Nilai Akhir</span>
+              <div class="font-display text-6xl font-extrabold my-1 tracking-tight">${score}</div>
+              <span class="mt-1 px-3.5 py-1 rounded-full text-xs font-extrabold border ${predikat.cls}">${predikat.text}</span>
+            </div>
+          </div>
+
+          <!-- 3 Kotak Benar / Salah / Kosong -->
+          <div class="grid grid-cols-3 gap-3 sm:gap-4 mt-6 pt-6 border-t border-slate-100">
+            <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-center">
+              <div class="text-2xl sm:text-3xl font-extrabold text-emerald-700">${totalCorrect}</div>
+              <div class="text-xs sm:text-sm font-bold text-emerald-800 mt-0.5">Benar</div>
+            </div>
+            <div class="p-4 rounded-2xl bg-red-50 border border-red-200 text-center">
+              <div class="text-2xl sm:text-3xl font-extrabold text-[#DC2626]">${totalWrong}</div>
+              <div class="text-xs sm:text-sm font-bold text-red-800 mt-0.5">Salah</div>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-center">
+              <div class="text-2xl sm:text-3xl font-extrabold text-slate-700">${totalEmpty}</div>
+              <div class="text-xs sm:text-sm font-bold text-slate-600 mt-0.5">Tidak Dijawab</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Ringkasan Skor Per Tipe Soal -->
+        <section class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 print-shadow-none print-break-inside">
+          <h3 class="font-display font-extrabold text-lg text-[#1E3A8A] mb-4">Capaian Berdasarkan Jenis Soal</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            ${Object.values(byType).map(item => {
+              const p = item.total ? Math.round((item.correct / item.total) * 100) : 0;
+              return `
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                  <div class="text-xs font-bold text-slate-500">${item.label}</div>
+                  <div class="flex items-baseline justify-between mt-1.5">
+                    <span class="text-xl font-extrabold text-slate-900">${item.correct} <span class="text-sm font-semibold text-slate-400">/ ${item.total}</span></span>
+                    <span class="text-xs font-extrabold text-[#1E3A8A]">${p}%</span>
+                  </div>
+                  <div class="w-full h-2 bg-slate-200 rounded-full mt-2 overflow-hidden">
+                    <div class="h-full bg-[#1E3A8A] rounded-full" style="width:${p}%"></div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </section>
+
+        <!-- Tombol Toggle Pembahasan -->
+        <div class="no-print flex justify-center">
+          <button type="button" id="btn-toggle-discussion" onclick="toggleDiscussion()"
+            class="px-6 py-3.5 rounded-2xl bg-white hover:bg-blue-50 text-[#1E3A8A] border-2 border-[#1E3A8A] font-display font-extrabold text-sm sm:text-base shadow-xs transition flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span id="toggle-disc-label">Lihat Pembahasan & Kunci Jawaban (30 Soal)</span>
+          </button>
+        </div>
+
+        <!-- Daftar Pembahasan -->
+        <section id="discussion-container" class="hidden space-y-4">
+          <h3 class="font-display font-extrabold text-xl text-[#1E3A8A]">Pembahasan & Kunci Jawaban</h3>
+          ${buildDiscussionHTML()}
+        </section>
+      `;
+
+      document.getElementById('result-content').innerHTML = html;
+      document.getElementById('view-exam').classList.add('hidden');
+      document.getElementById('view-result').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Siapkan payload nilai & kirim otomatis ke Google Sheets
+      const payload = {
+        nama: state.student.name,
+        absen: state.student.nisn,
+        sekolah: state.student.school,
+        mapel: subjectName,
+        nilai: score,
+        predikat: predikat.text
+      };
+      state.lastScorePayload = payload;
+      kirimNilaiKeSheets(payload);
+    }
+
+    // =========================================================================
+    // 8. PENGIRIMAN NILAI OTOMATIS KE GOOGLE SHEETS (APPS SCRIPT)
+    // =========================================================================
+    function renderSheetsStatus(status) {
+      const container = document.getElementById('sheets-status-container');
+      if (!container) return;
+
+      if (status === 'unconfigured') {
+        container.innerHTML = `
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm flex items-center gap-3">
+            <svg class="w-5 h-5 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span><strong>Mode latihan mandiri aktif</strong> — tautan Google Sheets belum dipasang, hasil dapat langsung dicetak atau disimpan sebagai PDF.</span>
+          </div>
+        `;
+      } else if (status === 'loading') {
+        container.innerHTML = `
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-blue-50 border border-blue-200 text-[#1E3A8A] text-xs sm:text-sm font-bold flex items-center gap-3">
+            <svg class="w-5 h-5 animate-spin text-[#1E3A8A] shrink-0" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+            <span>Mengirim nilai ke rekap...</span>
+          </div>
+        `;
+      } else if (status === 'success') {
+        container.innerHTML = `
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-bold flex items-center gap-3">
+            <svg class="w-5 h-5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Nilai berhasil terekam ke Google Sheets</span>
+          </div>
+        `;
+      } else if (status === 'error') {
+        container.innerHTML = `
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-red-50 border border-red-200 text-red-800 text-xs sm:text-sm flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5 font-bold">
+              <svg class="w-5 h-5 text-[#DC2626] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>Gagal merekam nilai ke Google Sheets. Periksa koneksi internetmu lalu coba lagi.</span>
+            </div>
+            <button type="button" onclick="kirimUlangNilai()"
+              class="px-3.5 py-2 rounded-xl bg-[#DC2626] hover:bg-red-700 text-white text-xs font-extrabold shadow-xs transition shrink-0">
+              Kirim Ulang Nilai
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    async function kirimNilaiKeSheets(payload) {
+      const url = (GOOGLE_SCRIPT_URL || '').trim();
+
+      // Cek apakah URL Apps Script sudah dikonfigurasi
+      if (!url || url === 'PASTE_URL_WEB_APP_APPS_SCRIPT_DI_SINI') {
+        renderSheetsStatus('unconfigured');
+        return;
+      }
+
+      // Cegah pengiriman ganda pada sesi ujian yang sama
+      if (state.scoreSubmitted || state.isSubmittingScore) {
+        return;
+      }
+
+      state.isSubmittingScore = true;
+      renderSheetsStatus('loading');
+
+      try {
+        await fetch(url, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        state.scoreSubmitted = true;
+        renderSheetsStatus('success');
+      } catch (err) {
+        console.error('Gagal mengirim nilai ke Google Sheets:', err);
+        renderSheetsStatus('error');
+      } finally {
+        state.isSubmittingScore = false;
+      }
+    }
+
+    function kirimUlangNilai() {
+      if (state.lastScorePayload && !state.scoreSubmitted && !state.isSubmittingScore) {
+        kirimNilaiKeSheets(state.lastScorePayload);
+      }
+    }
+
+    function backToHome() {
+      clearInterval(state.timerId);
+      document.getElementById('view-result').classList.add('hidden');
+      document.getElementById('view-exam').classList.add('hidden');
+      document.getElementById('view-login').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+  </script>
+</body>
+</html>
