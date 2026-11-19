@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ASSIKS 2026/2027 — Asesmen Standar Siswa Kota Semarang (SD Kelas VI)</title>
+  <title>ASSIKS 2026/2027 — Asesmen Standar Siswa Kota Semarang (SD Kelas IV, V &amp; VI)</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Plus Jakarta Sans & Nunito -->
@@ -75,10 +75,10 @@
 <body class="font-sans antialiased min-h-screen flex flex-col">
 
   <!-- ==================== 1. HALAMAN LOGIN & IDENTITAS MURID ==================== -->
-  <div id="view-login" class="flex-1 flex flex-col">
+  <div id="view-login" class="flex-1 flex flex-col bg-gradient-to-b from-slate-50 via-blue-50/30 to-slate-100">
     <!-- Header Resmi ASSIKS -->
     <header class="bg-gradient-to-r from-[#172554] via-[#1E3A8A] to-[#1E40AF] text-white shadow-lg border-b-4 border-[#F59E0B]">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-5 flex items-center gap-4">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-5 sm:py-6 flex items-center gap-4">
         <!-- Logo Emblem Kota Semarang / ASSIKS (SVG Inline) -->
         <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/10 border border-white/25 flex items-center justify-center shrink-0 shadow-inner">
           <svg viewBox="0 0 64 64" class="w-11 h-11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo ASSIKS">
@@ -90,8 +90,8 @@
             <circle cx="32" cy="12" r="2.5" fill="#FDE047"/>
           </svg>
         </div>
-        <div>
-          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#DC2626] text-white text-xs font-bold tracking-wide uppercase mb-1 shadow-sm">
+        <div class="min-w-0">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#DC2626] text-white text-[11px] sm:text-xs font-bold tracking-wide uppercase mb-1.5 shadow-sm">
             <span>Program ASSIKS</span>
             <span>•</span>
             <span>TA 2026/2027</span>
@@ -99,85 +99,127 @@
           <h1 class="font-display text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight leading-tight">
             ASSIKS — Asesmen Standar Siswa Kota Semarang
           </h1>
-          <p class="text-blue-100 text-xs sm:text-sm mt-0.5">
-            Ujian Berbasis Komputer (CBT) Jenjang Sekolah Dasar (SD) Kelas VI
+          <p class="text-blue-100 text-xs sm:text-sm mt-1">
+            Ujian Berbasis Komputer (CBT) Jenjang Sekolah Dasar (SD) Kelas IV, V, &amp; VI
           </p>
         </div>
       </div>
     </header>
 
     <!-- Konten Utama Login -->
-    <main class="max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 flex-1">
+    <main class="max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 flex-1 space-y-6">
       <!-- Pendahuluan Singkat & Ramah -->
-      <div class="mb-6 p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-blue-50 via-white to-amber-50 border border-blue-200/80 shadow-xs flex items-start gap-3.5">
-        <div class="w-10 h-10 rounded-2xl bg-[#1E3A8A] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <section class="p-4 sm:p-5 rounded-3xl bg-white border border-blue-200/80 shadow-sm flex items-start gap-4">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#1E3A8A] to-[#1D4ED8] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
         </div>
-        <div class="text-sm sm:text-base text-slate-700 leading-relaxed">
-          <p class="font-display font-extrabold text-[#1E3A8A] mb-0.5">Selamat datang di Web Latihan ASSIKS Kelas VI!</p>
-          <p class="text-xs sm:text-sm text-slate-600">
-            Terima kasih sudah berkunjung. Media ini hadir sebagai sarana belajar mandiri yang nyaman bagi siswa, orang tua, maupun Bapak/Ibu guru untuk berlatih soal berbasis komputer. Silakan lengkapi data diri di bawah ini, pilih mata pelajaran, dan selamat berlatih dengan tenang!
+        <div class="space-y-1">
+          <h2 class="font-display font-extrabold text-base sm:text-lg text-[#1E3A8A]">
+            Selamat datang di Web Latihan ASSIKS Kelas IV, V, &amp; VI!
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Terima kasih sudah berkunjung. Media ini hadir sebagai sarana belajar mandiri yang nyaman bagi siswa, orang tua, maupun Bapak/Ibu guru untuk berlatih soal berbasis komputer. Silakan lengkapi data diri di bawah ini, pilih kelas dan mata pelajaran, lalu selamat berlatih dengan tenang!
           </p>
         </div>
-      </div>
+      </section>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Kolom Form Identitas & Pilih Mapel -->
-        <div class="lg:col-span-8 bg-white rounded-3xl shadow-md border border-slate-200 p-5 sm:p-7">
-          <div class="flex items-center gap-3 mb-5 pb-4 border-b border-slate-100">
-            <div class="w-10 h-10 rounded-xl bg-blue-100 text-[#1E3A8A] flex items-center justify-center font-extrabold text-lg">
-              1
-            </div>
-            <div>
-              <h2 class="font-display text-lg sm:text-xl font-extrabold text-slate-800">Identitas Peserta Ujian</h2>
-              <p class="text-xs sm:text-sm text-slate-500">Isi data dirimu dengan benar sebelum memulai ujian ya!</p>
-            </div>
-          </div>
-
+        <!-- Kolom Form Identitas, Pilih Kelas & Pilih Mapel -->
+        <section class="lg:col-span-8 bg-white rounded-3xl shadow-sm border border-slate-200/90 p-5 sm:p-7">
           <!-- Pesan Validasi Inline (Pengganti alert) -->
-          <div id="login-error" class="hidden mb-5 p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-sm flex items-start gap-3">
+          <div id="login-error" class="hidden mb-6 p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-sm flex items-start gap-3">
             <svg class="w-5 h-5 shrink-0 mt-0.5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <span id="login-error-text">Mohon lengkapi seluruh data identitas dan pilih mata pelajaran terlebih dahulu.</span>
+            <span id="login-error-text" class="font-medium">Mohon lengkapi seluruh data identitas, pilih kelas, dan pilih mata pelajaran terlebih dahulu.</span>
           </div>
 
-          <form id="login-form" class="space-y-4" novalidate>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label for="input-nama" class="block text-sm font-bold text-slate-700 mb-1.5">Nama Lengkap <span class="text-red-600">*</span></label>
-                <input id="input-nama" type="text" placeholder="Contoh: Arjuna Pratama" required
-                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-slate-800 font-medium" />
+          <form id="login-form" class="space-y-6" novalidate>
+            <!-- Langkah 1: Identitas Peserta -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
+                <div class="w-9 h-9 rounded-xl bg-blue-100 text-[#1E3A8A] flex items-center justify-center font-extrabold text-base shrink-0">
+                  1
+                </div>
+                <div>
+                  <h3 class="font-display text-base sm:text-lg font-extrabold text-slate-800">Identitas Peserta Ujian</h3>
+                  <p class="text-xs text-slate-500">Isi data dirimu dengan benar sebelum memulai latihan.</p>
+                </div>
               </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="input-nama" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">
+                    Nama Lengkap <span class="text-red-600">*</span>
+                  </label>
+                  <input id="input-nama" type="text" placeholder="Contoh: Arjuna Pratama" required
+                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50/40 focus:bg-white focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-sm sm:text-base text-slate-800 font-medium" />
+                </div>
+                <div>
+                  <label for="input-nisn" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">
+                    Nomor Absen / NISN <span class="text-red-600">*</span>
+                  </label>
+                  <input id="input-nisn" type="text" placeholder="Contoh: 05 / 0145678910" required
+                    class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50/40 focus:bg-white focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-sm sm:text-base text-slate-800 font-medium" />
+                </div>
+              </div>
+
               <div>
-                <label for="input-nisn" class="block text-sm font-bold text-slate-700 mb-1.5">Nomor Absen / NISN <span class="text-red-600">*</span></label>
-                <input id="input-nisn" type="text" placeholder="Contoh: 05 / 0145678910" required
-                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-slate-800 font-medium" />
+                <label for="input-sekolah" class="block text-xs sm:text-sm font-bold text-slate-700 mb-1.5">
+                  Nama Sekolah <span class="text-red-600">*</span>
+                </label>
+                <input id="input-sekolah" type="text" placeholder="Contoh: SDN Pedurungan Lor 01" required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50/40 focus:bg-white focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-sm sm:text-base text-slate-800 font-medium" />
               </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div class="sm:col-span-2">
-                <label for="input-sekolah" class="block text-sm font-bold text-slate-700 mb-1.5">Nama Sekolah <span class="text-red-600">*</span></label>
-                <input id="input-sekolah" type="text" placeholder="SDN Pedurungan Lor 01" required
-                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-slate-800 font-medium" />
-              </div>
-              <div>
-                <label for="input-kelas" class="block text-sm font-bold text-slate-700 mb-1.5">Kelas</label>
-                <input id="input-kelas" type="text" value="VI"
-                  class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:border-[#1E3A8A] focus:ring-2 focus:ring-blue-200 outline-none transition text-slate-800 font-bold" />
-              </div>
-            </div>
-
-            <!-- Pilihan Mata Pelajaran -->
-            <div class="pt-3">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-extrabold text-sm">
+            <!-- Langkah 2: Pilih Kelas -->
+            <div class="space-y-3 pt-1">
+              <div class="flex items-center gap-3 pb-2 border-b border-slate-100">
+                <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-extrabold text-base shrink-0">
                   2
                 </div>
-                <label class="block text-base font-extrabold text-slate-800">Pilih Mata Pelajaran <span class="text-red-600">*</span></label>
+                <div>
+                  <h3 class="font-display text-base sm:text-lg font-extrabold text-slate-800">
+                    Pilih Kelas <span class="text-red-600">*</span>
+                  </h3>
+                  <p class="text-xs text-slate-500">Pilih jenjang kelas untuk menampilkan paket soal yang sesuai.</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-3">
+                <button type="button" id="btn-class-IV" onclick="selectClass('IV')"
+                  class="class-btn py-3.5 px-3 rounded-2xl border-2 border-slate-200 hover:border-blue-400 bg-white font-display font-extrabold text-sm sm:text-base text-slate-700 transition flex flex-col items-center justify-center gap-0.5">
+                  <span>Kelas IV</span>
+                  <span class="text-[11px] font-semibold opacity-75">Fase B</span>
+                </button>
+                <button type="button" id="btn-class-V" onclick="selectClass('V')"
+                  class="class-btn py-3.5 px-3 rounded-2xl border-2 border-slate-200 hover:border-blue-400 bg-white font-display font-extrabold text-sm sm:text-base text-slate-700 transition flex flex-col items-center justify-center gap-0.5">
+                  <span>Kelas V</span>
+                  <span class="text-[11px] font-semibold opacity-75">Fase C</span>
+                </button>
+                <button type="button" id="btn-class-VI" onclick="selectClass('VI')"
+                  class="class-btn py-3.5 px-3 rounded-2xl border-2 border-slate-200 hover:border-blue-400 bg-white font-display font-extrabold text-sm sm:text-base text-slate-700 transition flex flex-col items-center justify-center gap-0.5">
+                  <span>Kelas VI</span>
+                  <span class="text-[11px] font-semibold opacity-75">Fase C</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Langkah 3: Pilih Mata Pelajaran -->
+            <div class="space-y-3 pt-1">
+              <div class="flex items-center gap-3 pb-2 border-b border-slate-100">
+                <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-extrabold text-base shrink-0">
+                  3
+                </div>
+                <div>
+                  <h3 class="font-display text-base sm:text-lg font-extrabold text-slate-800">
+                    Pilih Mata Pelajaran <span class="text-red-600">*</span>
+                  </h3>
+                  <p class="text-xs text-slate-500">Setiap mata pelajaran terdiri dari 30 soal dengan waktu 60 menit.</p>
+                </div>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -189,15 +231,15 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                     </svg>
                   </div>
-                  <div class="flex-1">
+                  <div class="flex-1 pr-5">
                     <div class="font-display font-extrabold text-base text-slate-900">Bahasa Indonesia</div>
-                    <div class="text-xs text-slate-600 mt-1 font-semibold flex items-center gap-2">
+                    <div class="text-xs text-slate-600 mt-1 font-semibold flex flex-wrap items-center gap-1.5">
                       <span class="px-2 py-0.5 rounded-md bg-slate-100">30 Soal</span>
                       <span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">60 Menit</span>
                     </div>
-                    <p class="text-xs text-slate-500 mt-2">Pemahaman Tekstual, Inferensial, Evaluasi & Apresiasi</p>
+                    <p id="desc-bindo" class="text-xs text-slate-500 mt-2 leading-relaxed">Pemahaman Tekstual, Inferensial, Evaluasi &amp; Apresiasi</p>
                   </div>
-                  <div class="check-badge hidden absolute top-3 right-3 w-6 h-6 rounded-full bg-[#1E3A8A] text-white items-center justify-center">
+                  <div class="check-badge hidden absolute top-3.5 right-3.5 w-6 h-6 rounded-full bg-[#1E3A8A] text-white items-center justify-center">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                   </div>
                 </button>
@@ -210,24 +252,25 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                     </svg>
                   </div>
-                  <div class="flex-1">
+                  <div class="flex-1 pr-5">
                     <div class="font-display font-extrabold text-base text-slate-900">Matematika</div>
-                    <div class="text-xs text-slate-600 mt-1 font-semibold flex items-center gap-2">
+                    <div class="text-xs text-slate-600 mt-1 font-semibold flex flex-wrap items-center gap-1.5">
                       <span class="px-2 py-0.5 rounded-md bg-slate-100">30 Soal</span>
                       <span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">60 Menit</span>
                     </div>
-                    <p class="text-xs text-slate-500 mt-2">Bilangan, Geometri, Pengukuran & Analisis Data</p>
+                    <p id="desc-mtk" class="text-xs text-slate-500 mt-2 leading-relaxed">Bilangan, Aljabar, Geometri, Pengukuran &amp; Data</p>
                   </div>
-                  <div class="check-badge hidden absolute top-3 right-3 w-6 h-6 rounded-full bg-[#1E3A8A] text-white items-center justify-center">
+                  <div class="check-badge hidden absolute top-3.5 right-3.5 w-6 h-6 rounded-full bg-[#1E3A8A] text-white items-center justify-center">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                   </div>
                 </button>
               </div>
             </div>
 
-            <div class="pt-4">
+            <!-- Tombol Mulai -->
+            <div class="pt-2">
               <button type="submit"
-                class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#1E3A8A] to-[#1D4ED8] hover:from-[#172554] hover:to-[#1E3A8A] text-white font-display font-extrabold text-base sm:text-lg shadow-lg shadow-blue-900/20 transition transform active:scale-[0.99] flex items-center justify-center gap-2">
+                class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#1E3A8A] to-[#1D4ED8] hover:from-[#172554] hover:to-[#1E3A8A] text-white font-display font-extrabold text-base sm:text-lg shadow-lg shadow-blue-900/20 transition transform active:scale-[0.99] flex items-center justify-center gap-2.5">
                 <span>Mulai Mengerjakan Ujian</span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -235,16 +278,19 @@
               </button>
             </div>
           </form>
-        </div>
+        </section>
 
         <!-- Kolom Petunjuk Pengerjaan -->
-        <aside class="lg:col-span-4 bg-white rounded-3xl shadow-md border border-slate-200 p-5 sm:p-6 space-y-4">
-          <div class="flex items-center gap-2.5 text-[#1E3A8A]">
-            <svg class="w-6 h-6 text-[#F59E0B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <h3 class="font-display font-extrabold text-lg">Petunjuk Pengerjaan</h3>
+        <aside class="lg:col-span-4 lg:sticky lg:top-6 bg-white rounded-3xl shadow-sm border border-slate-200/90 p-5 sm:p-6 space-y-5">
+          <div class="flex items-center gap-2.5 pb-3 border-b border-slate-100 text-[#1E3A8A]">
+            <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-extrabold text-base sm:text-lg">Petunjuk Pengerjaan</h3>
           </div>
+
           <ul class="space-y-3 text-sm text-slate-600">
             <li class="flex items-start gap-2.5">
               <span class="w-5 h-5 rounded-full bg-blue-100 text-[#1E3A8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
@@ -259,27 +305,29 @@
               <span>Terdapat <strong>4 jenis soal</strong> yang akan kamu temui:</span>
             </li>
           </ul>
-          <div class="grid grid-cols-1 gap-2 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-xs">
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold shrink-0">PG</span>
+
+          <div class="space-y-2 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 text-xs">
+            <div class="flex items-center gap-2.5">
+              <span class="w-11 text-center py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold shrink-0">PG</span>
               <span class="text-slate-700">Pilihan Ganda (pilih <strong>1</strong> jawaban benar).</span>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded-md bg-purple-100 text-purple-800 font-bold shrink-0">PGK</span>
-              <span class="text-slate-700">Pilihan Ganda Kompleks (pilih <strong>lebih dari 1</strong> jawaban benar).</span>
+            <div class="flex items-center gap-2.5">
+              <span class="w-11 text-center py-0.5 rounded-md bg-purple-100 text-purple-800 font-bold shrink-0">PGK</span>
+              <span class="text-slate-700">Pilihan Ganda Kompleks (pilih <strong>&gt; 1</strong> jawaban).</span>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold shrink-0">B/S</span>
+            <div class="flex items-center gap-2.5">
+              <span class="w-11 text-center py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold shrink-0">B/S</span>
               <span class="text-slate-700">Tabel pernyataan <strong>Benar / Salah</strong>.</span>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 font-bold shrink-0">S/TS</span>
+            <div class="flex items-center gap-2.5">
+              <span class="w-11 text-center py-0.5 rounded-md bg-amber-100 text-amber-800 font-bold shrink-0">S/TS</span>
               <span class="text-slate-700">Tabel pernyataan <strong>Sesuai / Tidak Sesuai</strong>.</span>
             </div>
           </div>
-          <p class="text-xs text-slate-500 leading-relaxed">
-            Gunakan <strong>Papan Nomor Soal</strong> untuk memantau soal yang sudah dijawab (hijau), ragu-ragu (kuning), atau belum dijawab (putih).
-          </p>
+
+          <div class="p-3.5 rounded-2xl bg-blue-50/70 border border-blue-100 text-xs text-slate-600 leading-relaxed">
+            Gunakan <strong>Papan Nomor Soal</strong> untuk memantau soal yang sudah dijawab (<span class="font-bold text-emerald-700">hijau</span>), ragu-ragu (<span class="font-bold text-amber-700">kuning</span>), atau belum dijawab (<span class="font-bold text-slate-700">putih</span>).
+          </div>
         </aside>
       </div>
     </main>
@@ -292,7 +340,7 @@
       <div class="max-w-7xl mx-auto px-3 sm:px-5 py-2.5 flex flex-wrap items-center justify-between gap-2">
         <!-- Info Siswa & Mapel -->
         <div class="flex items-center gap-2.5 min-w-0">
-          <div class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center font-extrabold text-sm shrink-0 border border-white/20">
+          <div id="exam-class-badge" class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center font-extrabold text-sm shrink-0 border border-white/20">
             VI
           </div>
           <div class="min-w-0">
@@ -465,12 +513,12 @@
 
   <!-- ==================== FOOTER GLOBAL (TAMPIL DI SEMUA HALAMAN & CETAK PDF) ==================== -->
   <footer class="mt-auto text-center py-4 px-4 text-xs sm:text-sm text-slate-500 border-t border-slate-200 bg-white">
-    <span>ASSIKS — Asesmen Standar Siswa Kota Semarang (SD Kelas VI)</span>
+    <span>ASSIKS — Asesmen Standar Siswa Kota Semarang (SD Kelas IV, V, &amp; VI)</span>
     <span class="mx-2 text-slate-300">•</span>
     <span class="font-bold text-[#1E3A8A]">by puspitawinda_</span>
   </footer>
 
-  <!-- ==================== SCRIPT UTAMA (SVG, BANK 60 SOAL, LOGIKA CBT) ==================== -->
+  <!-- ==================== SCRIPT UTAMA (SVG, BANK 180 SOAL, LOGIKA CBT) ==================== -->
   <script>
     // =========================================================================
     // KONFIGURASI REKAM NILAI GOOGLE SHEETS (GOOGLE APPS SCRIPT)
@@ -896,11 +944,410 @@
             <text x="75" y="196">Senin</text><text x="150" y="196">Selasa</text><text x="225" y="196">Rabu</text><text x="300" y="196">Kamis</text><text x="375" y="196">Jumat</text>
           </g>
         </svg>
+      `,
+
+      // ==================== ASET SVG KHUSUS KELAS V ====================
+      bi5_komik: `
+        <svg viewBox="0 0 560 195" class="w-full max-w-2xl mx-auto rounded-2xl border border-slate-300 bg-white shadow-xs" xmlns="http://www.w3.org/2000/svg">
+          <rect width="560" height="28" fill="#1E3A8A"/>
+          <text x="280" y="19" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="800" font-family="sans-serif">KOMIK MINI: "BUDAYA ANTRE DI KANTIN SEKOLAH"</text>
+
+          <!-- Panel 1 -->
+          <rect x="10" y="36" width="174" height="148" rx="10" fill="#FEF9C3" stroke="#CA8A04" stroke-width="2"/>
+          <text x="20" y="52" fill="#854D0E" font-size="10" font-weight="800">Panel 1</text>
+          <rect x="20" y="58" width="154" height="36" rx="8" fill="#FFFFFF" stroke="#94A3B8"/>
+          <text x="97" y="73" text-anchor="middle" fill="#0F172A" font-size="9.5" font-weight="700">"Aduh, aku lapar sekali!</text>
+          <text x="97" y="86" text-anchor="middle" fill="#0F172A" font-size="9.5" font-weight="700">Aku langsung ke depan saja."</text>
+          <!-- Anak menyerobot (Bimo) -->
+          <circle cx="62" cy="122" r="14" fill="#FDBA74" stroke="#9A3412" stroke-width="1.5"/>
+          <path d="M57,125 Q62,121 67,125" stroke="#7C2D12" stroke-width="1.5" fill="none"/>
+          <rect x="50" y="137" width="24" height="30" rx="6" fill="#DC2626"/>
+          <text x="62" y="179" text-anchor="middle" fill="#7F1D1D" font-size="9.5" font-weight="800">Bimo</text>
+          <!-- Anak mengantre (Sita) -->
+          <circle cx="130" cy="122" r="14" fill="#FDE68A" stroke="#92400E" stroke-width="1.5"/>
+          <rect x="118" y="137" width="24" height="30" rx="6" fill="#2563EB"/>
+          <text x="130" y="179" text-anchor="middle" fill="#1E3A8A" font-size="9.5" font-weight="800">Sita</text>
+
+          <!-- Panel 2 -->
+          <rect x="193" y="36" width="174" height="148" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+          <text x="203" y="52" fill="#1E40AF" font-size="10" font-weight="800">Panel 2</text>
+          <rect x="203" y="58" width="154" height="38" rx="8" fill="#FFFFFF" stroke="#94A3B8"/>
+          <text x="280" y="73" text-anchor="middle" fill="#0F172A" font-size="9.5" font-weight="700">"Bimo, ayo antre dari</text>
+          <text x="280" y="86" text-anchor="middle" fill="#0F172A" font-size="9.5" font-weight="700">belakang agar tertib ya!"</text>
+          <circle cx="245" cy="122" r="14" fill="#FDE68A" stroke="#92400E" stroke-width="1.5"/>
+          <path d="M240,124 Q245,129 250,124" stroke="#78350F" stroke-width="1.5" fill="none"/>
+          <rect x="233" y="137" width="24" height="30" rx="6" fill="#2563EB"/>
+          <text x="245" y="179" text-anchor="middle" fill="#1E3A8A" font-size="9.5" font-weight="800">Sita (Menegur)</text>
+          <circle cx="318" cy="122" r="14" fill="#FDBA74" stroke="#9A3412" stroke-width="1.5"/>
+          <rect x="306" y="137" width="24" height="30" rx="6" fill="#DC2626"/>
+          <text x="318" y="179" text-anchor="middle" fill="#7F1D1D" font-size="9.5" font-weight="800">Bimo (Malu)</text>
+
+          <!-- Panel 3 -->
+          <rect x="376" y="36" width="174" height="148" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="2"/>
+          <text x="386" y="52" fill="#065F46" font-size="10" font-weight="800">Panel 3</text>
+          <rect x="386" y="58" width="154" height="38" rx="8" fill="#FFFFFF" stroke="#94A3B8"/>
+          <text x="463" y="73" text-anchor="middle" fill="#0F172A" font-size="9.5" font-weight="700">"Maaf teman-teman, aku</text>
+          <text x="463" y="86" text-anchor="middle" fill="#0F172A" font-size="9.5" font-weight="700">ikut antre di belakang."</text>
+          <circle cx="425" cy="122" r="13" fill="#FDE68A" stroke="#92400E" stroke-width="1.5"/>
+          <rect x="414" y="136" width="22" height="28" rx="6" fill="#2563EB"/>
+          <circle cx="465" cy="122" r="13" fill="#BBF7D0" stroke="#15803D" stroke-width="1.5"/>
+          <rect x="454" y="136" width="22" height="28" rx="6" fill="#16A34A"/>
+          <circle cx="505" cy="122" r="13" fill="#FDBA74" stroke="#9A3412" stroke-width="1.5"/>
+          <path d="M500,124 Q505,129 510,124" stroke="#7C2D12" stroke-width="1.5" fill="none"/>
+          <rect x="494" y="136" width="22" height="28" rx="6" fill="#DC2626"/>
+          <text x="463" y="179" text-anchor="middle" fill="#065F46" font-size="9.5" font-weight="800">Antrean Rapi &amp; Senang</text>
+        </svg>
+      `,
+
+      bi5_infografik: `
+        <svg viewBox="0 0 540 235" class="w-full max-w-xl mx-auto rounded-2xl border border-indigo-200 bg-white shadow-xs" xmlns="http://www.w3.org/2000/svg">
+          <rect width="540" height="46" fill="#1E3A8A"/>
+          <text x="270" y="22" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="800">INFOGRAFIK: BIJAK MENGGUNAKAN GAWAI</text>
+          <text x="270" y="38" text-anchor="middle" fill="#FDE047" font-size="10.5" font-weight="700">Panduan Sehat untuk Anak Usia Sekolah Dasar (6–12 Tahun)</text>
+
+          <!-- Kartu 1 -->
+          <rect x="16" y="58" width="160" height="82" rx="12" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+          <text x="96" y="79" text-anchor="middle" fill="#1E3A8A" font-size="12" font-weight="800">BATAS WAKTU</text>
+          <text x="96" y="102" text-anchor="middle" fill="#DC2626" font-size="18" font-weight="800">Maks. 2 Jam</text>
+          <text x="96" y="122" text-anchor="middle" fill="#334155" font-size="10">per hari di luar jam</text>
+          <text x="96" y="133" text-anchor="middle" fill="#334155" font-size="10">belajar sekolah</text>
+
+          <!-- Kartu 2 -->
+          <rect x="190" y="58" width="160" height="82" rx="12" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+          <text x="270" y="79" text-anchor="middle" fill="#065F46" font-size="12" font-weight="800">ATURAN MATA</text>
+          <text x="270" y="102" text-anchor="middle" fill="#059669" font-size="17" font-weight="800">20 - 20 - 20</text>
+          <text x="270" y="122" text-anchor="middle" fill="#334155" font-size="10">Tiap 20 menit, lihat objek</text>
+          <text x="270" y="133" text-anchor="middle" fill="#334155" font-size="10">jarak 6 meter selama 20 detik</text>
+
+          <!-- Kartu 3 -->
+          <rect x="364" y="58" width="160" height="82" rx="12" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+          <text x="444" y="79" text-anchor="middle" fill="#92400E" font-size="12" font-weight="800">JARAK &amp; CAHAYA</text>
+          <text x="444" y="102" text-anchor="middle" fill="#B45309" font-size="17" font-weight="800">30 – 40 cm</text>
+          <text x="444" y="122" text-anchor="middle" fill="#334155" font-size="10">Gunakan di ruangan terang,</text>
+          <text x="444" y="133" text-anchor="middle" fill="#334155" font-size="10">hindari sambil berbaring</text>
+
+          <!-- Bar Bawah -->
+          <rect x="16" y="152" width="508" height="68" rx="12" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
+          <text x="32" y="173" fill="#991B1B" font-size="11.5" font-weight="800">ZONA BEBAS GAWAI &amp; PENDAMPINGAN:</text>
+          <text x="32" y="191" fill="#334155" font-size="10.5">• Matikan gawai minimal 1 jam sebelum tidur agar kualitas tidur tetap terjaga.</text>
+          <text x="32" y="208" fill="#334155" font-size="10.5">• Hindari memakai gawai saat makan bersama keluarga dan selalu minta izin orang tua.</text>
+        </svg>
+      `,
+
+      mtk5_segitiga_kaki: `
+        <svg viewBox="0 0 260 155" class="w-56 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="130,20 50,130 210,130" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="3"/>
+          <!-- Tanda sama panjang pada kaki -->
+          <line x1="84" y1="70" x2="96" y2="78" stroke="#DC2626" stroke-width="2.5"/>
+          <line x1="176" y1="70" x2="164" y2="78" stroke="#DC2626" stroke-width="2.5"/>
+          <text x="72" y="68" fill="#1E3A8A" font-size="13" font-weight="800">15 cm</text>
+          <text x="188" y="68" fill="#1E3A8A" font-size="13" font-weight="800">15 cm</text>
+          <text x="130" y="148" text-anchor="middle" fill="#DC2626" font-size="13" font-weight="800">Alas = 18 cm</text>
+        </svg>
+      `,
+
+      mtk5_segienam: `
+        <svg viewBox="0 0 230 170" class="w-48 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="75,25 155,25 195,85 155,145 75,145 35,85" fill="#FEF3C7" stroke="#B45309" stroke-width="3"/>
+          <text x="115" y="18" text-anchor="middle" fill="#92400E" font-size="13" font-weight="800">14 cm</text>
+          <text x="115" y="90" text-anchor="middle" fill="#78350F" font-size="12" font-weight="800">Segi Enam</text>
+          <text x="115" y="106" text-anchor="middle" fill="#78350F" font-size="12" font-weight="800">Beraturan</text>
+        </svg>
+      `,
+
+      mtk5_layang: `
+        <svg viewBox="0 0 250 180" class="w-56 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="125,18 205,70 125,162 45,70" fill="#E0E7FF" stroke="#3730A3" stroke-width="3"/>
+          <line x1="125" y1="18" x2="125" y2="162" stroke="#DC2626" stroke-width="2" stroke-dasharray="5 3"/>
+          <line x1="45" y1="70" x2="205" y2="70" stroke="#059669" stroke-width="2" stroke-dasharray="5 3"/>
+          <text x="133" y="128" fill="#DC2626" font-size="12" font-weight="800">d1 = 24 cm</text>
+          <text x="160" y="63" fill="#065F46" font-size="12" font-weight="800">d2 = 16 cm</text>
+        </svg>
+      `,
+
+      mtk5_gabungan: `
+        <svg viewBox="0 0 280 175" class="w-64 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Persegi kiri 10x10 (100x100) + Persegi panjang kanan 14x6 (140x60) -->
+          <rect x="25" y="35" width="90" height="105" fill="#BFDBFE" stroke="#1E3A8A" stroke-width="2.5"/>
+          <rect x="115" y="75" width="130" height="65" fill="#FDE68A" stroke="#B45309" stroke-width="2.5"/>
+          <text x="70" y="27" text-anchor="middle" fill="#1E3A8A" font-size="12.5" font-weight="800">10 cm</text>
+          <text x="12" y="92" text-anchor="middle" fill="#1E3A8A" font-size="12.5" font-weight="800" transform="rotate(-90 14,92)">10 cm</text>
+          <text x="180" y="67" text-anchor="middle" fill="#92400E" font-size="12.5" font-weight="800">14 cm</text>
+          <text x="262" y="112" text-anchor="middle" fill="#92400E" font-size="12.5" font-weight="800">6 cm</text>
+          <text x="70" y="92" text-anchor="middle" fill="#1E3A8A" font-size="11" font-weight="800">Bangun I</text>
+          <text x="180" y="112" text-anchor="middle" fill="#92400E" font-size="11" font-weight="800">Bangun II</text>
+        </svg>
+      `,
+
+      mtk5_sudut_garis: `
+        <svg viewBox="0 0 280 145" class="w-64 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Garis lurus AB -->
+          <line x1="25" y1="110" x2="255" y2="110" stroke="#1E3A8A" stroke-width="3"/>
+          <!-- Garis miring OC membentuk 65 derajat di kanan -->
+          <line x1="140" y1="110" x2="195" y2="22" stroke="#DC2626" stroke-width="3"/>
+          <!-- Busur sudut -->
+          <path d="M175,110 A35,35 0 0,0 158,80" fill="#FEF08A" stroke="#CA8A04" stroke-width="2"/>
+          <path d="M105,110 A35,35 0 0,1 158,80" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+          <text x="183" y="98" fill="#92400E" font-size="13" font-weight="800">65°</text>
+          <text x="108" y="88" fill="#1E3A8A" font-size="14" font-weight="800">x = ?</text>
+          <text x="25" y="128" fill="#334155" font-size="12" font-weight="800">A</text>
+          <text x="136" y="128" fill="#334155" font-size="12" font-weight="800">O</text>
+          <text x="248" y="128" fill="#334155" font-size="12" font-weight="800">B</text>
+          <text x="200" y="24" fill="#DC2626" font-size="12" font-weight="800">C</text>
+        </svg>
+      `,
+
+      mtk5_sudut_segitiga: `
+        <svg viewBox="0 0 260 155" class="w-56 mx-auto" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="50,130 220,130 95,25" fill="#DCFCE7" stroke="#15803D" stroke-width="3"/>
+          <text x="72" y="122" fill="#166534" font-size="12.5" font-weight="800">70°</text>
+          <text x="172" y="122" fill="#166534" font-size="12.5" font-weight="800">45°</text>
+          <text x="95" y="58" text-anchor="middle" fill="#DC2626" font-size="13" font-weight="800">∠C = ?</text>
+          <text x="38" y="142" fill="#334155" font-size="12" font-weight="800">A</text>
+          <text x="224" y="142" fill="#334155" font-size="12" font-weight="800">B</text>
+          <text x="95" y="18" text-anchor="middle" fill="#334155" font-size="12" font-weight="800">C</text>
+        </svg>
+      `,
+
+      mtk5_piktogram: `
+        <svg viewBox="0 0 420 185" class="w-full max-w-md mx-auto bg-white rounded-xl border border-slate-200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="420" height="30" fill="#1E3A8A"/>
+          <text x="210" y="20" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="800">Buku Dipinjam Siswa Kelas V (Per Bulan)</text>
+          <!-- Juli: 5 -->
+          <text x="16" y="58" font-size="12" font-weight="700" fill="#334155">Juli</text>
+          <g transform="translate(95,45)" fill="#2563EB">
+            <rect x="0" y="0" width="18" height="16" rx="3"/><rect x="26" y="0" width="18" height="16" rx="3"/><rect x="52" y="0" width="18" height="16" rx="3"/><rect x="78" y="0" width="18" height="16" rx="3"/><rect x="104" y="0" width="18" height="16" rx="3"/>
+          </g>
+          <line x1="12" y1="70" x2="408" y2="70" stroke="#E2E8F0"/>
+          <!-- Agustus: 7 -->
+          <text x="16" y="94" font-size="12" font-weight="700" fill="#334155">Agustus</text>
+          <g transform="translate(95,81)" fill="#2563EB">
+            <rect x="0" y="0" width="18" height="16" rx="3"/><rect x="26" y="0" width="18" height="16" rx="3"/><rect x="52" y="0" width="18" height="16" rx="3"/><rect x="78" y="0" width="18" height="16" rx="3"/><rect x="104" y="0" width="18" height="16" rx="3"/><rect x="130" y="0" width="18" height="16" rx="3"/><rect x="156" y="0" width="18" height="16" rx="3"/>
+          </g>
+          <line x1="12" y1="106" x2="408" y2="106" stroke="#E2E8F0"/>
+          <!-- September: 4 -->
+          <text x="16" y="130" font-size="12" font-weight="700" fill="#334155">September</text>
+          <g transform="translate(95,117)" fill="#2563EB">
+            <rect x="0" y="0" width="18" height="16" rx="3"/><rect x="26" y="0" width="18" height="16" rx="3"/><rect x="52" y="0" width="18" height="16" rx="3"/><rect x="78" y="0" width="18" height="16" rx="3"/>
+          </g>
+          <line x1="12" y1="142" x2="408" y2="142" stroke="#E2E8F0"/>
+          <!-- Oktober: 6 -->
+          <text x="16" y="164" font-size="12" font-weight="700" fill="#334155">Oktober</text>
+          <g transform="translate(95,151)" fill="#2563EB">
+            <rect x="0" y="0" width="18" height="16" rx="3"/><rect x="26" y="0" width="18" height="16" rx="3"/><rect x="52" y="0" width="18" height="16" rx="3"/><rect x="78" y="0" width="18" height="16" rx="3"/><rect x="104" y="0" width="18" height="16" rx="3"/><rect x="130" y="0" width="18" height="16" rx="3"/>
+          </g>
+          <text x="404" y="166" text-anchor="end" font-size="11" font-weight="800" fill="#DC2626">1 ■ = 5 buku</text>
+        </svg>
+      `,
+
+      mtk5_batang: `
+        <svg viewBox="0 0 410 195" class="w-full max-w-md mx-auto bg-white rounded-xl border border-slate-200" xmlns="http://www.w3.org/2000/svg">
+          <text x="205" y="20" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1E3A8A">Ekstrakurikuler Favorit Siswa Kelas V</text>
+          <line x1="48" y1="160" x2="385" y2="160" stroke="#64748B" stroke-width="1.5"/>
+          <line x1="48" y1="120" x2="385" y2="120" stroke="#E2E8F0"/>
+          <line x1="48" y1="80" x2="385" y2="80" stroke="#E2E8F0"/>
+          <line x1="48" y1="40" x2="385" y2="40" stroke="#E2E8F0"/>
+          <g font-size="10.5" fill="#475569" text-anchor="end">
+            <text x="42" y="164">0</text><text x="42" y="124">10</text><text x="42" y="84">20</text><text x="42" y="44">30</text>
+          </g>
+          <!-- Pramuka 24 (96px), Tari 14 (56px), Futsal 20 (80px), Lukis 12 (48px) -->
+          <rect x="68" y="64" width="50" height="96" rx="4" fill="#F59E0B"/>
+          <text x="93" y="58" text-anchor="middle" font-size="11" font-weight="800" fill="#B45309">24</text>
+          <text x="93" y="178" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">Pramuka</text>
+
+          <rect x="148" y="104" width="50" height="56" rx="4" fill="#10B981"/>
+          <text x="173" y="98" text-anchor="middle" font-size="11" font-weight="800" fill="#065F46">14</text>
+          <text x="173" y="178" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">Tari</text>
+
+          <rect x="228" y="80" width="50" height="80" rx="4" fill="#3B82F6"/>
+          <text x="253" y="74" text-anchor="middle" font-size="11" font-weight="800" fill="#1E3A8A">20</text>
+          <text x="253" y="178" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">Futsal</text>
+
+          <rect x="308" y="112" width="50" height="48" rx="4" fill="#8B5CF6"/>
+          <text x="333" y="106" text-anchor="middle" font-size="11" font-weight="800" fill="#5B21B6">12</text>
+          <text x="333" y="178" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">Lukis</text>
+        </svg>
+      `,
+
+      // ==================== ASET SVG KHUSUS KELAS IV ====================
+      bi4_denah: `
+        <svg viewBox="0 0 560 250" class="w-full max-w-2xl mx-auto rounded-2xl border border-slate-300 bg-emerald-50/40 shadow-xs" xmlns="http://www.w3.org/2000/svg">
+          <!-- Judul Denah -->
+          <rect width="560" height="30" fill="#1E3A8A"/>
+          <text x="280" y="20" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="800" font-family="sans-serif">DENAH LINGKUNGAN SEKITAR SDN NUSANTARA</text>
+
+          <!-- Arah Mata Angin (Kanan Atas) -->
+          <g transform="translate(508,68)">
+            <circle cx="0" cy="0" r="24" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+            <path d="M0,-16 L4,-4 L0,-7 L-4,-4 Z" fill="#DC2626"/>
+            <line x1="0" y1="-15" x2="0" y2="15" stroke="#1E3A8A" stroke-width="1.8"/>
+            <line x1="-15" y1="0" x2="15" y2="0" stroke="#1E3A8A" stroke-width="1.8"/>
+            <text x="0" y="-17" text-anchor="middle" font-size="9" font-weight="800" fill="#DC2626">U</text>
+            <text x="0" y="23" text-anchor="middle" font-size="8.5" font-weight="800" fill="#334155">S</text>
+            <text x="19" y="3" text-anchor="middle" font-size="8.5" font-weight="800" fill="#334155">T</text>
+            <text x="-19" y="3" text-anchor="middle" font-size="8.5" font-weight="800" fill="#334155">B</text>
+          </g>
+
+          <!-- Jalan Horizontal: Jl. Pandanaran -->
+          <rect x="18" y="112" width="524" height="28" fill="#CBD5E1" stroke="#64748B" stroke-width="1.2"/>
+          <line x1="25" y1="126" x2="535" y2="126" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="10 8"/>
+          <text x="115" y="130" text-anchor="middle" font-size="10.5" font-weight="800" fill="#0F172A">Jl. Pandanaran</text>
+          <text x="415" y="130" text-anchor="middle" font-size="10.5" font-weight="800" fill="#0F172A">Jl. Pandanaran</text>
+
+          <!-- Jalan Vertikal: Jl. Pemuda -->
+          <rect x="255" y="38" width="28" height="200" fill="#CBD5E1" stroke="#64748B" stroke-width="1.2"/>
+          <line x1="269" y1="45" x2="269" y2="232" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8 7"/>
+          <text x="273" y="212" font-size="10" font-weight="800" fill="#0F172A" transform="rotate(-90 273,212)">Jl. Pemuda</text>
+
+          <!-- Bangunan Utara Jl. Pandanaran (Kiri ke Kanan) -->
+          <rect x="34" y="52" width="96" height="48" rx="8" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="2"/>
+          <text x="82" y="74" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1E3A8A">SDN</text>
+          <text x="82" y="88" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1E3A8A">Nusantara</text>
+
+          <rect x="145" y="52" width="96" height="48" rx="8" fill="#DCFCE7" stroke="#15803D" stroke-width="2"/>
+          <text x="193" y="74" text-anchor="middle" font-size="10.5" font-weight="800" fill="#166534">Taman</text>
+          <text x="193" y="88" text-anchor="middle" font-size="10.5" font-weight="800" fill="#166534">Kota</text>
+
+          <rect x="302" y="52" width="110" height="48" rx="8" fill="#FEF3C7" stroke="#B45309" stroke-width="2"/>
+          <text x="357" y="74" text-anchor="middle" font-size="10.5" font-weight="800" fill="#92400E">Perpustakaan</text>
+          <text x="357" y="88" text-anchor="middle" font-size="10.5" font-weight="800" fill="#92400E">Daerah</text>
+
+          <!-- Bangunan Selatan Jl. Pandanaran (Kiri ke Kanan) -->
+          <rect x="34" y="154" width="96" height="48" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+          <text x="82" y="182" text-anchor="middle" font-size="10.5" font-weight="800" fill="#991B1B">Puskesmas</text>
+
+          <rect x="145" y="154" width="96" height="48" rx="8" fill="#F3E8FF" stroke="#7E22CE" stroke-width="2"/>
+          <text x="193" y="176" text-anchor="middle" font-size="10.5" font-weight="800" fill="#581C87">Rumah</text>
+          <text x="193" y="190" text-anchor="middle" font-size="10.5" font-weight="800" fill="#581C87">Dito</text>
+
+          <rect x="302" y="154" width="102" height="48" rx="8" fill="#FFEDD5" stroke="#C2410C" stroke-width="2"/>
+          <text x="353" y="182" text-anchor="middle" font-size="10.5" font-weight="800" fill="#9A3412">Pasar Pagi</text>
+
+          <rect x="420" y="154" width="104" height="48" rx="8" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"/>
+          <text x="472" y="182" text-anchor="middle" font-size="10.5" font-weight="800" fill="#115E59">Masjid Agung</text>
+        </svg>
+      `,
+
+      mtk4_perkalian_gambar: `
+        <svg viewBox="0 0 460 145" class="w-full max-w-md mx-auto bg-white rounded-xl border border-slate-200 p-2" xmlns="http://www.w3.org/2000/svg">
+          <text x="230" y="20" text-anchor="middle" font-size="12" font-weight="800" fill="#1E3A8A">6 Kotak Pensil Warna (Setiap kotak berisi 12 batang)</text>
+          <!-- 6 Kotak -->
+          <g transform="translate(18,34)">
+            <rect x="0" y="0" width="64" height="90" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+            <text x="32" y="24" text-anchor="middle" font-size="10" font-weight="800" fill="#1E3A8A">Kotak 1</text>
+            <circle cx="32" cy="56" r="18" fill="#DBEAFE"/><text x="32" y="61" text-anchor="middle" font-size="14" font-weight="800" fill="#1D4ED8">12</text>
+
+            <rect x="72" y="0" width="64" height="90" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+            <text x="104" y="24" text-anchor="middle" font-size="10" font-weight="800" fill="#1E3A8A">Kotak 2</text>
+            <circle cx="104" cy="56" r="18" fill="#DBEAFE"/><text x="104" y="61" text-anchor="middle" font-size="14" font-weight="800" fill="#1D4ED8">12</text>
+
+            <rect x="144" y="0" width="64" height="90" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+            <text x="176" y="24" text-anchor="middle" font-size="10" font-weight="800" fill="#1E3A8A">Kotak 3</text>
+            <circle cx="176" cy="56" r="18" fill="#DBEAFE"/><text x="176" y="61" text-anchor="middle" font-size="14" font-weight="800" fill="#1D4ED8">12</text>
+
+            <rect x="216" y="0" width="64" height="90" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+            <text x="248" y="24" text-anchor="middle" font-size="10" font-weight="800" fill="#1E3A8A">Kotak 4</text>
+            <circle cx="248" cy="56" r="18" fill="#DBEAFE"/><text x="248" y="61" text-anchor="middle" font-size="14" font-weight="800" fill="#1D4ED8">12</text>
+
+            <rect x="288" y="0" width="64" height="90" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+            <text x="320" y="24" text-anchor="middle" font-size="10" font-weight="800" fill="#1E3A8A">Kotak 5</text>
+            <circle cx="320" cy="56" r="18" fill="#DBEAFE"/><text x="320" y="61" text-anchor="middle" font-size="14" font-weight="800" fill="#1D4ED8">12</text>
+
+            <rect x="360" y="0" width="64" height="90" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+            <text x="392" y="24" text-anchor="middle" font-size="10" font-weight="800" fill="#1E3A8A">Kotak 6</text>
+            <circle cx="392" cy="56" r="18" fill="#DBEAFE"/><text x="392" y="61" text-anchor="middle" font-size="14" font-weight="800" fill="#1D4ED8">12</text>
+          </g>
+        </svg>
+      `,
+
+      mtk4_pecahan_pembilang1: `
+        <svg viewBox="0 0 380 140" class="w-full max-w-sm mx-auto bg-white rounded-xl border border-slate-200 p-2" xmlns="http://www.w3.org/2000/svg">
+          <!-- Pita A: 1/3 -->
+          <text x="12" y="34" font-size="12" font-weight="800" fill="#1E3A8A">Pita A</text>
+          <rect x="70" y="14" width="90" height="30" fill="#3B82F6" stroke="#1E3A8A" stroke-width="2"/>
+          <rect x="160" y="14" width="90" height="30" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/>
+          <rect x="250" y="14" width="90" height="30" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/>
+          <text x="358" y="34" text-anchor="middle" font-size="12" font-weight="800" fill="#1E3A8A">1/3</text>
+
+          <!-- Pita B: 1/5 -->
+          <text x="12" y="80" font-size="12" font-weight="800" fill="#065F46">Pita B</text>
+          <rect x="70" y="60" width="54" height="30" fill="#10B981" stroke="#065F46" stroke-width="2"/>
+          <rect x="124" y="60" width="54" height="30" fill="#F1F5F9" stroke="#065F46" stroke-width="2"/>
+          <rect x="178" y="60" width="54" height="30" fill="#F1F5F9" stroke="#065F46" stroke-width="2"/>
+          <rect x="232" y="60" width="54" height="30" fill="#F1F5F9" stroke="#065F46" stroke-width="2"/>
+          <rect x="286" y="60" width="54" height="30" fill="#F1F5F9" stroke="#065F46" stroke-width="2"/>
+          <text x="358" y="80" text-anchor="middle" font-size="12" font-weight="800" fill="#065F46">1/5</text>
+
+          <!-- Keterangan -->
+          <text x="190" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#475569">Panjang pita utuh A dan B sama panjang</text>
+        </svg>
+      `,
+
+      mtk4_pecahan_senilai: `
+        <svg viewBox="0 0 360 120" class="w-full max-w-sm mx-auto bg-white rounded-xl border border-slate-200 p-2" xmlns="http://www.w3.org/2000/svg">
+          <!-- Batang 1: 2/3 -->
+          <text x="12" y="38" font-size="12" font-weight="800" fill="#1E3A8A">2/3</text>
+          <rect x="52" y="18" width="90" height="32" fill="#F59E0B" stroke="#92400E" stroke-width="2"/>
+          <rect x="142" y="18" width="90" height="32" fill="#F59E0B" stroke="#92400E" stroke-width="2"/>
+          <rect x="232" y="18" width="90" height="32" fill="#F1F5F9" stroke="#92400E" stroke-width="2"/>
+
+          <!-- Batang 2: 4/6 -->
+          <text x="12" y="88" font-size="12" font-weight="800" fill="#DC2626">?/6</text>
+          <rect x="52" y="68" width="45" height="32" fill="#3B82F6" stroke="#1E3A8A" stroke-width="2"/>
+          <rect x="97" y="68" width="45" height="32" fill="#3B82F6" stroke="#1E3A8A" stroke-width="2"/>
+          <rect x="142" y="68" width="45" height="32" fill="#3B82F6" stroke="#1E3A8A" stroke-width="2"/>
+          <rect x="187" y="68" width="45" height="32" fill="#3B82F6" stroke="#1E3A8A" stroke-width="2"/>
+          <rect x="232" y="68" width="45" height="32" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/>
+          <rect x="277" y="68" width="45" height="32" fill="#F1F5F9" stroke="#1E3A8A" stroke-width="2"/>
+        </svg>
+      `,
+
+      mtk4_perseratus: `
+        <svg viewBox="0 0 220 220" class="w-48 mx-auto bg-white rounded-xl border border-slate-200 p-2" xmlns="http://www.w3.org/2000/svg">
+          <!-- Grid 10x10 = 100 kotak, 35 kotak diarsir (3 kolom penuh + 5 kotak di kolom 4) -->
+          <rect x="10" y="10" width="60" height="200" fill="#3B82F6"/>
+          <rect x="70" y="10" width="20" height="100" fill="#3B82F6"/>
+          <rect x="70" y="110" width="20" height="100" fill="#F8FAFC"/>
+          <rect x="90" y="10" width="120" height="200" fill="#F8FAFC"/>
+          <!-- Garis Grid 10x10 -->
+          <g stroke="#1E3A8A" stroke-width="1">
+            <rect x="10" y="10" width="200" height="200" fill="none" stroke-width="2"/>
+            <line x1="30" y1="10" x2="30" y2="210"/><line x1="50" y1="10" x2="50" y2="210"/><line x1="70" y1="10" x2="70" y2="210"/><line x1="90" y1="10" x2="90" y2="210"/><line x1="110" y1="10" x2="110" y2="210"/><line x1="130" y1="10" x2="130" y2="210"/><line x1="150" y1="10" x2="150" y2="210"/><line x1="170" y1="10" x2="170" y2="210"/><line x1="190" y1="10" x2="190" y2="210"/>
+            <line x1="10" y1="30" x2="210" y2="30"/><line x1="10" y1="50" x2="210" y2="50"/><line x1="10" y1="70" x2="210" y2="70"/><line x1="10" y1="90" x2="210" y2="90"/><line x1="10" y1="110" x2="210" y2="110"/><line x1="10" y1="130" x2="210" y2="130"/><line x1="10" y1="150" x2="210" y2="150"/><line x1="10" y1="170" x2="210" y2="170"/><line x1="10" y1="190" x2="210" y2="190"/>
+          </g>
+        </svg>
+      `,
+
+      mtk4_pola_gambar: `
+        <svg viewBox="0 0 460 135" class="w-full max-w-md mx-auto bg-white rounded-xl border border-slate-200 p-2" xmlns="http://www.w3.org/2000/svg">
+          <!-- Pola 1: 3 bintang/lingkaran -->
+          <rect x="10" y="12" width="96" height="92" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+          <circle cx="34" cy="58" r="9" fill="#F59E0B"/><circle cx="58" cy="58" r="9" fill="#F59E0B"/><circle cx="82" cy="58" r="9" fill="#F59E0B"/>
+          <text x="58" y="122" text-anchor="middle" font-size="11" font-weight="800" fill="#1E3A8A">Pola 1 (3)</text>
+
+          <!-- Pola 2: 6 -->
+          <rect x="118" y="12" width="96" height="92" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+          <circle cx="142" cy="44" r="9" fill="#F59E0B"/><circle cx="166" cy="44" r="9" fill="#F59E0B"/><circle cx="190" cy="44" r="9" fill="#F59E0B"/>
+          <circle cx="142" cy="70" r="9" fill="#F59E0B"/><circle cx="166" cy="70" r="9" fill="#F59E0B"/><circle cx="190" cy="70" r="9" fill="#F59E0B"/>
+          <text x="166" y="122" text-anchor="middle" font-size="11" font-weight="800" fill="#1E3A8A">Pola 2 (6)</text>
+
+          <!-- Pola 3: 9 -->
+          <rect x="226" y="12" width="96" height="92" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+          <circle cx="250" cy="34" r="9" fill="#F59E0B"/><circle cx="274" cy="34" r="9" fill="#F59E0B"/><circle cx="298" cy="34" r="9" fill="#F59E0B"/>
+          <circle cx="250" cy="58" r="9" fill="#F59E0B"/><circle cx="274" cy="58" r="9" fill="#F59E0B"/><circle cx="298" cy="58" r="9" fill="#F59E0B"/>
+          <circle cx="250" cy="82" r="9" fill="#F59E0B"/><circle cx="274" cy="82" r="9" fill="#F59E0B"/><circle cx="298" cy="82" r="9" fill="#F59E0B"/>
+          <text x="274" y="122" text-anchor="middle" font-size="11" font-weight="800" fill="#1E3A8A">Pola 3 (9)</text>
+
+          <!-- Pola 4: ? -->
+          <rect x="334" y="12" width="114" height="92" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-dasharray="5 3"/>
+          <text x="391" y="66" text-anchor="middle" font-size="26" font-weight="800" fill="#DC2626">?</text>
+          <text x="391" y="122" text-anchor="middle" font-size="11" font-weight="800" fill="#DC2626">Pola 4 (...)</text>
+        </svg>
       `
     };
 
     // =========================================================================
-    // 2. BANK SOAL LENGKAP (30 BAHASA INDONESIA + 30 MATEMATIKA)
+    // 2. BANK SOAL LENGKAP (KELAS IV, V, & VI — 180 SOAL: 30 SOAL/MAPEL)
     // =========================================================================
     const QUESTIONS_BANK = {
       bindo: [
@@ -1685,6 +2132,1481 @@
           answer: ['Sesuai', 'Sesuai', 'Tidak Sesuai'],
           explanation: 'Rute B selalu 20–22 menit, lebih singkat & stabil daripada Rute A (25–35 menit). Pada Jumat: 35 − 22 = 13 menit.'
         }
+      ],
+
+      // =========================================================================
+      // 30 SOAL BAHASA INDONESIA KELAS V (SESUAI MATRIKS KOMPETENSI SEMESTER 1)
+      // =========================================================================
+      bindo_5: [
+        // 1-3: Teks Fiksi - Teks Narasi (TP2: L1, L2, L2)
+        {
+          id: 1, type: 'pg', tag: 'L1 • Teks Narasi (TP2)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah penggalan cerita berikut!</p>
+          <p>Setiap hari Minggu pagi, Galih menemani kakeknya merawat tanaman anggrek di halaman belakang rumah di daerah Banyumanik. Galih bertugas menyiram pot-pot kecil menggunakan gembor plastik biru, sementara Kakek memeriksa daun yang kering. Suatu pagi, Galih tidak sengaja menjatuhkan satu pot anggrek bulan kesayangan Kakek hingga pecah. Jantung Galih berdebar kencang dan wajahnya memerah karena takut dimarahi.</p>`,
+          question: 'Apa tugas Galih setiap Minggu pagi saat membantu kakeknya?',
+          options: [
+            'Membeli pot tanah liat di pasar',
+            'Menyiram pot-pot kecil menggunakan gembor plastik biru',
+            'Memotong daun anggrek yang sudah kering',
+            'Menjual bunga anggrek di halaman rumah'
+          ],
+          answer: 1,
+          explanation: 'Pada kalimat kedua disebutkan secara tersurat bahwa Galih bertugas menyiram pot-pot kecil menggunakan gembor plastik biru.'
+        },
+        {
+          id: 2, type: 'pg', tag: 'L2 • Teks Narasi (TP2)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Lanjutan cerita Galih)</p>
+          <p>Sempat terlintas di benak Galih untuk menyembunyikan pecahan pot itu di balik semak. Namun, ia teringat nasihat ibunya agar selalu berkata jujur. Dengan suara pelan, Galih menghampiri Kakek dan mengakui kesalahannya. Kakek tersenyum tenang lalu mengajak Galih memindahkan tanaman anggrek itu ke pot cadangan.</p>`,
+          question: 'Watak tokoh Galih berdasarkan rangkaian peristiwa dalam cerita tersebut adalah ....',
+          options: [
+            'penakut dan suka menyalahkan orang lain',
+            'jujur dan berani mengakui kesalahan meskipun awalnya merasa takut',
+            'ceroboh dan tidak peduli pada tanaman Kakek',
+            'pemarah dan enggan membantu orang tua'
+          ],
+          answer: 1,
+          explanation: 'Meski awalnya takut dimarahi, Galih memilih berkata jujur dan mengakui kesalahannya kepada Kakek.'
+        },
+        {
+          id: 3, type: 'pgk', tag: 'L2 • Teks Narasi (TP2)',
+          stimulus: `<p>Sejak kejadian pot pecah itu, Galih tidak lagi terburu-buru saat menyiram tanaman. Ia selalu meletakkan gembor di tempat aman dan lebih berhati-hati melangkah di sela-sela rak pot. Kakek pun makin percaya dan mengajari Galih cara menanam bibit anggrek baru.</p>`,
+          question: 'Pernyataan yang menunjukkan perubahan karakter Galih dan alasannya adalah .... (Pilih semua jawaban yang benar)',
+          options: [
+            'Galih berubah menjadi lebih teliti dan berhati-hati setelah belajar dari kesalahannya.',
+            'Sikap bijak Kakek membuat Galih tetap bersemangat merawat tanaman.',
+            'Galih berhenti membantu Kakek karena trauma memegang gembor.',
+            'Kakek semakin percaya kepada Galih karena kejujuran dan perubahan sikapnya.'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Opsi 1, 2, dan 4 tepat mencerminkan perubahan positif Galih dan respons bijak Kakek.'
+        },
+
+        // 4-6: Teks Fiksi - Puisi Anak (TP2 L1, TP5 L2, TP5 L2)
+        {
+          id: 4, type: 'pg', tag: 'L1 • Puisi Anak (TP2)',
+          stimulus: `<div class="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 italic text-slate-800 space-y-1">
+            <p class="font-bold not-italic text-[#1E3A8A] mb-2">Sahabat Pena di Sudut Kelas</p>
+            <p>Buku bersampul biru terbuka di atas meja,</p>
+            <p>Huruf-huruf menari mengajakku berkelana,</p>
+            <p>Dari puncak gunung hingga dasar samudra,</p>
+            <p>Buku adalah <strong>jendela dunia</strong> bagi jiwa muda.</p>
+          </div>`,
+          question: 'Berdasarkan larik pertama puisi di atas, warna sampul buku yang berada di atas meja adalah ....',
+          options: ['Merah', 'Kuning', 'Biru', 'Hijau'],
+          answer: 2,
+          explanation: 'Larik pertama menyebutkan secara tersurat: "Buku bersampul biru terbuka di atas meja".'
+        },
+        {
+          id: 5, type: 'pg', tag: 'L2 • Puisi Anak (TP5)',
+          stimulus: `<p>Perhatikan kembali isi puisi <em>Sahabat Pena di Sudut Kelas</em> di atas.</p>`,
+          question: 'Pesan utama yang ingin disampaikan penyair melalui puisi tersebut adalah ....',
+          options: [
+            'membaca buku dapat memperluas pengetahuan dan wawasan kita tentang berbagai hal',
+            'kita harus menyimpan buku bersampul biru di dalam tas setiap saat',
+            'perjalanan ke gunung lebih menyenangkan daripada ke laut',
+            'huruf-huruf dalam buku hanya cocok dibaca oleh orang dewasa'
+          ],
+          answer: 0,
+          explanation: 'Puisi menggambarkan bahwa dengan membaca buku, kita dapat mengenal banyak pengetahuan luas (berkelana dari gunung hingga samudra).'
+        },
+        {
+          id: 6, type: 'pg', tag: 'L2 • Puisi Anak (TP5)',
+          stimulus: `<p>Perhatikan larik keempat puisi tersebut: <em>"Buku adalah <strong>jendela dunia</strong> bagi jiwa muda."</em></p>`,
+          question: 'Makna ungkapan <em>jendela dunia</em> dalam konteks puisi tersebut adalah ....',
+          options: [
+            'kaca jendela kelas yang menghadap ke halaman sekolah',
+            'sarana untuk melihat dan memperoleh informasi luas tentang segala hal di dunia',
+            'bangunan tinggi yang memiliki banyak jendela',
+            'buku cerita bergambar tentang peta benua saja'
+          ],
+          answer: 1,
+          explanation: 'Ungkapan "jendela dunia" bermakna perantara/sarana untuk mengetahui berbagai ilmu pengetahuan dan peristiwa di seluruh dunia.'
+        },
+
+        // 7-9: Teks Fiksi - Komik (TP2 L1, TP2 L2, TP5 L3)
+        {
+          id: 7, type: 'pg', tag: 'L1 • Teks Komik (TP2)',
+          stimulus: SVG_ASSETS.bi5_komik,
+          question: 'Berdasarkan teks dan gambar pada Panel 1 komik di atas, mengapa Bimo ingin langsung maju ke depan antrean?',
+          options: [
+            'Karena Bimo diminta Sita untuk duluan',
+            'Karena Bimo merasa sangat lapar',
+            'Karena kantin sekolah akan segera tutup',
+            'Karena Bimo ingin membantu ibu kantin'
+          ],
+          answer: 1,
+          explanation: 'Pada balon kata Panel 1 tertulis jelas Bimo berkata: "Aduh, aku lapar sekali! Aku langsung ke depan saja."'
+        },
+        {
+          id: 8, type: 'pg', tag: 'L2 • Teks Komik (TP2)',
+          stimulus: SVG_ASSETS.bi5_komik,
+          question: 'Pesan moral yang dapat disimpulkan dari hubungan gambar dan dialog pada ketiga panel komik tersebut adalah ....',
+          options: [
+            'menegur teman harus dilakukan dengan berteriak agar didengar semua orang',
+            'membiasakan antre dengan tertib dan mau menerima nasihat baik menciptakan suasana rukun',
+            'siswa yang lapar diperbolehkan mendahului teman lain di kantin',
+            'Sita tidak mau berteman lagi dengan Bimo setelah kejadian di kantin'
+          ],
+          answer: 1,
+          explanation: 'Sita menegur dengan sopan (Panel 2) dan Bimo meminta maaf lalu ikut antre di belakang (Panel 3), sehingga semua senang dan tertib.'
+        },
+        {
+          id: 9, type: 'sts', tag: 'L3 • Teks Komik (TP5)',
+          stimulus: SVG_ASSETS.bi5_komik,
+          question: 'Nilailah apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan gambar dan pesan dalam komik!',
+          statements: [
+            'Ekspresi wajah Bimo pada Panel 3 yang tersenyum sesuai dengan sikapnya yang ikhlas ikut mengantre.',
+            'Cara Sita mengingatkan Bimo pada Panel 2 dilakukan dengan bahasa yang sopan dan ramah.',
+            'Pada Panel 3, Bimo tetap berdiri di barisan paling depan mendahului teman-temannya.'
+          ],
+          answer: ['Sesuai', 'Sesuai', 'Tidak Sesuai'],
+          explanation: 'Pernyataan 1 & 2 sesuai. Pernyataan 3 tidak sesuai karena pada Panel 3 Bimo pindah ke barisan paling belakang.'
+        },
+
+        // 10-12: Teks Informasi - Eksposisi Biografi (TP3 L1, TP3 L2, TP4 L3)
+        {
+          id: 10, type: 'pg', tag: 'L1 • Eksposisi Biografi (TP3)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah teks biografi singkat berikut!</p>
+          <p><strong>Ki Hajar Dewantara</strong> lahir di Yogyakarta pada 2 Mei 1889 dengan nama asli Raden Mas Soewardi Soerjaningrat. Beliau dikenal sebagai Bapak Pendidikan Nasional Indonesia karena perjuangannya membuka akses pendidikan bagi rakyat pribumi. Pada tahun 1922, beliau mendirikan perguruan <em>Taman Siswa</em>. Semboyan beliau yang sangat terkenal adalah <em>Ing Ngarsa Sung Tuladha, Ing Madya Mangun Karsa, Tut Wuri Handayani</em>. Untuk mengenang jasanya, tanggal kelahirannya ditetapkan sebagai Hari Pendidikan Nasional.</p>`,
+          question: 'Pada tahun berapakah Ki Hajar Dewantara mendirikan perguruan Taman Siswa?',
+          options: ['1889', '1908', '1922', '1945'],
+          answer: 2,
+          explanation: 'Tersurat pada kalimat ketiga bahwa beliau mendirikan perguruan Taman Siswa pada tahun 1922.'
+        },
+        {
+          id: 11, type: 'pgk', tag: 'L2 • Eksposisi Biografi (TP3)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan teks biografi Ki Hajar Dewantara di atas)</p>`,
+          question: 'Pilihlah semua pernyataan yang merupakan <strong>ide pokok dan gagasan pendukung</strong> tepat dari teks biografi tersebut!',
+          options: [
+            'Ide pokok teks adalah kiprah dan jasa Ki Hajar Dewantara sebagai Bapak Pendidikan Nasional.',
+            'Pendirian Taman Siswa tahun 1922 merupakan bukti perjuangan beliau di bidang pendidikan.',
+            'Hari Pendidikan Nasional diperingati setiap 2 Mei untuk mengenang kelahiran beliau.',
+            'Ki Hajar Dewantara mendirikan sekolah pelayaran di Kota Semarang.'
+          ],
+          answer: [0, 1, 2],
+          explanation: 'Opsi 1, 2, dan 3 merupakan ide pokok serta gagasan pendukung yang ada dalam teks biografi tersebut.'
+        },
+        {
+          id: 12, type: 'bs', tag: 'L3 • Eksposisi Biografi (TP4)',
+          stimulus: `<p>Perhatikan kembali isi teks biografi <strong>Ki Hajar Dewantara</strong> di atas.</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> kesesuaian pernyataan berikut dengan teks biografi!',
+          statements: [
+            'Nama asli Ki Hajar Dewantara adalah Raden Mas Soewardi Soerjaningrat.',
+            'Semboyan "Tut Wuri Handayani" merupakan bagian dari ajaran pendidikan Ki Hajar Dewantara.',
+            'Hari Pendidikan Nasional diperingati setiap tanggal 22 Mei.'
+          ],
+          answer: ['Benar', 'Benar', 'Salah'],
+          explanation: 'Nama asli benar (1), semboyan benar (2), Hari Pendidikan Nasional diperingati 2 Mei bukan 22 Mei (3 Salah).'
+        },
+
+        // 13-15: Teks Informasi - Prosedur Sederhana (TP3 L1, TP3 L2, TP4 L3)
+        {
+          id: 13, type: 'pg', tag: 'L1 • Teks Prosedur (TP3)',
+          stimulus: `<div class="space-y-1.5">
+            <p class="font-bold text-[#1E3A8A]">Cara Membuat Minuman Wedang Jahe Hangat</p>
+            <ol class="list-decimal list-inside space-y-1">
+              <li>Cuci bersih 2 ruas jahe segar, lalu memarkan agar sarinya mudah keluar.</li>
+              <li>Didihkan 2 gelas air bersih di dalam panci kecil.</li>
+              <li>Masukkan jahe yang sudah dimemarkan, 1 batang serai, dan 2 sendok makan gula merah sisir.</li>
+              <li>Rebus dengan api kecil selama 10 menit hingga aroma harum tercium dan gula larut.</li>
+              <li>Matikan kompor, saring air rebusan ke dalam gelas, lalu sajikan selagi hangat.</li>
+            </ol>
+          </div>`,
+          question: 'Apa bahan pemanis yang dimasukkan pada langkah ketiga teks prosedur di atas?',
+          options: ['Madu hutan', 'Gula pasir putih', 'Gula merah sisir', 'Sirup pandan'],
+          answer: 2,
+          explanation: 'Pada langkah ke-3 tertulis jelas: 2 sendok makan gula merah sisir.'
+        },
+        {
+          id: 14, type: 'pg', tag: 'L2 • Teks Prosedur (TP3)',
+          stimulus: `<p>Pada langkah pertama disebutkan: <em>"Cuci bersih 2 ruas jahe segar, lalu memarkan agar sarinya mudah keluar."</em> Kemudian pada langkah kelima air rebusan disaring sebelum disajikan.</p>`,
+          question: 'Hubungan sebab-akibat yang tepat antara langkah mememarkan jahe dan menyaring rebusan adalah ....',
+          options: [
+            'mememarkan jahe membuat rasa jahe meresap ke air, lalu penyaringan memisahkan ampas agar nyaman diminum',
+            'mememarkan jahe agar air cepat dingin, lalu penyaringan menambah rasa manis',
+            'penyaringan dilakukan sebelum air dididihkan agar panci tetap bersih',
+            'gula merah tidak akan larut apabila jahe tidak dicuci dengan air dingin'
+          ],
+          answer: 0,
+          explanation: 'Mememarkan jahe mengeluarkan sari/aromanya ke air rebusan, sedangkan menyaring memisahkan potongan jahe/serai agar minuman bersih.'
+        },
+        {
+          id: 15, type: 'sts', tag: 'L3 • Teks Prosedur (TP4)',
+          stimulus: `<p>Perhatikan urutan 5 langkah pembuatan Wedang Jahe Hangat di atas.</p>`,
+          question: 'Nilailah apakah urutan tindakan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan teks prosedur!',
+          statements: [
+            'Air dididihkan terlebih dahulu sebelum jahe, serai, dan gula merah dimasukkan.',
+            'Api kompor dimatikan setelah minuman dituang ke gelas.',
+            'Jahe dicuci bersih terlebih dahulu sebelum dimemarkan.'
+          ],
+          answer: ['Sesuai', 'Tidak Sesuai', 'Sesuai'],
+          explanation: 'Langkah 1 mencuci lalu mememarkan (Sesuai), langkah 2 mendidihkan air lalu langkah 3 memasukkan bahan (Sesuai), kompor dimatikan sebelum menyaring/menuang ke gelas (Tidak Sesuai).'
+        },
+
+        // 16-18: Teks Informasi - Eksposisi Informatif 1 (TP3 L1, TP3 L2, TP4 L3)
+        {
+          id: 16, type: 'pg', tag: 'L1 • Teks Eksposisi (TP3)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah teks informatif berikut!</p>
+          <p><strong>Peran Penting Hutan Mangrove di Pesisir Semarang</strong></p>
+          <p>Kawasan pesisir utara Kota Semarang, seperti di Desa Wisata Mangrove Tapak, memiliki hamparan pohon bakau (mangrove) yang sangat bermanfaat bagi lingkungan. Akar pohon mangrove yang kuat dan saling menjalin berfungsi menahan terjangan ombak sehingga mencegah terjadinya <em>abrasi</em> atau pengikisan pantai. Selain itu, sela-sela akar mangrove menjadi tempat berlindung dan berkembang biak bagi ikan kecil, kepiting, dan udang. Oleh sebab itu, penanaman mangrove secara rutin sangat penting untuk menjaga keseimbangan ekosistem pesisir.</p>`,
+          question: 'Berdasarkan teks di atas, hewan apa saja yang berlindung dan berkembang biak di sela-sela akar mangrove?',
+          options: [
+            'Penyu, lumba-lumba, dan paus',
+            'Ikan kecil, kepiting, dan udang',
+            'Burung elang, rusa, dan kijang',
+            'Katak sawah, belut, dan keong mas'
+          ],
+          answer: 1,
+          explanation: 'Tersurat pada kalimat ketiga bahwa sela-sela akar mangrove menjadi tempat berlindung ikan kecil, kepiting, dan udang.'
+        },
+        {
+          id: 17, type: 'pg', tag: 'L2 • Teks Eksposisi (TP3)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan teks "Peran Penting Hutan Mangrove di Pesisir Semarang")</p>`,
+          question: 'Ide pokok dari paragraf teks informatif tersebut adalah ....',
+          options: [
+            'cara menangkap kepiting di pesisir utara Semarang',
+            'manfaat hutan mangrove bagi kelestarian lingkungan pesisir Semarang',
+            'rute perjalanan wisata menuju Desa Tapak',
+            'penyebab terjadinya ombak besar di Laut Jawa'
+          ],
+          answer: 1,
+          explanation: 'Keseluruhan paragraf membahas manfaat penting hutan mangrove (mencegah abrasi dan menjadi habitat biota laut).'
+        },
+        {
+          id: 18, type: 'bs', tag: 'L3 • Teks Eksposisi (TP4)',
+          stimulus: `<p>Evaluasilah pernyataan berikut berdasarkan isi teks informatif tentang <strong>Hutan Mangrove</strong> di atas!</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> setiap pernyataan di bawah ini!',
+          statements: [
+            'Abrasi adalah peristiwa pengikisan pantai yang dapat dicegah oleh akar pohon mangrove.',
+            'Menebang seluruh pohon mangrove di pesisir justru membantu perkembangbiakan udang dan kepiting.',
+            'Penanaman mangrove secara rutin berperan menjaga keseimbangan ekosistem pesisir.'
+          ],
+          answer: ['Benar', 'Salah', 'Benar'],
+          explanation: 'Pernyataan 1 & 3 sesuai teks. Pernyataan 2 salah karena menebang mangrove justru merusak habitat ikan kecil, kepiting, dan udang.'
+        },
+
+        // 19-21: Teks Fiksi - Teks Narasi 2 (TP2 L1, TP2 L2, TP5 L3)
+        {
+          id: 19, type: 'pg', tag: 'L1 • Teks Narasi (TP2)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah cerita berikut!</p>
+          <p>Pos ronda di ujung gang rumah Tari dahulu tampak kusam dan penuh tumpukan kardus bekas. Suatu sore, Tari dan teman-temannya mengusulkan kepada Pak RT untuk mengubah pos ronda itu menjadi "Pojok Baca Kampung". Pada hari Minggu, warga bergotong royong membersihkan ruangan, mengecat dinding menjadi warna biru cerah, dan memasang rak kayu sederhana. Anak-anak menyumbangkan buku cerita bekas milik mereka yang masih layak baca. Kini, setiap sore pos ronda itu selalu ramai oleh anak-anak yang membaca buku bersama.</p>`,
+          question: 'Siapa yang pertama kali mengusulkan ide mengubah pos ronda menjadi Pojok Baca Kampung?',
+          options: [
+            'Pak RT setempat',
+            'Tari dan teman-temannya',
+            'Ibu-ibu PKK kampung',
+            'Petugas perpustakaan kota'
+          ],
+          answer: 1,
+          explanation: 'Tertulis pada kalimat kedua bahwa Tari dan teman-temannya mengusulkan ide tersebut kepada Pak RT.'
+        },
+        {
+          id: 20, type: 'pg', tag: 'L2 • Teks Narasi (TP2)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan cerita "Pojok Baca Kampung")</p>`,
+          question: 'Perubahan latar tempat yang terjadi dari awal hingga akhir cerita tersebut adalah ....',
+          options: [
+            'dari taman bermain yang ramai menjadi pos ronda yang sepi',
+            'dari pos ronda yang kusam penuh kardus menjadi pojok baca yang cerah dan ramai',
+            'dari perpustakaan sekolah menjadi gedung pertemuan warga',
+            'dari gang yang sempit menjadi jalan raya yang lebar'
+          ],
+          answer: 1,
+          explanation: 'Pos ronda awalnya kusam penuh kardus, lalu setelah gotong royong berubah menjadi Pojok Baca berdinding biru cerah dan ramai anak membaca.'
+        },
+        {
+          id: 21, type: 'pgk', tag: 'L3 • Teks Narasi (TP5)',
+          stimulus: `<p>Tari dan teman-temannya berani menyampaikan gagasan baik kepada Pak RT, serta rela menyumbangkan buku cerita pribadi mereka agar bisa dibaca bersama anak-anak lain di kampung.</p>`,
+          question: 'Penilaian yang tepat terhadap tindakan Tari dan teman-temannya dalam cerita tersebut adalah .... (Pilih semua jawaban yang benar)',
+          options: [
+            'Tindakan mereka patut diteladani karena peduli terhadap minat baca lingkungan sekitar.',
+            'Menyumbangkan buku layak baca menunjukkan sikap gemar berbagi yang sangat baik.',
+            'Tindakan mereka kurang tepat karena pos ronda sebaiknya dibiarkan penuh kardus saja.',
+            'Mengajak warga bergotong royong membuat pekerjaan berat menjadi ringan dan menyenangkan.'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Opsi 1, 2, dan 4 merupakan penilaian positif dan apresiatif yang tepat terhadap tindakan tokoh.'
+        },
+
+        // 22-24: Teks Informasi - Eksposisi Informatif 2 (TP3 L1, TP3 L2, TP3 L2)
+        {
+          id: 22, type: 'pg', tag: 'L1 • Teks Eksposisi (TP3)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah teks informatif berikut!</p>
+          <p><strong>Mengenal Energi Surya yang Ramah Lingkungan</strong></p>
+          <p>Indonesia terletak di garis khatulistiwa sehingga mendapatkan sinar matahari sepanjang tahun. Sinar matahari dapat dimanfaatkan sebagai sumber energi listrik terbarukan menggunakan alat bernama <em>panel surya</em>. Panel surya menangkap cahaya matahari dan mengubahnya menjadi arus listrik untuk menyalakan lampu jalan, pompa air, maupun peralatan rumah tangga. Karena tidak menghasilkan asap pembakaran, penggunaan energi surya membantu mengurangi polusi udara sekaligus menghemat biaya tagihan listrik bulanan.</p>`,
+          question: 'Apa nama alat yang digunakan untuk mengubah cahaya matahari menjadi arus listrik menurut teks di atas?',
+          options: ['Kincir angin', 'Panel surya', 'Generator uap', 'Turbin air'],
+          answer: 1,
+          explanation: 'Tersurat pada kalimat kedua dan ketiga bahwa alat tersebut bernama panel surya.'
+        },
+        {
+          id: 23, type: 'pgk', tag: 'L2 • Teks Eksposisi (TP3)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan teks "Mengenal Energi Surya yang Ramah Lingkungan")</p>`,
+          question: 'Pilihlah semua gagasan pendukung yang menjelaskan <strong>keunggulan</strong> energi surya berdasarkan teks!',
+          options: [
+            'Tidak menghasilkan asap pembakaran sehingga membantu mengurangi polusi udara.',
+            'Dapat membantu menghemat biaya tagihan listrik bulanan.',
+            'Sumber sinarnya melimpah sepanjang tahun di negara tropis seperti Indonesia.',
+            'Hanya bisa digunakan pada malam hari saat hujan turun.'
+          ],
+          answer: [0, 1, 2],
+          explanation: 'Opsi 1, 2, dan 3 adalah keunggulan energi surya yang dijelaskan dalam teks.'
+        },
+        {
+          id: 24, type: 'pg', tag: 'L2 • Teks Eksposisi (TP3)',
+          stimulus: `<p>Teks menyebutkan bahwa Indonesia terletak di garis khatulistiwa sehingga mendapat sinar matahari sepanjang tahun, dan panel surya tidak menghasilkan asap pembakaran.</p>`,
+          question: 'Hubungan logis antarinformasi tersebut yang paling tepat adalah ....',
+          options: [
+            'letak geografis Indonesia membuat penggunaan energi surya sangat potensial dan ramah lingkungan',
+            'karena Indonesia di khatulistiwa, panel surya tidak membutuhkan cahaya matahari',
+            'lampu jalan di Indonesia tidak bisa menggunakan energi listrik dari panel surya',
+            'penggunaan energi surya menyebabkan tagihan listrik bulanan menjadi lebih mahal'
+          ],
+          answer: 0,
+          explanation: 'Posisi di khatulistiwa memberi pasokan matahari melimpah, sehingga energi surya sangat potensial sekaligus ramah lingkungan di Indonesia.'
+        },
+
+        // 25-27: Teks Informasi - Infografik (TP3 L1, TP3 L2, TP4 L3)
+        {
+          id: 25, type: 'pg', tag: 'L1 • Infografik (TP3)',
+          stimulus: SVG_ASSETS.bi5_infografik,
+          question: 'Berdasarkan infografik di atas, berapakah batas waktu maksimal penggunaan gawai bagi anak usia SD di luar jam belajar sekolah?',
+          options: ['1 jam per hari', '2 jam per hari', '4 jam per hari', '6 jam per hari'],
+          answer: 1,
+          explanation: 'Pada kotak "BATAS WAKTU" tertera jelas: Maks. 2 Jam per hari di luar jam belajar sekolah.'
+        },
+        {
+          id: 26, type: 'pg', tag: 'L2 • Infografik (TP3)',
+          stimulus: SVG_ASSETS.bi5_infografik,
+          question: 'Berdasarkan hubungan antara kotak "Aturan Mata" dan "Jarak & Cahaya", mengapa kedua aturan tersebut perlu diterapkan bersama saat memakai gawai?',
+          options: [
+            'Agar baterai gawai tidak cepat habis saat digunakan',
+            'Agar mata anak tidak cepat lelah dan kesehatan penglihatan tetap terjaga',
+            'Agar suara gawai terdengar lebih keras di dalam ruangan',
+            'Agar anak bisa memakai gawai lebih dari 5 jam setiap hari'
+          ],
+          answer: 1,
+          explanation: 'Aturan 20-20-20, jarak pandang 30–40 cm, dan cahaya terang bersama-sama bertujuan menjaga kesehatan mata agar tidak cepat lelah.'
+        },
+        {
+          id: 27, type: 'bs', tag: 'L3 • Infografik (TP4)',
+          stimulus: SVG_ASSETS.bi5_infografik,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> pernyataan berikut berdasarkan infografik "Bijak Menggunakan Gawai"!',
+          statements: [
+            'Aturan 20-20-20 artinya setiap 20 menit melihat layar, kita mengistirahatkan mata melihat objek berjarak 6 meter selama 20 detik.',
+            'Bermain gawai sambil berbaring di kamar gelap sangat dianjurkan sebelum tidur.',
+            'Gawai sebaiknya dimatikan minimal 1 jam sebelum tidur agar kualitas tidur tetap terjaga.'
+          ],
+          answer: ['Benar', 'Salah', 'Benar'],
+          explanation: 'Pernyataan 1 & 3 sesuai infografik. Pernyataan 2 salah karena infografik justru melarang memakai gawai sambil berbaring dan menganjurkan ruangan terang.'
+        },
+
+        // 28-30: Teks Informasi - Teks Deskripsi (TP3 L1, TP3 L2, TP3 L2)
+        {
+          id: 28, type: 'pg', tag: 'L1 • Teks Deskripsi (TP3)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah teks deskripsi berikut!</p>
+          <p>Di pusat bundaran pertemuan beberapa jalan utama Kota Semarang, berdiri megah sebuah monumen batu berbentuk <em>lilin yang menyala</em>. Monumen berwarna putih keabuan ini memiliki tinggi sekitar 53 meter dengan bagian puncak menyerupai nyala api yang melambangkan semangat perjuangan yang tak pernah padam. Pada bagian dasar kaki monumen terdapat ukiran relief yang mengisahkan Pertempuran Lima Hari di Semarang. Di sekelilingnya terhampar taman hijau dan kolam air mancur yang indah pada malam hari.</p>`,
+          question: 'Objek bersejarah di Kota Semarang yang digambarkan melalui kosakata "monumen berbentuk lilin menyala" dan "relief Pertempuran Lima Hari" adalah ....',
+          options: [
+            'Gereja Blenduk',
+            'Tugu Muda',
+            'Menara Masjid Agung Jawa Tengah',
+            'Klenteng Sam Poo Kong'
+          ],
+          answer: 1,
+          explanation: 'Monumen berbentuk lilin menyala untuk mengenang Pertempuran Lima Hari di Semarang adalah Tugu Muda.'
+        },
+        {
+          id: 29, type: 'pgk', tag: 'L2 • Teks Deskripsi (TP3)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan teks deskripsi tentang Tugu Muda di atas)</p>`,
+          question: 'Karakteristik fisik objek yang dapat disimpulkan dari teks deskripsi tersebut adalah .... (Pilih semua jawaban yang benar)',
+          options: [
+            'Berbentuk seperti lilin dengan puncak menyerupai nyala api.',
+            'Memiliki relief sejarah pada bagian dasar kaki monumen.',
+            'Dikelilingi oleh taman hijau dan kolam air mancur.',
+            'Terbuat seluruhnya dari papan kayu jati berwarna cokelat.'
+          ],
+          answer: [0, 1, 2],
+          explanation: 'Opsi 1, 2, dan 3 adalah ciri fisik Tugu Muda yang dijelaskan dalam teks (terbuat dari batu putih keabuan, bukan kayu jati).'
+        },
+        {
+          id: 30, type: 'sts', tag: 'L2 • Teks Deskripsi (TP3)',
+          stimulus: `<p>Perhatikan kembali informasi pendukung dan fakta pada teks deskripsi tentang <strong>Tugu Muda</strong> di atas.</p>`,
+          question: 'Tentukan apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan fakta dalam teks!',
+          statements: [
+            'Bagian puncak monumen yang menyerupai nyala api melambangkan semangat perjuangan yang tak pernah padam.',
+            'Tinggi monumen tersebut adalah sekitar 53 meter.',
+            'Monumen tersebut terletak di puncak Gunung Ungaran yang jauh dari jalan raya.'
+          ],
+          answer: ['Sesuai', 'Sesuai', 'Tidak Sesuai'],
+          explanation: 'Pernyataan 1 & 2 sesuai fakta teks. Pernyataan 3 tidak sesuai karena monumen terletak di pusat bundaran jalan utama Kota Semarang.'
+        }
+      ],
+
+      // =========================================================================
+      // 30 SOAL MATEMATIKA KELAS V (SESUAI MATRIKS SEMESTER 1 & SEMESTER 2)
+      // =========================================================================
+      mtk_5: [
+        // 1-5: Bilangan Cacah s.d. 100.000 (Smt 1 No 1)
+        {
+          id: 1, type: 'pg', tag: 'Smt 1 • Bilangan s.d. 100.000',
+          stimulus: `<p>Pada kegiatan bazar buku di sekolah, panitia mencatat total penjualan hari pertama sebesar <strong>Rp74.508</strong>.</p>`,
+          question: 'Cara membaca bilangan <strong>74.508</strong> yang benar adalah ....',
+          options: [
+            'Tujuh puluh empat ribu lima puluh delapan',
+            'Tujuh puluh empat ribu lima ratus delapan',
+            'Tujuh puluh empat ribu lima ratus delapan puluh',
+            'Tujuh ratus empat puluh lima ribu delapan'
+          ],
+          answer: 1,
+          explanation: '74.508 terdiri dari 74 ribu, 5 ratus, 0 puluh, dan 8 satuan → tujuh puluh empat ribu lima ratus delapan.'
+        },
+        {
+          id: 2, type: 'pg', tag: 'Smt 1 • Nilai Tempat & Dekomposisi',
+          stimulus: `<p>Jumlah pengunjung pameran edukasi di Kota Semarang selama satu pekan tercatat sebanyak <strong>68.425</strong> orang.</p>`,
+          question: 'Bentuk dekomposisi (uraian nilai tempat) yang tepat dari bilangan <strong>68.425</strong> adalah ....',
+          options: [
+            '60.000 + 8.000 + 400 + 20 + 5',
+            '60.000 + 800 + 400 + 20 + 5',
+            '6.000 + 8.000 + 400 + 20 + 5',
+            '60.000 + 8.000 + 40 + 20 + 5'
+          ],
+          answer: 0,
+          explanation: '6 puluh ribuan (60.000) + 8 ribuan (8.000) + 4 ratusan (400) + 2 puluhan (20) + 5 satuan (5).'
+        },
+        {
+          id: 3, type: 'pg', tag: 'Smt 1 • Membandingkan & Mengurutkan',
+          stimulus: `<p>Ibu membandingkan harga empat paket alat tulis di sebuah toko buku:</p>
+          <ul class="list-disc list-inside mt-1 space-y-1 font-semibold text-slate-700">
+            <li>Paket A: Rp45.800</li>
+            <li>Paket B: Rp45.080</li>
+            <li>Paket C: Rp48.500</li>
+            <li>Paket D: Rp45.850</li>
+          </ul>`,
+          question: 'Urutan harga paket alat tulis dari yang <strong>termurah hingga termahal</strong> adalah ....',
+          options: [
+            'Paket B, Paket A, Paket D, Paket C',
+            'Paket A, Paket B, Paket D, Paket C',
+            'Paket B, Paket D, Paket A, Paket C',
+            'Paket C, Paket D, Paket A, Paket B'
+          ],
+          answer: 0,
+          explanation: '45.080 (B) < 45.800 (A) < 45.850 (D) < 48.500 (C).'
+        },
+        {
+          id: 4, type: 'pg', tag: 'Smt 1 • Operasi Bilangan Cacah',
+          stimulus: `<p>Koperasi sekolah menerima kiriman <strong>32.500</strong> lembar kertas HVS pada hari Senin dan <strong>18.750</strong> lembar pada hari Selasa. Selama satu minggu, kertas yang terpakai sebanyak <strong>24.300</strong> lembar.</p>`,
+          question: 'Berapa lembar sisa kertas HVS di koperasi sekolah sekarang?',
+          options: ['26.850 lembar', '26.950 lembar', '27.050 lembar', '27.950 lembar'],
+          answer: 1,
+          explanation: '32.500 + 18.750 − 24.300 = 51.250 − 24.300 = 26.950 lembar.'
+        },
+        {
+          id: 5, type: 'pg', tag: 'Smt 1 • Perkalian & Pembagian',
+          stimulus: `<p>Panitia lomba menyiapkan <strong>18 dus</strong> air mineral gelas. Setiap dus berisi <strong>48 gelas</strong>. Seluruh air mineral tersebut dibagikan sama banyak kepada <strong>24 regu</strong> peserta lomba.</p>`,
+          question: 'Berapa gelas air mineral yang diterima oleh setiap regu?',
+          options: ['32 gelas', '34 gelas', '36 gelas', '42 gelas'],
+          answer: 2,
+          explanation: 'Total gelas = 18 × 48 = 864 gelas. Dibagi 24 regu = 864 ÷ 24 = 36 gelas.'
+        },
+
+        // 6-8: KPK dan FPB (Smt 1 No 2)
+        {
+          id: 6, type: 'pgk', tag: 'Smt 1 • Faktor & Kelipatan',
+          stimulus: `<p>Bu Guru menuliskan dua bilangan di papan tulis, yaitu bilangan <strong>18</strong> dan <strong>24</strong>.</p>`,
+          question: 'Pilihlah semua pernyataan yang <strong>benar</strong> mengenai faktor dan kelipatan kedua bilangan tersebut!',
+          options: [
+            'Faktor persekutuan dari 18 dan 24 adalah 1, 2, 3, dan 6.',
+            'FPB dari 18 dan 24 adalah 6.',
+            'KPK dari 18 dan 24 adalah 48.',
+            '72 merupakan salah satu kelipatan persekutuan dari 18 dan 24.'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Faktor persekutuan 18 & 24 = {1, 2, 3, 6}, sehingga FPB = 6. KPK(18, 24) = 72 (bukan 48).'
+        },
+        {
+          id: 7, type: 'pg', tag: 'Smt 1 • Masalah KPK',
+          stimulus: `<p>Lampu hias berwarna merah menyala setiap <strong>8 detik</strong> sekali, lampu kuning setiap <strong>12 detik</strong> sekali, dan lampu hijau setiap <strong>16 detik</strong> sekali. Pada pukul <strong>19.00.00</strong> ketiga lampu menyala bersamaan.</p>`,
+          question: 'Berapa detik lagi ketiga lampu tersebut akan menyala bersamaan untuk berikutnya?',
+          options: ['24 detik', '32 detik', '48 detik', '64 detik'],
+          answer: 2,
+          explanation: 'KPK dari 8, 12, dan 16 adalah 48 detik.'
+        },
+        {
+          id: 8, type: 'pg', tag: 'Smt 1 • Masalah FPB',
+          stimulus: `<p>Ayah memanen <strong>36 buah jeruk</strong> dan <strong>54 buah salak</strong>. Buah-buahan tersebut akan dimasukkan ke dalam beberapa keranjang sama banyak dengan jenis dan jumlah yang sama di setiap keranjang.</p>`,
+          question: 'Berapa banyak keranjang <strong>paling banyak</strong> yang dibutuhkan Ayah?',
+          options: ['6 keranjang', '9 keranjang', '12 keranjang', '18 keranjang'],
+          answer: 3,
+          explanation: 'FPB dari 36 dan 54 adalah 18 keranjang (tiap keranjang berisi 2 jeruk dan 3 salak).'
+        },
+
+        // 9-12: Bilangan Pecahan (Smt 1 No 3)
+        {
+          id: 9, type: 'pg', tag: 'Smt 1 • Mengurutkan Pecahan',
+          stimulus: `<p>Tiga siswa membandingkan panjang pita yang mereka miliki untuk prakarya:</p>
+          <ul class="list-disc list-inside mt-1 space-y-1 font-semibold text-slate-700">
+            <li>Pita Rara: 1 1/2 meter</li>
+            <li>Pita Sani: 5/4 meter</li>
+            <li>Pita Tika: 1 3/4 meter</li>
+          </ul>`,
+          question: 'Urutan pemilik pita dari yang <strong>terpanjang hingga terpendek</strong> adalah ....',
+          options: [
+            'Tika, Rara, Sani',
+            'Rara, Tika, Sani',
+            'Sani, Rara, Tika',
+            'Tika, Sani, Rara'
+          ],
+          answer: 0,
+          explanation: 'Samakan penyebut 4: Rara = 1 2/4 m, Sani = 5/4 = 1 1/4 m, Tika = 1 3/4 m. Terpanjang ke terpendek: Tika, Rara, Sani.'
+        },
+        {
+          id: 10, type: 'pg', tag: 'Smt 1 • Penjumlahan Pecahan',
+          stimulus: `<p>Untuk membuat adonan kue bolu, Ibu mencampurkan <strong>2/3 kg</strong> tepung terigu dan <strong>1/4 kg</strong> tepung maizena.</p>`,
+          question: 'Berapa kilogram berat seluruh tepung yang dicampurkan Ibu?',
+          options: ['3/7 kg', '7/12 kg', '11/12 kg', '1 1/12 kg'],
+          answer: 2,
+          explanation: '2/3 + 1/4 = 8/12 + 3/12 = 11/12 kg.'
+        },
+        {
+          id: 11, type: 'pg', tag: 'Smt 1 • Pengurangan Pecahan Campuran',
+          stimulus: `<p>Pak Tani memiliki tali rafia sepanjang <strong>3 1/2 meter</strong>. Tali tersebut dipotong sepanjang <strong>1 3/4 meter</strong> untuk mengikat kayu bakar.</p>`,
+          question: 'Berapa meter sisa tali rafia Pak Tani sekarang?',
+          options: ['1 1/4 meter', '1 3/4 meter', '2 1/4 meter', '2 1/2 meter'],
+          answer: 1,
+          explanation: '3 1/2 − 1 3/4 = 3 2/4 − 1 3/4 = 2 6/4 − 1 3/4 = 1 3/4 meter.'
+        },
+        {
+          id: 12, type: 'bs', tag: 'Smt 1 • Operasi Pecahan',
+          stimulus: `<p>Sebuah botol berisi <strong>1 1/5 liter</strong> jus jeruk. Kakak menuangkan <strong>2/5 liter</strong> ke gelas pertama dan <strong>3/10 liter</strong> ke gelas kedua.</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> pernyataan berikut berdasarkan cerita di atas!',
+          statements: [
+            'Total jus jeruk yang dituangkan Kakak ke kedua gelas adalah 7/10 liter.',
+            'Sisa jus jeruk di dalam botol sekarang adalah 1/2 liter.',
+            'Jus jeruk di gelas kedua lebih banyak daripada di gelas pertama.'
+          ],
+          answer: ['Benar', 'Benar', 'Salah'],
+          explanation: 'Total dituang = 2/5 + 3/10 = 4/10 + 3/10 = 7/10 L (Benar). Sisa = 12/10 − 7/10 = 5/10 = 1/2 L (Benar). 3/10 < 4/10 jadi gelas kedua lebih sedikit (Salah).'
+        },
+
+        // 13-15: Aljabar s.d. 1.000 (Smt 1 No 4 & Smt 2 No 5)
+        {
+          id: 13, type: 'pg', tag: 'Smt 1 • Aljabar Bilangan Cacah',
+          stimulus: `<p>Perhatikan kalimat matematika berikut:<br/><strong class="text-lg text-[#1E3A8A]">345 + ■ = 820</strong></p>`,
+          question: 'Bilangan yang tepat untuk menggantikan simbol <strong>■</strong> adalah ....',
+          options: ['465', '475', '485', '525'],
+          answer: 1,
+          explanation: '■ = 820 − 345 = 475.'
+        },
+        {
+          id: 14, type: 'pg', tag: 'Smt 1 • Aljabar Perkalian/Pembagian',
+          stimulus: `<p>Perhatikan kalimat matematika berikut:<br/><strong class="text-lg text-[#1E3A8A]">▲ × 16 = 512</strong></p>`,
+          question: 'Nilai bilangan yang tepat untuk menggantikan <strong>▲</strong> adalah ....',
+          options: ['28', '30', '32', '34'],
+          answer: 2,
+          explanation: '▲ = 512 ÷ 16 = 32.'
+        },
+        {
+          id: 15, type: 'pgk', tag: 'Smt 2 • Aljabar & Sifat Operasi',
+          stimulus: `<p>Dina ingin menemukan bilangan yang belum diketahui dengan memanfaatkan sifat-sifat operasi hitung (komutatif, asosiatif, dan distributif) pada bilangan cacah sampai 1.000.</p>`,
+          question: 'Pilihlah semua kalimat matematika yang memiliki nilai <strong>n = 25</strong>!',
+          options: [
+            '18 × (40 + n) = (18 × 40) + (18 × 25)',
+            '(120 + 75) + n = 120 + (75 + 25)',
+            '400 − n = 365',
+            'n × 12 = 300'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Opsi 1 (distributif, n=25), Opsi 2 (asosiatif, n=25), Opsi 4 (300 ÷ 12 = 25). Pada Opsi 3, 400 − 365 = 35 (bukan 25).'
+        },
+
+        // 16-20: Pengukuran Keliling & Luas Bangun Datar (Smt 1 No 5)
+        {
+          id: 16, type: 'pg', tag: 'Smt 1 • Keliling Segitiga',
+          stimulus: `<p class="mb-2">Perhatikan gambar papan rambu berbentuk segitiga sama kaki berikut:</p>${SVG_ASSETS.mtk5_segitiga_kaki}`,
+          question: 'Berapakah keliling papan rambu segitiga sama kaki tersebut?',
+          options: ['33 cm', '45 cm', '48 cm', '51 cm'],
+          answer: 2,
+          explanation: 'Keliling segitiga = 15 + 15 + 18 = 48 cm.'
+        },
+        {
+          id: 17, type: 'pg', tag: 'Smt 1 • Keliling Segi Banyak',
+          stimulus: `<p class="mb-2">Taman bunga di halaman sekolah berbentuk segi enam beraturan dengan panjang setiap sisi <strong>14 cm</strong> pada maket berikut:</p>${SVG_ASSETS.mtk5_segienam}`,
+          question: 'Berapakah keliling bangun segi enam beraturan tersebut?',
+          options: ['70 cm', '84 cm', '96 cm', '98 cm'],
+          answer: 1,
+          explanation: 'Segi enam beraturan memiliki 6 sisi sama panjang → Keliling = 6 × 14 = 84 cm.'
+        },
+        {
+          id: 18, type: 'pg', tag: 'Smt 1 • Luas Layang-Layang',
+          stimulus: `<p class="mb-2">Bima membuat layang-layang kertas dengan panjang diagonal masing-masing <strong>24 cm</strong> dan <strong>16 cm</strong> seperti gambar berikut:</p>${SVG_ASSETS.mtk5_layang}`,
+          question: 'Berapakah luas kertas yang dibutuhkan untuk menutup permukaan layang-layang tersebut?',
+          options: ['192 cm²', '200 cm²', '284 cm²', '384 cm²'],
+          answer: 0,
+          explanation: 'Luas layang-layang = 1/2 × d1 × d2 = 1/2 × 24 × 16 = 12 × 16 = 192 cm².'
+        },
+        {
+          id: 19, type: 'pg', tag: 'Smt 1 • Luas Jajar Genjang',
+          stimulus: `<p>Sebuah papan nama kelas berbentuk <strong>jajar genjang</strong> memiliki panjang alas <strong>22 cm</strong> dan tinggi <strong>12 cm</strong>.</p>`,
+          question: 'Berapakah luas papan nama kelas tersebut?',
+          options: ['68 cm²', '132 cm²', '244 cm²', '264 cm²'],
+          answer: 3,
+          explanation: 'Luas jajar genjang = alas × tinggi = 22 × 12 = 264 cm².'
+        },
+        {
+          id: 20, type: 'pg', tag: 'Smt 1 • Luas Bangun Gabungan',
+          stimulus: `<p class="mb-2">Perhatikan gambar gabungan bangun datar persegi (Bangun I) dan persegi panjang (Bangun II) berikut:</p>${SVG_ASSETS.mtk5_gabungan}`,
+          question: 'Berapakah luas gabungan kedua bangun datar tersebut?',
+          options: ['164 cm²', '184 cm²', '196 cm²', '240 cm²'],
+          answer: 1,
+          explanation: 'Luas I (persegi) = 10 × 10 = 100 cm². Luas II (persegi panjang) = 14 × 6 = 84 cm². Luas gabungan = 100 + 84 = 184 cm².'
+        },
+
+        // 21-22: Pengukuran Sudut (Smt 2 No 1)
+        {
+          id: 21, type: 'pg', tag: 'Smt 2 • Sudut Dua Garis',
+          stimulus: `<p class="mb-2">Perhatikan gambar garis lurus AB yang berpotongan dengan garis OC di titik O berikut:</p>${SVG_ASSETS.mtk5_sudut_garis}`,
+          question: 'Berapakah besar sudut <strong>x</strong> (∠AOC)?',
+          options: ['95°', '105°', '115°', '125°'],
+          answer: 2,
+          explanation: 'Sudut berpelurus berjumlah 180°. Maka x = 180° − 65° = 115°.'
+        },
+        {
+          id: 22, type: 'pg', tag: 'Smt 2 • Sudut Bangun Datar',
+          stimulus: `<p class="mb-2">Perhatikan besar dua sudut pada segitiga ABC berikut:</p>${SVG_ASSETS.mtk5_sudut_segitiga}`,
+          question: 'Berapakah besar sudut <strong>∠C</strong> pada segitiga ABC tersebut?',
+          options: ['55°', '60°', '65°', '75°'],
+          answer: 2,
+          explanation: 'Jumlah ketiga sudut dalam segitiga adalah 180°. Maka ∠C = 180° − (70° + 45°) = 180° − 115° = 65°.'
+        },
+
+        // 23-24: Objek Geometri - Membandingkan Karakteristik Bangun Datar (Smt 2 No 2)
+        {
+          id: 23, type: 'bs', tag: 'Smt 2 • Karakteristik Segiempat',
+          stimulus: `<p>Siswa kelas V membandingkan sifat-sifat bangun datar <strong>persegi</strong>, <strong>persegi panjang</strong>, dan <strong>belah ketupat</strong>.</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> pernyataan perbandingan karakteristik bangun datar berikut!',
+          statements: [
+            'Persegi dan belah ketupat sama-sama memiliki keempat sisi yang sama panjang.',
+            'Persegi dan persegi panjang sama-sama memiliki keempat sudut siku-siku (90°).',
+            'Semua sudut pada belah ketupat selalu berupa sudut siku-siku.'
+          ],
+          answer: ['Benar', 'Benar', 'Salah'],
+          explanation: 'Pernyataan 1 & 2 benar. Pernyataan 3 salah karena sudut belah ketupat terdiri dari sepasang sudut lancip dan sepasang sudut tumpul (kecuali kasus khusus persegi).'
+        },
+        {
+          id: 24, type: 'pgk', tag: 'Smt 2 • Karakteristik Segitiga',
+          stimulus: `<p>Pak Guru menampilkan dua jenis segitiga, yaitu <strong>segitiga sama sisi</strong> dan <strong>segitiga sama kaki</strong>.</p>`,
+          question: 'Pilihlah semua pernyataan perbandingan yang <strong>tepat</strong> mengenai kedua segitiga tersebut!',
+          options: [
+            'Segitiga sama sisi memiliki 3 sisi sama panjang, sedangkan segitiga sama kaki memiliki 2 sisi sama panjang.',
+            'Setiap sudut pada segitiga sama sisi besarnya tepat 60°.',
+            'Segitiga sama sisi memiliki 3 simetri lipat, sedangkan segitiga sama kaki hanya 1 simetri lipat.',
+            'Jumlah ketiga sudut pada segitiga sama sisi lebih besar daripada segitiga sama kaki.'
+          ],
+          answer: [0, 1, 2],
+          explanation: 'Opsi 1, 2, dan 3 benar. Opsi 4 salah karena jumlah ketiga sudut pada semua segitiga selalu sama, yaitu 180°.'
+        },
+
+        // 25-27: Data - Tabel Frekuensi, Piktogram, Diagram Batang (Smt 2 No 3)
+        {
+          id: 25, type: 'pg', tag: 'Smt 2 • Tabel Frekuensi',
+          stimulus: `<p class="mb-2">Perhatikan tabel frekuensi ukuran sepatu siswa kelas V berikut:</p>
+          <div class="overflow-x-auto">
+            <table class="w-full max-w-sm mx-auto text-sm border border-slate-300 rounded-lg overflow-hidden">
+              <thead class="bg-blue-50 text-[#1E3A8A]">
+                <tr><th class="p-2 border border-slate-300 text-center">Ukuran Sepatu</th><th class="p-2 border border-slate-300 text-center">Banyak Siswa</th></tr>
+              </thead>
+              <tbody class="text-center font-semibold">
+                <tr><td class="p-2 border border-slate-300">34</td><td class="p-2 border border-slate-300">5</td></tr>
+                <tr><td class="p-2 border border-slate-300">35</td><td class="p-2 border border-slate-300">9</td></tr>
+                <tr><td class="p-2 border border-slate-300">36</td><td class="p-2 border border-slate-300">11</td></tr>
+                <tr><td class="p-2 border border-slate-300">37</td><td class="p-2 border border-slate-300">7</td></tr>
+              </tbody>
+            </table>
+          </div>`,
+          question: 'Berapakah jumlah siswa kelas V yang memiliki ukuran sepatu <strong>lebih dari 35</strong>?',
+          options: ['14 siswa', '16 siswa', '18 siswa', '20 siswa'],
+          answer: 2,
+          explanation: 'Ukuran lebih dari 35 adalah ukuran 36 (11 siswa) dan 37 (7 siswa). Jumlah = 11 + 7 = 18 siswa.'
+        },
+        {
+          id: 26, type: 'pg', tag: 'Smt 2 • Piktogram',
+          stimulus: `<p class="mb-2">Piktogram berikut menunjukkan banyak buku yang dipinjam siswa kelas V selama 4 bulan:</p>${SVG_ASSETS.mtk5_piktogram}`,
+          question: 'Berapa buku <strong>selisih</strong> peminjaman pada bulan Agustus dan bulan September?',
+          options: ['3 buku', '10 buku', '15 buku', '20 buku'],
+          answer: 2,
+          explanation: 'Agustus = 7 × 5 = 35 buku. September = 4 × 5 = 20 buku. Selisih = 35 − 20 = 15 buku.'
+        },
+        {
+          id: 27, type: 'pgk', tag: 'Smt 2 • Diagram Batang',
+          stimulus: `<p class="mb-2">Perhatikan diagram batang kegiatan ekstrakurikuler favorit siswa kelas V berikut:</p>${SVG_ASSETS.mtk5_batang}`,
+          question: 'Pilihlah semua pernyataan yang <strong>benar</strong> berdasarkan diagram batang tersebut!',
+          options: [
+            'Ekstrakurikuler yang paling banyak diminati adalah Pramuka (24 siswa).',
+            'Selisih peminat Futsal dan Lukis adalah 8 siswa.',
+            'Jumlah seluruh siswa kelas V yang didata adalah 70 siswa.',
+            'Peminat Tari lebih banyak daripada peminat Futsal.'
+          ],
+          answer: [0, 1, 2],
+          explanation: 'Pramuka terbanyak = 24 (Benar). Selisih Futsal−Lukis = 20−12 = 8 (Benar). Total = 24+14+20+12 = 70 (Benar). Tari (14) < Futsal (20).'
+        },
+
+        // 28-29: Bilangan Cacah s.d. 1.000.000 (Smt 2 No 4)
+        {
+          id: 28, type: 'pg', tag: 'Smt 2 • Bilangan s.d. 1.000.000',
+          stimulus: `<p>Perpustakaan Daerah mencatat jumlah koleksi buku digital yang telah diakses masyarakat mencapai <strong>845.620</strong> kali.</p>`,
+          question: 'Nilai angka <strong>4</strong> pada bilangan <strong>845.620</strong> adalah ....',
+          options: ['4.000', '40.000', '400.000', '400'],
+          answer: 1,
+          explanation: 'Angka 4 menempati posisi puluh ribuan, sehingga nilainya adalah 40.000.'
+        },
+        {
+          id: 29, type: 'sts', tag: 'Smt 2 • Banding & Komposisi s.d. 1.000.000',
+          stimulus: `<p>Perhatikan data jumlah penduduk pada tiga kecamatan berikut:</p>
+          <ul class="list-disc list-inside mt-1 space-y-1 font-semibold text-slate-700">
+            <li>Kecamatan A: 425.300 jiwa</li>
+            <li>Kecamatan B: 452.100 jiwa</li>
+            <li>Kecamatan C: 425.090 jiwa</li>
+          </ul>`,
+          question: 'Tentukan apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan data di atas!',
+          statements: [
+            'Kecamatan B memiliki jumlah penduduk paling banyak di antara ketiganya.',
+            'Jumlah penduduk Kecamatan C lebih banyak daripada Kecamatan A.',
+            'Komposisi bilangan 425.300 adalah 4 ratus ribuan + 2 puluh ribuan + 5 ribuan + 3 ratusan.'
+          ],
+          answer: ['Sesuai', 'Tidak Sesuai', 'Sesuai'],
+          explanation: '452.100 paling besar (Sesuai). 425.090 < 425.300 jadi C lebih sedikit dari A (Tidak Sesuai). Komposisi 425.300 benar (Sesuai).'
+        },
+
+        // 30: Aljabar s.d. 1.000 Kontekstual (Smt 2 No 5)
+        {
+          id: 30, type: 'sts', tag: 'Smt 2 • Aljabar Kontekstual',
+          stimulus: `<p>Toko buah Pak Hasan memiliki <strong>15 keranjang</strong> apel dengan isi yang sama banyak pada setiap keranjang (misalkan <strong>k</strong> buah). Setelah <strong>60 buah</strong> apel terjual, sisa apel di toko Pak Hasan adalah <strong>390 buah</strong>.</p>`,
+          question: 'Tentukan apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> untuk menyelesaikan masalah aljabar tersebut!',
+          statements: [
+            'Kalimat matematika yang tepat untuk masalah tersebut adalah 15 × k − 60 = 390.',
+            'Jumlah seluruh apel sebelum terjual adalah 450 buah.',
+            'Banyak apel dalam setiap keranjang (nilai k) adalah 25 buah.'
+          ],
+          answer: ['Sesuai', 'Sesuai', 'Tidak Sesuai'],
+          explanation: '15 × k − 60 = 390 → 15 × k = 390 + 60 = 450 → k = 450 ÷ 15 = 30 buah (bukan 25).'
+        }
+      ],
+
+      // =========================================================================
+      // 30 SOAL BAHASA INDONESIA KELAS IV (SESUAI MATRIKS KOMPETENSI SEMESTER 1)
+      // =========================================================================
+      bindo_4: [
+        // 1-3: Teks Fiksi - Teks Narasi 1 (TP2: L1, L2 watak/emosi, L2 ungkapan)
+        {
+          id: 1, type: 'pg', tag: 'L1 • Teks Narasi (TP2)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah cerita berikut!</p>
+          <p>Hari ini adalah hari pertama Raka memakai sepatu olahraga barunya ke sekolah. Saat jam istirahat, Raka melihat Edo duduk sendirian di pinggir lapangan sambil memegangi sepatunya yang robek. Raka yang dikenal <em>ringan tangan</em> segera menghampiri Edo dan meminjamkan plester kain dari tas P3K kelas untuk merekatkan sementara sepatu Edo. Edo tersenyum lega dan mengucapkan terima kasih.</p>`,
+          question: 'Barang apa yang dipinjamkan Raka dari tas P3K kelas untuk membantu Edo?',
+          options: ['Tali sepatu cadangan', 'Plester kain', 'Lem kertas', 'Kaus kaki bersih'],
+          answer: 1,
+          explanation: 'Tersurat pada kalimat ketiga bahwa Raka meminjamkan plester kain dari tas P3K kelas.'
+        },
+        {
+          id: 2, type: 'pg', tag: 'L2 • Teks Narasi (TP2)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan cerita Raka dan Edo di atas)</p>`,
+          question: 'Permasalahan yang dialami Edo dan watak tokoh Raka berdasarkan cerita tersebut adalah ....',
+          options: [
+            'Sepatu Edo robek; Raka berwatak peduli dan suka menolong',
+            'Edo lupa membawa buku; Raka berwatak sombong',
+            'Sepatu Raka hilang; Edo berwatak pemarah',
+            'Edo terjatuh di lapangan; Raka berwatak penakut'
+          ],
+          answer: 0,
+          explanation: 'Edo mengalami masalah sepatunya robek, dan Raka menunjukkan watak peduli dengan segera membantu.'
+        },
+        {
+          id: 3, type: 'pg', tag: 'L2 • Teks Narasi (TP2)',
+          stimulus: `<p>Dalam cerita di atas tertulis: <em>"Raka yang dikenal <strong>ringan tangan</strong> segera menghampiri Edo..."</em></p>`,
+          question: 'Makna ungkapan <em>ringan tangan</em> dalam cerita tersebut adalah ....',
+          options: [
+            'tangannya sangat ringan saat mengangkat meja',
+            'suka membantu atau cepat menolong orang lain',
+            'suka mencoret-coret dinding kelas',
+            'pandai bermain bola basket di lapangan'
+          ],
+          answer: 1,
+          explanation: 'Ungkapan "ringan tangan" dalam konteks cerita tersebut bermakna suka menolong atau rajin membantu.'
+        },
+
+        // 4-6: Teks Fiksi - Teks Narasi 2 (TP2: L1, L2 amanat/nilai, L3 kesesuaian)
+        {
+          id: 4, type: 'pg', tag: 'L1 • Teks Narasi (TP2)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah cerita berikut!</p>
+          <p>Menjelang lomba kebersihan kelas, siswa kelas IV membagi tugas piket bersama. Lina bertugas menyapu lantai, Bagus mengelap kaca jendela, dan Rani menata rak buku pojok baca. Karena semua bekerja sama dengan gembira, ruang kelas menjadi bersih dan rapi hanya dalam waktu dua puluh menit. Bu Guru sangat bangga melihat kekompakan mereka.</p>`,
+          question: 'Siapa yang bertugas menata rak buku pojok baca dalam cerita di atas?',
+          options: ['Lina', 'Bagus', 'Rani', 'Bu Guru'],
+          answer: 2,
+          explanation: 'Pada kalimat kedua disebutkan secara tersurat bahwa Rani menata rak buku pojok baca.'
+        },
+        {
+          id: 5, type: 'pgk', tag: 'L2 • Teks Narasi (TP2)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan cerita persiapan lomba kebersihan kelas IV)</p>`,
+          question: 'Nilai-nilai positif dan amanat yang terkandung dalam cerita tersebut adalah .... (Pilih semua jawaban yang benar)',
+          options: [
+            'Kerja sama membuat pekerjaan berat menjadi cepat selesai.',
+            'Pembagian tugas yang adil menumbuhkan rasa tanggung jawab.',
+            'Menjaga kebersihan kelas adalah tanggung jawab petugas kebersihan saja.',
+            'Melaksanakan tugas dengan gembira menciptakan suasana kelas yang nyaman.'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Opsi 1, 2, dan 4 mencerminkan nilai kerja sama, tanggung jawab, dan kegembiraan dalam cerita.'
+        },
+        {
+          id: 6, type: 'sts', tag: 'L3 • Teks Narasi (TP2)',
+          stimulus: `<p>Perhatikan kembali unsur dan peristiwa pada cerita kebersihan kelas IV di atas.</p>`,
+          question: 'Tentukan apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan isi cerita!',
+          statements: [
+            'Ruang kelas dapat dibersihkan dalam waktu 20 menit karena semua siswa bekerja sama.',
+            'Bu Guru merasa kecewa karena siswa kelas IV tidak mau membagi tugas piket.',
+            'Bagus membantu membersihkan kaca jendela agar kelas tampak rapi.'
+          ],
+          answer: ['Sesuai', 'Tidak Sesuai', 'Sesuai'],
+          explanation: 'Pernyataan 1 & 3 sesuai isi teks. Pernyataan 2 tidak sesuai karena Bu Guru justru sangat bangga.'
+        },
+
+        // 7-9: Teks Informasi - Teks Informatif (TP3: L1, L2, L3)
+        {
+          id: 7, type: 'pg', tag: 'L1 • Teks Informatif (TP3)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah teks informatif berikut!</p>
+          <p><strong>Manfaat Sarapan Pagi bagi Pelajar</strong></p>
+          <p>Sarapan pagi sebelum berangkat ke sekolah sangat penting bagi anak usia sekolah dasar. Makanan bergizi di pagi hari, seperti nasi, telur, sayur, atau buah, memberikan sumber energi bagi otak dan tubuh. Siswa yang rutin sarapan cenderung lebih mudah berkonsentrasi saat mendengarkan penjelasan guru dan tidak mudah mengantuk di kelas. Sebaliknya, melewatkan sarapan dapat menyebabkan perut terasa perih dan tubuh lemas.</p>`,
+          question: 'Apa akibat yang dapat terjadi jika siswa melewatkan sarapan pagi menurut teks di atas?',
+          options: [
+            'Siswa menjadi lebih cepat berlari di lapangan',
+            'Perut terasa perih dan tubuh menjadi lemas',
+            'Otak menjadi lebih mudah menghafal pelajaran',
+            'Siswa dapat tidur lebih nyenyak di malam hari'
+          ],
+          answer: 1,
+          explanation: 'Tersurat pada kalimat terakhir bahwa melewatkan sarapan dapat menyebabkan perut terasa perih dan tubuh lemas.'
+        },
+        {
+          id: 8, type: 'pg', tag: 'L2 • Teks Informatif (TP3)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan teks "Manfaat Sarapan Pagi bagi Pelajar")</p>`,
+          question: 'Ide pokok dari paragraf teks informatif tersebut adalah ....',
+          options: [
+            'daftar harga makanan bergizi di kantin sekolah',
+            'pentingnya sarapan pagi bagi energi dan konsentrasi belajar pelajar',
+            'cara memasak nasi goreng dan telur dadar yang lezat',
+            'jadwal istirahat makan siang di sekolah dasar'
+          ],
+          answer: 1,
+          explanation: 'Seluruh paragraf menjelaskan pentingnya sarapan pagi dan manfaatnya bagi energi serta konsentrasi pelajar.'
+        },
+        {
+          id: 9, type: 'bs', tag: 'L3 • Teks Informatif (TP3)',
+          stimulus: `<p>Evaluasilah kebenaran pernyataan berikut berdasarkan informasi pada teks "Manfaat Sarapan Pagi bagi Pelajar"!</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> setiap pernyataan berikut!',
+          statements: [
+            'Sarapan pagi dengan makanan bergizi membantu siswa lebih mudah berkonsentrasi di kelas.',
+            'Siswa yang tidak sarapan akan memiliki energi lebih besar dibandingkan siswa yang sarapan.',
+            'Telur, sayur, dan buah termasuk contoh menu sarapan bergizi yang disebutkan dalam teks.'
+          ],
+          answer: ['Benar', 'Salah', 'Benar'],
+          explanation: 'Pernyataan 1 & 3 benar sesuai teks. Pernyataan 2 salah karena tanpa sarapan tubuh justru menjadi lemas.'
+        },
+
+        // 10-12: Teks Fiksi - Teks Narasi 3 (TP2: L1, L2 watak/emosi, L2 perubahan karakter)
+        {
+          id: 10, type: 'pg', tag: 'L1 • Teks Narasi (TP2)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah cerita berikut!</p>
+          <p>Nayla sangat pemalu. Setiap kali ditunjuk guru untuk membaca puisi di depan kelas, suaranya selalu bergetar pelan. Suatu hari, Kakak mengajak Nayla berlatih membaca puisi di depan cermin setiap sore selama seminggu. Saat tiba giliran pentas kelas hari Sabtu, Nayla menarik napas panjang lalu membacakan puisinya dengan suara lantang dan percaya diri. Seluruh teman kelas bertepuk tangan meriah.</p>`,
+          question: 'Bagaimana cara Nayla berlatih membaca puisi bersama kakaknya setiap sore?',
+          options: [
+            'Berlatih di depan cermin selama seminggu',
+            'Merekam suara di perpustakaan sekolah',
+            'Membaca puisi di tepi taman kota',
+            'Menghafal puisi sambil mendengarkan radio'
+          ],
+          answer: 0,
+          explanation: 'Tersurat pada kalimat ketiga bahwa Kakak mengajak Nayla berlatih di depan cermin setiap sore selama seminggu.'
+        },
+        {
+          id: 11, type: 'pg', tag: 'L2 • Teks Narasi (TP2)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan cerita Nayla di atas)</p>`,
+          question: 'Perasaan yang dialami Nayla pada awal cerita ketika ditunjuk maju ke depan kelas adalah ....',
+          options: [
+            'gembira dan bersemangat',
+            'gugup dan kurang percaya diri',
+            'marah dan kesal kepada guru',
+            'bosan dan mengantuk'
+          ],
+          answer: 1,
+          explanation: 'Sifat pemalu dan suara yang bergetar pelan menunjukkan bahwa Nayla merasa gugup dan kurang percaya diri.'
+        },
+        {
+          id: 12, type: 'pgk', tag: 'L2 • Teks Narasi (TP2)',
+          stimulus: `<p>Setelah rutin berlatih di depan cermin bersama kakaknya, Nayla berhasil membacakan puisi dengan suara lantang pada pentas kelas hari Sabtu.</p>`,
+          question: 'Pernyataan yang tepat mengenai perubahan karakter Nayla adalah .... (Pilih semua jawaban yang benar)',
+          options: [
+            'Nayla berubah dari anak yang pemalu menjadi lebih percaya diri tampil di depan kelas.',
+            'Latihan yang tekun membantu Nayla mengatasi rasa gugupnya.',
+            'Nayla tetap menolak membaca puisi saat pentas hari Sabtu.',
+            'Keberhasilan Nayla mendapat apresiasi tepuk tangan dari teman-temannya.'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Opsi 1, 2, dan 4 menggambarkan perubahan positif karakter Nayla.'
+        },
+
+        // 13-15: Teks Fiksi - Teks Narasi 4 (TP2: L1, L2 perubahan karakter, L3 kesesuaian)
+        {
+          id: 13, type: 'pg', tag: 'L1 • Teks Narasi (TP2)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah cerita berikut!</p>
+          <p>Dulu, Fajar sering membiarkan keran air di kamar mandi menetes setelah mencuci tangan. Ia menganggap air yang menetes sedikit tidak akan merugikan. Ketika musim kemarau panjang tiba, sumur di kampungnya sempat mengering sehingga warga harus mengantre air bersih dari mobil tangki. Sejak pengalaman itu, Fajar selalu memastikan keran tertutup rapat dan menampung air cucian beras untuk menyiram tanaman ibunya.</p>`,
+          question: 'Dari mana warga kampung Fajar mendapatkan air bersih saat sumur mereka mengering?',
+          options: [
+            'Dari sungai di belakang sekolah',
+            'Dari mobil tangki air bersih',
+            'Dari kolam renang kota',
+            'Dari air hujan setiap pagi'
+          ],
+          answer: 1,
+          explanation: 'Tersurat pada kalimat ketiga bahwa warga mengantre air bersih dari mobil tangki.'
+        },
+        {
+          id: 14, type: 'pg', tag: 'L2 • Teks Narasi (TP2)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan cerita Fajar di atas)</p>`,
+          question: 'Perubahan sikap yang dialami tokoh Fajar setelah mengalami musim kemarau panjang adalah ....',
+          options: [
+            'dari boros dan acuh terhadap air menjadi hemat dan bijak menggunakan air',
+            'dari rajin menyiram tanaman menjadi malas membantu ibu',
+            'dari suka menabung uang menjadi suka membeli mainan',
+            'dari takut pada air menjadi suka berenang'
+          ],
+          answer: 0,
+          explanation: 'Fajar yang semula membiarkan keran menetes berubah menjadi disiplin menutup keran dan memanfaatkan kembali air cucian beras.'
+        },
+        {
+          id: 15, type: 'sts', tag: 'L3 • Teks Narasi (TP2)',
+          stimulus: `<p>Perhatikan kembali rangkaian peristiwa dalam cerita Fajar di atas.</p>`,
+          question: 'Nilailah apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan isi cerita!',
+          statements: [
+            'Pengalaman kesulitan air saat kemarau menyadarkan Fajar tentang pentingnya menghemat air.',
+            'Fajar menggunakan air cucian beras untuk menyiram tanaman agar tidak terbuang sia-sia.',
+            'Setelah kemarau berakhir, Fajar kembali membiarkan keran air terus menetes.'
+          ],
+          answer: ['Sesuai', 'Sesuai', 'Tidak Sesuai'],
+          explanation: 'Pernyataan 1 & 2 sesuai. Pernyataan 3 tidak sesuai karena Fajar justru selalu memastikan keran tertutup rapat.'
+        },
+
+        // 16-18: Teks Informasi - Teks Deskripsi (TP3: L1, L2 rincian, L2 ungkapan)
+        {
+          id: 16, type: 'pg', tag: 'L1 • Teks Deskripsi (TP3)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah teks deskripsi berikut!</p>
+          <p><strong>Taman Indonesia Kaya Semarang</strong></p>
+          <p>Taman Indonesia Kaya terletak di Jalan Menteri Supeno, Kota Semarang. Taman ini memiliki panggung teater terbuka berbentuk setengah lingkaran yang dikelilingi tempat duduk berundak. Pada malam hari, air mancur menari warna-warni menjadi daya tarik utama pengunjung. Pohon-pohon rindang di sekeliling taman membuat udara tetap sejuk sehingga tempat ini menjadi <em>buah bibir</em> wisatawan yang berkunjung ke Semarang.</p>`,
+          question: 'Di jalan apakah letak Taman Indonesia Kaya menurut teks deskripsi di atas?',
+          options: ['Jalan Pemuda', 'Jalan Pandanaran', 'Jalan Menteri Supeno', 'Jalan Pahlawan'],
+          answer: 2,
+          explanation: 'Kalimat pertama menyebutkan secara tersurat: Taman Indonesia Kaya terletak di Jalan Menteri Supeno, Kota Semarang.'
+        },
+        {
+          id: 17, type: 'pgk', tag: 'L2 • Teks Deskripsi (TP3)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan teks deskripsi "Taman Indonesia Kaya Semarang")</p>`,
+          question: 'Kesimpulan yang tepat berdasarkan rincian fasilitas dan suasana taman dalam teks adalah .... (Pilih semua jawaban yang benar)',
+          options: [
+            'Taman ini cocok digunakan untuk pertunjukan seni karena memiliki panggung teater terbuka.',
+            'Suasana taman terasa teduh berkat adanya pohon-pohon rindang di sekelilingnya.',
+            'Keindahan air mancur warna-warni paling menarik dinikmati pada malam hari.',
+            'Taman ini tidak memiliki tempat duduk sama sekali bagi pengunjung.'
+          ],
+          answer: [0, 1, 2],
+          explanation: 'Opsi 1, 2, dan 3 sesuai rincian teks. Opsi 4 salah karena terdapat tempat duduk berundak.'
+        },
+        {
+          id: 18, type: 'pg', tag: 'L2 • Teks Deskripsi (TP3)',
+          stimulus: `<p>Pada kalimat terakhir teks tertulis: <em>"...sehingga tempat ini menjadi <strong>buah bibir</strong> wisatawan yang berkunjung ke Semarang."</em></p>`,
+          question: 'Makna ungkapan <em>buah bibir</em> pada kalimat tersebut adalah ....',
+          options: [
+            'oleh-oleh buah segar khas Kota Semarang',
+            'bahan pembicaraan yang sering diperbincangkan banyak orang',
+            'makanan ringan yang dijual di dekat panggung taman',
+            'hadiah kenang-kenangan untuk setiap pengunjung'
+          ],
+          answer: 1,
+          explanation: 'Ungkapan "buah bibir" bermakna sesuatu atau tempat yang terkenal dan sering menjadi bahan pembicaraan orang.'
+        },
+
+        // 19-21: Teks Fiksi - Teks Narasi 5 (TP2: L1, L2 hubungan antarperistiwa, L3 kesesuaian)
+        {
+          id: 19, type: 'pg', tag: 'L1 • Teks Narasi (TP2)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah cerita berikut!</p>
+          <p>Hujan deras mengguyur Kampung Sekayu sejak sore hari. Karena banyak warga yang masih membuang bungkus plastik ke selokan, aliran air tersumbat dan meluap hingga setinggi mata kaki di halaman rumah Pak Anton. Keesokan paginya, Pak Anton mengajak warga melakukan kerja bakti membersihkan selokan dari sampah plastik. Setelah selokan lancar, ketika hujan deras turun lagi minggu berikutnya, halaman warga tidak lagi tergenang air.</p>`,
+          question: 'Kapan Pak Anton mengajak warga melakukan kerja bakti membersihkan selokan?',
+          options: [
+            'Pada malam hari saat hujan deras',
+            'Keesokan paginya setelah air meluap',
+            'Sebulan setelah musim kemarau',
+            'Pada hari libur nasional'
+          ],
+          answer: 1,
+          explanation: 'Tersurat pada kalimat ketiga bahwa Pak Anton mengajak warga kerja bakti keesokan paginya.'
+        },
+        {
+          id: 20, type: 'pg', tag: 'L2 • Teks Narasi (TP2)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan cerita Kampung Sekayu di atas)</p>`,
+          question: 'Hubungan sebab-akibat antarperistiwa yang paling tepat berdasarkan cerita tersebut adalah ....',
+          options: [
+            'selokan dibersihkan warga sehingga halaman rumah kembali tergenang air',
+            'sampah plastik menyumbat selokan sehingga air hujan meluap ke halaman warga',
+            'hujan deras berhenti karena warga membangun pagar tinggi',
+            'warga membuang sampah di selokan agar tanaman cepat tumbuh'
+          ],
+          answer: 1,
+          explanation: 'Sebab: sampah plastik menyumbat selokan. Akibat: aliran air tersumbat dan meluap ke halaman rumah.'
+        },
+        {
+          id: 21, type: 'bs', tag: 'L3 • Teks Narasi (TP2)',
+          stimulus: `<p>Perhatikan kembali keseluruhan peristiwa pada cerita Kampung Sekayu di atas.</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> pernyataan berikut!',
+          statements: [
+            'Kerja bakti membersihkan selokan terbukti efektif mencegah genangan saat hujan berikutnya.',
+            'Genangan air di halaman Pak Anton awalnya mencapai setinggi atap rumah.',
+            'Menjaga kebersihan selokan adalah tanggung jawab bersama seluruh warga kampung.'
+          ],
+          answer: ['Benar', 'Salah', 'Benar'],
+          explanation: 'Pernyataan 1 & 3 benar. Pernyataan 2 salah karena genangan hanya setinggi mata kaki.'
+        },
+
+        // 22-24: Teks Informasi - Teks Argumentasi (TP3: L1, L2 gagasan pendukung, L3 kesesuaian)
+        {
+          id: 22, type: 'pg', tag: 'L1 • Teks Argumentasi (TP3)',
+          stimulus: `<p class="font-bold text-[#1E3A8A] mb-1">Bacalah teks argumentasi berikut!</p>
+          <p><strong>Ayo Membawa Botol Minum Sendiri ke Sekolah!</strong></p>
+          <p>Membawa botol minum isi ulang (<em>tumbler</em>) dari rumah jauh lebih baik daripada membeli minuman kemasan plastik sekali pakai setiap hari. Pertama, membawa botol minum sendiri dapat mengurangi tumpukan sampah plastik di lingkungan sekolah. Kedua, air minum yang dibawa dari rumah lebih terjamin kebersihannya dan tidak mengandung pemanis buatan berlebih. Ketiga, siswa juga dapat menghemat uang jajan untuk ditabung. Oleh karena itu, mari biasakan membawa botol minum sendiri setiap hari.</p>`,
+          question: 'Berapa alasan utama yang dikemukakan penulis untuk mendukung ajakan membawa botol minum sendiri?',
+          options: ['Satu alasan', 'Dua alasan', 'Tiga alasan', 'Lima alasan'],
+          answer: 2,
+          explanation: 'Penulis menuliskan secara tersurat tiga alasan: Pertama (mengurangi sampah plastik), Kedua (lebih bersih/sehat), Ketiga (menghemat uang jajan).'
+        },
+        {
+          id: 23, type: 'pgk', tag: 'L2 • Teks Argumentasi (TP3)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan teks argumentasi tentang membawa botol minum sendiri)</p>`,
+          question: 'Pilihlah semua <strong>gagasan pendukung</strong> yang digunakan penulis untuk memperkuat pendapatnya!',
+          options: [
+            'Mengurangi sampah plastik sekali pakai di sekolah.',
+            'Air dari rumah lebih bersih dan tidak kelebihan pemanis buatan.',
+            'Membantu siswa menghemat uang jajan untuk ditabung.',
+            'Botol minum isi ulang harus dibeli baru setiap minggu.'
+          ],
+          answer: [0, 1, 2],
+          explanation: 'Opsi 1, 2, dan 3 adalah tiga gagasan pendukung yang disampaikan dalam teks.'
+        },
+        {
+          id: 24, type: 'sts', tag: 'L3 • Teks Argumentasi (TP3)',
+          stimulus: `<p>Nilailah kesesuaian tindakan siswa berikut dengan pendapat dalam teks argumentasi di atas!</p>`,
+          question: 'Tentukan apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan isi teks!',
+          statements: [
+            'Sari selalu mengisi ulang botol minumnya dengan air matang dari rumah sebelum berangkat sekolah.',
+            'Tono setiap hari membeli tiga botol minuman kemasan plastik lalu membuang botolnya di halaman.',
+            'Dengan membawa air minum sendiri, uang saku yang tersisa bisa dimasukkan ke celengan.'
+          ],
+          answer: ['Sesuai', 'Tidak Sesuai', 'Sesuai'],
+          explanation: 'Pernyataan 1 & 3 sejalan dengan argumen teks. Pernyataan 2 bertentangan dengan ajakan mengurangi sampah plastik.'
+        },
+
+        // 25-27: Teks Informasi - Teks Denah/Petunjuk Arah (TP3: L1, L2, L3)
+        {
+          id: 25, type: 'pg', tag: 'L1 • Teks Denah (TP3)',
+          stimulus: SVG_ASSETS.bi4_denah,
+          question: 'Berdasarkan denah di atas, bangunan yang terletak tepat di sebelah <strong>timur</strong> SDN Nusantara adalah ....',
+          options: ['Puskesmas', 'Taman Kota', 'Pasar Pagi', 'Masjid Agung'],
+          answer: 1,
+          explanation: 'Dengan melihat arah mata angin (Timur = kanan), bangunan tepat di sebelah kanan SDN Nusantara adalah Taman Kota.'
+        },
+        {
+          id: 26, type: 'pg', tag: 'L2 • Teks Denah (TP3)',
+          stimulus: SVG_ASSETS.bi4_denah,
+          question: 'Jika Dito berangkat dari <strong>Rumah Dito</strong> ingin pergi ke <strong>Perpustakaan Daerah</strong> dengan rute terdekat, arah perjalanan yang tepat adalah ....',
+          options: [
+            'ke barat menyusuri Jl. Pandanaran lalu berhenti di depan Puskesmas',
+            'menyeberang Jl. Pandanaran ke utara, lalu ke timur melewati perempatan Jl. Pemuda menuju Perpustakaan Daerah',
+            'ke selatan menyusuri Jl. Pemuda hingga sampai di Masjid Agung',
+            'ke barat menuju SDN Nusantara lalu belok ke selatan'
+          ],
+          answer: 1,
+          explanation: 'Rumah Dito di selatan Jl. Pandanaran (barat Jl. Pemuda), sedangkan Perpustakaan Daerah di utara Jl. Pandanaran (timur Jl. Pemuda). Jadi Dito menyeberang ke utara dan bergerak ke timur melewati perempatan Jl. Pemuda.'
+        },
+        {
+          id: 27, type: 'bs', tag: 'L3 • Teks Denah (TP3)',
+          stimulus: SVG_ASSETS.bi4_denah,
+          question: 'Evaluasilah kebenaran pernyataan lokasi berdasarkan denah di atas!',
+          statements: [
+            'Puskesmas terletak di seberang selatan SDN Nusantara yang dipisahkan oleh Jl. Pandanaran.',
+            'Pasar Pagi terletak di antara Rumah Dito dan Masjid Agung, namun dipisahkan oleh Jl. Pemuda dari Rumah Dito.',
+            'Perpustakaan Daerah berada di sebelah barat Taman Kota.'
+          ],
+          answer: ['Benar', 'Benar', 'Salah'],
+          explanation: 'Puskesmas di selatan SDN Nusantara (Benar). Pasar Pagi di timur Jl. Pemuda & barat Masjid Agung (Benar). Perpustakaan di sebelah timur Taman Kota, bukan barat (Salah).'
+        },
+
+        // 28-30: Teks Informasi - Teks Hasil Wawancara (TP3: L1, L2, L2)
+        {
+          id: 28, type: 'pg', tag: 'L1 • Teks Wawancara (TP3)',
+          stimulus: `<div class="space-y-1.5 text-sm sm:text-base">
+            <p class="font-bold text-[#1E3A8A]">Cuplikan Wawancara dengan Pengrajin Batik Semarangan</p>
+            <p><strong>Pewawancara (Mira):</strong> "Selamat pagi, Bu Sari. Sudah berapa lama Ibu menekuni usaha Batik Semarangan ini?"</p>
+            <p><strong>Narasumber (Bu Sari):</strong> "Selamat pagi, Nak. Ibu sudah membatik sejak 12 tahun yang lalu bersama para ibu di Kampung Batik."</p>
+            <p><strong>Mira:</strong> "Motif apa saja yang menjadi ciri khas Batik Semarangan buatan Ibu?"</p>
+            <p><strong>Bu Sari:</strong> "Kami sering membuat motif Tugu Muda, Lawang Sewu, burung blekok, dan pohon asem dengan warna-warna cerah."</p>
+            <p><strong>Mira:</strong> "Apa harapan Ibu untuk anak-anak sekolah dasar seperti kami?"</p>
+            <p><strong>Bu Sari:</strong> "Ibu berharap anak-anak bangga memakai batik dan mau belajar membatik agar warisan budaya kita tidak punah."</p>
+          </div>`,
+          question: 'Sudah berapa lama Bu Sari menekuni usaha Batik Semarangan menurut teks wawancara di atas?',
+          options: ['5 tahun', '8 tahun', '12 tahun', '20 tahun'],
+          answer: 2,
+          explanation: 'Tersurat pada jawaban pertama Bu Sari bahwa beliau sudah membatik sejak 12 tahun yang lalu.'
+        },
+        {
+          id: 29, type: 'pg', tag: 'L2 • Teks Wawancara (TP3)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan teks wawancara dengan Bu Sari di atas)</p>`,
+          question: 'Topik utama atau ide pokok dari hasil wawancara tersebut adalah ....',
+          options: [
+            'cara mencuci kain batik agar warnanya tidak luntur',
+            'mengenal usaha, motif khas, dan pelestarian Batik Semarangan bersama Bu Sari',
+            'daftar harga kain batik di Pasar Johar Semarang',
+            'sejarah berdirinya Kampung Batik di seluruh Indonesia'
+          ],
+          answer: 1,
+          explanation: 'Wawancara membahas lama usaha, motif khas Batik Semarangan, dan harapan pelestariannya oleh generasi muda.'
+        },
+        {
+          id: 30, type: 'pgk', tag: 'L2 • Teks Wawancara (TP3)',
+          stimulus: `<p class="italic text-slate-600 text-sm mb-1">(Berdasarkan teks wawancara dengan Bu Sari di atas)</p>`,
+          question: 'Pilihlah semua informasi penting yang sesuai dengan hasil wawancara tersebut!',
+          options: [
+            'Motif khas Batik Semarangan antara lain Tugu Muda, Lawang Sewu, burung blekok, dan pohon asem.',
+            'Batik Semarangan buatan Bu Sari identik dengan warna-warna yang cerah.',
+            'Bu Sari berharap anak-anak bangga memakai batik dan ikut melestarikannya.',
+            'Bu Sari melarang anak-anak sekolah dasar belajar membatik karena terlalu sulit.'
+          ],
+          answer: [0, 1, 2],
+          explanation: 'Opsi 1, 2, dan 3 adalah informasi penting yang disampaikan Bu Sari dalam wawancara.'
+        }
+      ],
+
+      // =========================================================================
+      // 30 SOAL MATEMATIKA KELAS IV (SESUAI MATRIKS SEMESTER 1 FASE B)
+      // =========================================================================
+      mtk_4: [
+        // 1-4: Bilangan cacah s.d. 10.000 (baca, nilai tempat, dekomposisi, urut)
+        {
+          id: 1, type: 'pg', tag: 'Bilangan • Membaca s.d. 10.000',
+          stimulus: `<p>Pada kegiatan jalan sehat Hari Kemerdekaan di sekolah, nomor kupon undian milik Arka adalah <strong>6.409</strong>.</p>`,
+          question: 'Cara membaca bilangan <strong>6.409</strong> yang benar adalah ....',
+          options: [
+            'Enam ribu empat puluh sembilan',
+            'Enam ribu empat ratus sembilan',
+            'Enam ribu empat ratus sembilan puluh',
+            'Enam ratus empat puluh sembilan'
+          ],
+          answer: 1,
+          explanation: '6.409 = 6 ribuan, 4 ratusan, 0 puluhan, 9 satuan → enam ribu empat ratus sembilan.'
+        },
+        {
+          id: 2, type: 'pg', tag: 'Bilangan • Nilai Tempat',
+          stimulus: `<p>Perpustakaan sekolah memiliki koleksi sebanyak <strong>8.735</strong> buku bacaan.</p>`,
+          question: 'Angka <strong>7</strong> pada bilangan <strong>8.735</strong> menempati nilai tempat ....',
+          options: ['Ribuan', 'Ratusan', 'Puluhan', 'Satuan'],
+          answer: 1,
+          explanation: 'Pada 8.735: 8 = ribuan, 7 = ratusan, 3 = puluhan, 5 = satuan.'
+        },
+        {
+          id: 3, type: 'pg', tag: 'Bilangan • Komposisi & Dekomposisi',
+          stimulus: `<p>Ibu membeli buah apel dengan harga yang tersusun dari: <strong>5 ribuan + 0 ratusan + 8 puluhan + 5 satuan</strong> rupiah (dalam bilangan cacah).</p>`,
+          question: 'Bilangan yang terbentuk dari komposisi tersebut adalah ....',
+          options: ['5.850', '5.805', '5.085', '585'],
+          answer: 2,
+          explanation: '5.000 + 0 + 80 + 5 = 5.085.'
+        },
+        {
+          id: 4, type: 'pg', tag: 'Bilangan • Membandingkan & Mengurutkan',
+          stimulus: `<p>Empat siswa mencatat jumlah langkah kaki mereka saat olahraga pagi:</p>
+          <ul class="list-disc list-inside mt-1 space-y-1 font-semibold text-slate-700">
+            <li>Adi: 3.450 langkah</li>
+            <li>Beni: 3.540 langkah</li>
+            <li>Cika: 3.095 langkah</li>
+            <li>Dina: 3.405 langkah</li>
+          </ul>`,
+          question: 'Urutan jumlah langkah dari yang <strong>terkecil hingga terbesar</strong> adalah ....',
+          options: [
+            '3.095 ; 3.405 ; 3.450 ; 3.540',
+            '3.095 ; 3.450 ; 3.405 ; 3.540',
+            '3.405 ; 3.095 ; 3.450 ; 3.540',
+            '3.540 ; 3.450 ; 3.405 ; 3.095'
+          ],
+          answer: 0,
+          explanation: 'Urutan terkecil ke terbesar: 3.095 < 3.405 < 3.450 < 3.540.'
+        },
+
+        // 5-7: Penjumlahan & pengurangan s.d. 1.000
+        {
+          id: 5, type: 'pg', tag: 'Bilangan • Penjumlahan s.d. 1.000',
+          stimulus: `<p>Pada pagi hari, toko roti Bu Dewi menjual <strong>348</strong> potong roti. Pada sore hari, terjual lagi <strong>275</strong> potong roti.</p>`,
+          question: 'Berapa total roti yang terjual seluruhnya pada hari itu?',
+          options: ['513 potong', '613 potong', '623 potong', '633 potong'],
+          answer: 2,
+          explanation: '348 + 275 = 623 potong roti.'
+        },
+        {
+          id: 6, type: 'pg', tag: 'Bilangan • Pengurangan s.d. 1.000',
+          stimulus: `<p>Sebuah gedung pertemuan memiliki <strong>850</strong> kursi. Saat acara pentas seni dimulai, sebanyak <strong>678</strong> kursi telah terisi penonton.</p>`,
+          question: 'Berapa banyak kursi yang masih kosong?',
+          options: ['172 kursi', '182 kursi', '228 kursi', '272 kursi'],
+          answer: 0,
+          explanation: '850 − 678 = 172 kursi.'
+        },
+        {
+          id: 7, type: 'bs', tag: 'Bilangan • Operasi s.d. 1.000',
+          stimulus: `<p>Koperasi sekolah memiliki <strong>420</strong> pensil. Hari ini datang kiriman baru sebanyak <strong>250</strong> pensil, lalu terjual kepada siswa sebanyak <strong>185</strong> pensil.</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> setiap pernyataan berikut!',
+          statements: [
+            'Jumlah pensil sebelum terjual adalah 670 batang.',
+            'Sisa pensil di koperasi setelah terjual adalah 485 batang.',
+            'Selisih antara pensil yang baru datang dan yang terjual adalah 75 batang.'
+          ],
+          answer: ['Benar', 'Benar', 'Salah'],
+          explanation: '420 + 250 = 670 (Benar). 670 − 185 = 485 (Benar). Selisih 250 − 185 = 65, bukan 75 (Salah).'
+        },
+
+        // 8-9: Perkalian & Pembagian s.d. 100 dengan gambar/benda konkret
+        {
+          id: 8, type: 'pg', tag: 'Bilangan • Perkalian s.d. 100',
+          stimulus: `<p class="mb-2">Perhatikan gambar kotak pensil warna milik ruang seni kelas IV berikut:</p>${SVG_ASSETS.mtk4_perkalian_gambar}`,
+          question: 'Berapa jumlah seluruh pensil warna pada gambar di atas?',
+          options: ['60 batang', '66 batang', '72 batang', '84 batang'],
+          answer: 2,
+          explanation: '6 kotak × 12 batang = 72 batang pensil warna.'
+        },
+        {
+          id: 9, type: 'pg', tag: 'Bilangan • Pembagian s.d. 100',
+          stimulus: `<p>Bu Guru membawa <strong>84</strong> buah jeruk untuk dibagikan sama banyak kepada <strong>7</strong> kelompok belajar di kelas IV.</p>`,
+          question: 'Berapa buah jeruk yang diterima oleh setiap kelompok?',
+          options: ['11 buah', '12 buah', '13 buah', '14 buah'],
+          answer: 1,
+          explanation: '84 ÷ 7 = 12 buah jeruk untuk setiap kelompok.'
+        },
+
+        // 10-12: Mengenal kelipatan & faktor
+        {
+          id: 10, type: 'pgk', tag: 'Bilangan • Kelipatan Bilangan',
+          stimulus: `<p>Rina sedang berlatih menuliskan bilangan kelipatan <strong>6</strong> yang kurang dari 40.</p>`,
+          question: 'Pilihlah semua bilangan di bawah ini yang merupakan <strong>kelipatan dari 6</strong>!',
+          options: ['12', '18', '28', '36'],
+          answer: [0, 1, 3],
+          explanation: 'Kelipatan 6 = 6, 12, 18, 24, 30, 36. Bilangan 28 bukan kelipatan 6.'
+        },
+        {
+          id: 11, type: 'pg', tag: 'Bilangan • Faktor Bilangan',
+          stimulus: `<p>Tono ingin menyusun <strong>24</strong> kelereng ke dalam beberapa kantong dengan jumlah isi yang sama tanpa tersisa.</p>`,
+          question: 'Daftar seluruh <strong>faktor dari bilangan 24</strong> yang benar adalah ....',
+          options: [
+            '1, 2, 3, 4, 6, 8, 12, 24',
+            '1, 2, 3, 4, 6, 9, 12, 24',
+            '1, 2, 4, 6, 8, 16, 24',
+            '2, 3, 4, 6, 8, 12'
+          ],
+          answer: 0,
+          explanation: 'Faktor dari 24 adalah bilangan yang habis membagi 24, yaitu 1, 2, 3, 4, 6, 8, 12, dan 24.'
+        },
+        {
+          id: 12, type: 'sts', tag: 'Bilangan • Faktor & Kelipatan',
+          stimulus: `<p>Di kelas IV terdapat <strong>18</strong> siswa yang akan dibagi menjadi beberapa regu sama banyak.</p>`,
+          question: 'Tentukan apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> menggunakan konsep faktor dan kelipatan!',
+          statements: [
+            '18 siswa dapat dibagi menjadi 3 regu yang masing-masing beranggotakan 6 siswa.',
+            'Bilangan 5 merupakan salah satu faktor dari 18.',
+            'Bilangan 36 adalah kelipatan kedua dari 18.'
+          ],
+          answer: ['Sesuai', 'Tidak Sesuai', 'Sesuai'],
+          explanation: '18 ÷ 3 = 6 (Sesuai). 18 tidak habis dibagi 5 (Tidak Sesuai). 18 × 2 = 36 (Sesuai).'
+        },
+
+        // 13-15: Perbandingan & pengurutan pecahan pembilang 1 dan penyebut sama
+        {
+          id: 13, type: 'pg', tag: 'Pecahan • Pembilang Satu',
+          stimulus: `<p class="mb-2">Perhatikan gambar potongan Pita A dan Pita B berikut:</p>${SVG_ASSETS.mtk4_pecahan_pembilang1}`,
+          question: 'Berdasarkan gambar di atas, tanda perbandingan yang tepat untuk <strong>1/3 ... 1/5</strong> adalah ....',
+          options: ['>', '<', '=', '≥'],
+          answer: 0,
+          explanation: 'Untuk pecahan dengan pembilang sama (1), semakin kecil penyebutnya maka nilainya semakin besar. Pada gambar tampak 1/3 > 1/5.'
+        },
+        {
+          id: 14, type: 'pg', tag: 'Pecahan • Mengurutkan Pembilang Satu',
+          stimulus: `<p>Ibu memotong empat kue bolu yang sama besar menjadi beberapa bagian untuk dibagikan kepada tetangga: <strong>1/4</strong>, <strong>1/2</strong>, <strong>1/8</strong>, dan <strong>1/3</strong>.</p>`,
+          question: 'Urutan pecahan tersebut dari yang <strong>terkecil hingga terbesar</strong> adalah ....',
+          options: [
+            '1/8 ; 1/4 ; 1/3 ; 1/2',
+            '1/2 ; 1/3 ; 1/4 ; 1/8',
+            '1/8 ; 1/3 ; 1/4 ; 1/2',
+            '1/4 ; 1/8 ; 1/3 ; 1/2'
+          ],
+          answer: 0,
+          explanation: 'Makin besar penyebut pada pembilang 1, nilainya makin kecil. Urutan terkecil ke terbesar: 1/8 ; 1/4 ; 1/3 ; 1/2.'
+        },
+        {
+          id: 15, type: 'pg', tag: 'Pecahan • Penyebut Sama',
+          stimulus: `<p>Empat anak meminum air dari botol yang ukurannya sama. Sisa air di botol mereka adalah: Dika <strong>5/8</strong> bagian, Lala <strong>3/8</strong> bagian, Rio <strong>7/8</strong> bagian, dan Nia <strong>2/8</strong> bagian.</p>`,
+          question: 'Urutan nama anak yang memiliki sisa air dari yang <strong>terbanyak hingga tersedikit</strong> adalah ....',
+          options: [
+            'Rio, Dika, Lala, Nia',
+            'Nia, Lala, Dika, Rio',
+            'Rio, Lala, Dika, Nia',
+            'Dika, Rio, Lala, Nia'
+          ],
+          answer: 0,
+          explanation: 'Penyebut sama (8), bandingkan pembilangnya: 7/8 (Rio) > 5/8 (Dika) > 3/8 (Lala) > 2/8 (Nia).'
+        },
+
+        // 16-17: Pecahan senilai
+        {
+          id: 16, type: 'pg', tag: 'Pecahan • Pecahan Senilai',
+          stimulus: `<p class="mb-2">Perhatikan dua batang pecahan yang panjangnya sama berikut:</p>${SVG_ASSETS.mtk4_pecahan_senilai}`,
+          question: 'Berdasarkan gambar di atas, pecahan yang senilai dengan <strong>2/3</strong> adalah ....',
+          options: ['2/6', '3/6', '4/6', '5/6'],
+          answer: 2,
+          explanation: 'Bagian berwarna biru pada batang kedua menunjukkan 4 dari 6 bagian sama besar (4/6), yang tepat sejajar dengan 2/3.'
+        },
+        {
+          id: 17, type: 'pgk', tag: 'Pecahan • Aplikasi Pecahan Senilai',
+          stimulus: `<p>Ayah memotong sebuah martabak menjadi <strong>2</strong> bagian sama besar dan memberikan <strong>1/2</strong> bagian kepada Sinta.</p>`,
+          question: 'Pilihlah semua pecahan di bawah ini yang <strong>senilai</strong> dengan <strong>1/2</strong>!',
+          options: ['2/4', '3/6', '3/8', '5/10'],
+          answer: [0, 1, 3],
+          explanation: '1/2 = 2/4 = 3/6 = 5/10 (pembilang dan penyebut dikali bilangan yang sama). 3/8 tidak senilai dengan 1/2.'
+        },
+
+        // 18-22: Pecahan persepuluhan, perseratusan, desimal, dan persen
+        {
+          id: 18, type: 'pg', tag: 'Pecahan • Persepuluhan ke Desimal',
+          stimulus: `<p>Sebuah gelas ukur berisi air sebanyak <strong>7/10 liter</strong>.</p>`,
+          question: 'Bentuk bilangan desimal yang tepat dari pecahan <strong>7/10</strong> adalah ....',
+          options: ['0,07', '0,7', '7,0', '7,10'],
+          answer: 1,
+          explanation: 'Pecahan persepuluhan memiliki 1 angka di belakang koma, sehingga 7/10 = 0,7.'
+        },
+        {
+          id: 19, type: 'pg', tag: 'Pecahan • Perseratusan ke Desimal',
+          stimulus: `<p class="mb-2">Perhatikan kotak berpetak 100 (10 × 10) berikut. Bagian berwarna biru berjumlah <strong>35 petak</strong>:</p>${SVG_ASSETS.mtk4_perseratus}`,
+          question: 'Nilai bagian yang berwarna biru jika dinyatakan dalam bentuk <strong>desimal</strong> adalah ....',
+          options: ['0,035', '0,35', '3,5', '35,0'],
+          answer: 1,
+          explanation: '35 dari 100 petak = 35/100 = 0,35.'
+        },
+        {
+          id: 20, type: 'pg', tag: 'Pecahan • Persen',
+          stimulus: `<p>Dari <strong>100</strong> siswa yang mengikuti lomba mewarnai, sebanyak <strong>45</strong> siswa berasal dari SDN Harapan.</p>`,
+          question: 'Persentase siswa yang berasal dari SDN Harapan adalah ....',
+          options: ['4,5%', '45%', '55%', '450%'],
+          answer: 1,
+          explanation: '45/100 = 45%.'
+        },
+        {
+          id: 21, type: 'bs', tag: 'Pecahan • Desimal & Persen',
+          stimulus: `<p>Raka sedang mencocokkan bentuk pecahan biasa, desimal, dan persen pada kartu matematika.</p>`,
+          question: 'Tentukan <strong>Benar</strong> atau <strong>Salah</strong> kesetaraan bilangan berikut!',
+          statements: [
+            'Pecahan 3/10 sama nilainya dengan 0,3 dan 30%.',
+            'Pecahan 1/4 sama nilainya dengan 25/100 atau 25%.',
+            'Bentuk persen dari 0,08 adalah 80%.'
+          ],
+          answer: ['Benar', 'Benar', 'Salah'],
+          explanation: '3/10 = 0,3 = 30% (Benar). 1/4 = 25/100 = 25% (Benar). 0,08 = 8/100 = 8%, bukan 80% (Salah).'
+        },
+        {
+          id: 22, type: 'sts', tag: 'Pecahan • Kontekstual Persen',
+          stimulus: `<p>Sebuah toko buku memberikan potongan harga (diskon) sebesar <strong>20%</strong> untuk semua buku cerita anak, sedangkan buku pelajaran mendapat diskon <strong>1/10</strong> bagian dari harga semula.</p>`,
+          question: 'Tentukan apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong>!',
+          statements: [
+            'Diskon buku pelajaran sebesar 1/10 sama dengan 10%.',
+            'Persentase diskon buku cerita anak lebih besar daripada diskon buku pelajaran.',
+            'Diskon 20% dapat ditulis dalam bentuk pecahan perseratusan menjadi 2/100.'
+          ],
+          answer: ['Sesuai', 'Sesuai', 'Tidak Sesuai'],
+          explanation: '1/10 = 10% (Sesuai). 20% > 10% (Sesuai). 20% = 20/100, bukan 2/100 (Tidak Sesuai).'
+        },
+
+        // 23-26: Aljabar — Kalimat matematika nilai belum diketahui s.d. 100
+        {
+          id: 23, type: 'pg', tag: 'Aljabar • Nilai Belum Diketahui',
+          stimulus: `<p>Perhatikan kalimat matematika berikut:<br/><strong class="text-lg text-[#1E3A8A]">37 + ■ = 85</strong></p>`,
+          question: 'Bilangan yang tepat untuk menggantikan simbol <strong>■</strong> adalah ....',
+          options: ['42', '48', '52', '58'],
+          answer: 1,
+          explanation: '■ = 85 − 37 = 48.'
+        },
+        {
+          id: 24, type: 'pg', tag: 'Aljabar • Pengurangan s.d. 100',
+          stimulus: `<p>Perhatikan kalimat matematika berikut:<br/><strong class="text-lg text-[#1E3A8A]">92 − ▲ = 48</strong></p>`,
+          question: 'Bilangan yang tepat untuk menggantikan simbol <strong>▲</strong> adalah ....',
+          options: ['44', '46', '54', '56'],
+          answer: 0,
+          explanation: '▲ = 92 − 48 = 44.'
+        },
+        {
+          id: 25, type: 'pgk', tag: 'Aljabar • Sifat Operasi s.d. 100',
+          stimulus: `<p>Gunakan sifat-sifat operasi penjumlahan dan pengurangan pada bilangan cacah sampai 100 untuk mengecek nilai <strong>n</strong>!</p>`,
+          question: 'Pilihlah semua kalimat matematika yang memiliki nilai <strong>n = 25</strong>!',
+          options: [
+            '34 + n = 25 + 34',
+            '(15 + 20) + n = 15 + (20 + 25)',
+            '80 − n = 65',
+            'n + 45 = 70'
+          ],
+          answer: [0, 1, 3],
+          explanation: 'Opsi 1 (komutatif, n=25), Opsi 2 (asosiatif, n=25), Opsi 4 (70 − 45 = 25). Pada Opsi 3, 80 − 65 = 15.'
+        },
+        {
+          id: 26, type: 'pg', tag: 'Aljabar • Masalah Kontekstual',
+          stimulus: `<p>Di dalam kotak mainan Edo terdapat beberapa butir kelereng. Setelah Kakak memberinya <strong>28</strong> butir kelereng lagi, jumlah kelereng Edo sekarang menjadi <strong>74</strong> butir.</p>`,
+          question: 'Berapa butir kelereng Edo mula-mula?',
+          options: ['44 butir', '46 butir', '54 butir', '56 butir'],
+          answer: 1,
+          explanation: '■ + 28 = 74 → ■ = 74 − 28 = 46 butir.'
+        },
+
+        // 27-30: Aljabar — Pola gambar & pola bilangan membesar/mengecil s.d. 100
+        {
+          id: 27, type: 'pg', tag: 'Aljabar • Pola Gambar',
+          stimulus: `<p class="mb-2">Perhatikan susunan pola lingkaran berikut:</p>${SVG_ASSETS.mtk4_pola_gambar}`,
+          question: 'Jika pola dilanjutkan dengan aturan yang sama, berapa banyak lingkaran pada <strong>Pola 4</strong>?',
+          options: ['10 lingkaran', '12 lingkaran', '14 lingkaran', '15 lingkaran'],
+          answer: 1,
+          explanation: 'Pola bertambah 3 setiap langkah: 3, 6, 9, maka Pola 4 = 9 + 3 = 12 lingkaran.'
+        },
+        {
+          id: 28, type: 'pg', tag: 'Aljabar • Pola Bilangan Membesar',
+          stimulus: `<p>Perhatikan barisan bilangan membesar berikut:<br/><strong class="text-lg text-[#1E3A8A]">14, 21, 28, 35, ..., 49</strong></p>`,
+          question: 'Bilangan yang tepat untuk mengisi titik-titik tersebut adalah ....',
+          options: ['40', '41', '42', '43'],
+          answer: 2,
+          explanation: 'Aturan pola adalah +7. Maka setelah 35 adalah 35 + 7 = 42.'
+        },
+        {
+          id: 29, type: 'pg', tag: 'Aljabar • Pola Bilangan Mengecil',
+          stimulus: `<p>Perhatikan barisan bilangan mengecil berikut:<br/><strong class="text-lg text-[#1E3A8A]">86, 78, 70, 62, ...</strong></p>`,
+          question: 'Bilangan berikutnya pada pola bilangan mengecil tersebut adalah ....',
+          options: ['52', '54', '56', '58'],
+          answer: 1,
+          explanation: 'Aturan pola adalah −8. Maka setelah 62 adalah 62 − 8 = 54.'
+        },
+        {
+          id: 30, type: 'sts', tag: 'Aljabar • Pola Kontekstual',
+          stimulus: `<p>Pada hari Senin, Sinta menabung <strong>Rp10</strong> (dalam ribuan) di celengannya. Setiap hari berikutnya ia selalu menambah tabungan sebesar <strong>Rp5</strong> (ribu) sehingga jumlah tabungannya membentuk pola: <strong>10, 15, 20, 25, ...</strong></p>`,
+          question: 'Tentukan apakah pernyataan berikut <strong>Sesuai</strong> atau <strong>Tidak Sesuai</strong> dengan pola bilangan tersebut!',
+          statements: [
+            'Pola bilangan tabungan Sinta termasuk pola bilangan membesar dengan aturan ditambah 5.',
+            'Pada hari kelima (Jumat), jumlah tabungan Sinta mencapai 30 (ribu rupiah).',
+            'Pada hari keenam (Sabtu), jumlah tabungan Sinta menjadi 40 (ribu rupiah).'
+          ],
+          answer: ['Sesuai', 'Sesuai', 'Tidak Sesuai'],
+          explanation: 'Pola +5 (Sesuai). Hari ke-5 = 25 + 5 = 30 (Sesuai). Hari ke-6 = 30 + 5 = 35, bukan 40 (Tidak Sesuai).'
+        }
       ]
     };
 
@@ -1693,7 +3615,8 @@
     // =========================================================================
     const TOTAL_DURATION_SEC = 60 * 60; // 60 Menit
     const state = {
-      student: { name: '', nisn: '', school: '', kelas: 'VI' },
+      student: { name: '', nisn: '', school: '', kelas: '' },
+      selectedClass: null, // 'IV' | 'V' | 'VI'
       subject: null, // 'bindo' | 'mtk'
       questions: [],
       currentIndex: 0,
@@ -1711,6 +3634,36 @@
     // =========================================================================
     // 4. LOGIKA HALAMAN LOGIN
     // =========================================================================
+    function selectClass(cls) {
+      state.selectedClass = cls;
+      document.querySelectorAll('.class-btn').forEach(btn => {
+        btn.classList.remove('border-[#1E3A8A]', 'bg-[#1E3A8A]', 'text-white', 'shadow-sm');
+        btn.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+      });
+
+      const activeBtn = document.getElementById(`btn-class-${cls}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+        activeBtn.classList.add('border-[#1E3A8A]', 'bg-[#1E3A8A]', 'text-white', 'shadow-sm');
+      }
+
+      // Sesuaikan deskripsi ringkas kartu mapel sesuai kelas yang dipilih
+      const descBindo = document.getElementById('desc-bindo');
+      const descMtk = document.getElementById('desc-mtk');
+      if (cls === 'IV') {
+        if (descBindo) descBindo.textContent = 'Narasi, Informatif, Deskripsi, Argumentasi, Denah & Wawancara';
+        if (descMtk) descMtk.textContent = 'Bilangan s.d. 10.000, Pecahan/Desimal/Persen, Kalimat & Pola Bilangan';
+      } else if (cls === 'V') {
+        if (descBindo) descBindo.textContent = 'Narasi, Puisi, Komik, Biografi, Prosedur, Infografik & Deskripsi';
+        if (descMtk) descMtk.textContent = 'Bilangan s.d. 1 Juta, KPK/FPB, Pecahan, Aljabar, Bangun Datar, Sudut & Data';
+      } else {
+        if (descBindo) descBindo.textContent = 'Pemahaman Tekstual, Inferensial, Evaluasi & Apresiasi';
+        if (descMtk) descMtk.textContent = 'Bilangan, Geometri, Pengukuran & Analisis Data';
+      }
+
+      document.getElementById('login-error').classList.add('hidden');
+    }
+
     function selectSubject(subj) {
       state.subject = subj;
       document.querySelectorAll('.subject-card').forEach(el => {
@@ -1735,13 +3688,18 @@
       const name = document.getElementById('input-nama').value.trim();
       const nisn = document.getElementById('input-nisn').value.trim();
       const school = document.getElementById('input-sekolah').value.trim();
-      const kelas = document.getElementById('input-kelas').value.trim() || 'VI';
+      const kelas = state.selectedClass;
 
       const errBox = document.getElementById('login-error');
       const errText = document.getElementById('login-error-text');
 
       if (!name || !nisn || !school) {
         errText.textContent = 'Mohon lengkapi Nama Lengkap, Nomor Absen/NISN, dan Nama Sekolah terlebih dahulu.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+      if (!kelas) {
+        errText.textContent = 'Silakan pilih Kelas terlebih dahulu (Kelas IV, Kelas V, atau Kelas VI).';
         errBox.classList.remove('hidden');
         return;
       }
@@ -1760,7 +3718,10 @@
     // 5. LOGIKA MEMULAI & MENJALANKAN UJIAN
     // =========================================================================
     function startExam() {
-      state.questions = QUESTIONS_BANK[state.subject];
+      const bankKey = state.selectedClass === 'IV'
+        ? `${state.subject}_4`
+        : (state.selectedClass === 'V' ? `${state.subject}_5` : state.subject);
+      state.questions = QUESTIONS_BANK[bankKey];
       state.currentIndex = 0;
       state.answers = {};
       state.flagged = {};
@@ -1771,6 +3732,7 @@
       state.lastScorePayload = null;
 
       // Update Header Ujian
+      document.getElementById('exam-class-badge').textContent = state.student.kelas;
       document.getElementById('exam-student-name').textContent = state.student.name;
       document.getElementById('exam-student-school').textContent = `${state.student.school} • Kelas ${state.student.kelas} (${state.student.nisn})`;
       document.getElementById('exam-subject-badge').textContent = state.subject === 'bindo' ? 'Bahasa Indonesia' : 'Matematika';
@@ -2226,8 +4188,9 @@
               </div>
               <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">${escapeHtml(state.student.name)}</h2>
               <div class="text-sm text-slate-600 space-y-1">
-                <p><strong>Sekolah:</strong> ${escapeHtml(state.student.school)}</p>
                 <p><strong>No. Absen / NISN:</strong> ${escapeHtml(state.student.nisn)}</p>
+                <p><strong>Kelas:</strong> Kelas ${escapeHtml(state.student.kelas)}</p>
+                <p><strong>Sekolah:</strong> ${escapeHtml(state.student.school)}</p>
                 <p><strong>Waktu Pengerjaan:</strong> ${spentMin} menit ${spentSec} detik</p>
               </div>
             </div>
@@ -2305,6 +4268,7 @@
         nama: state.student.name,
         absen: state.student.nisn,
         sekolah: state.student.school,
+        kelas: `Kelas ${state.student.kelas}`,
         mapel: subjectName,
         nilai: score,
         predikat: predikat.text
